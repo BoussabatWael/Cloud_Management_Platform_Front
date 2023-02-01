@@ -1,0 +1,107 @@
+<div class="imageLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Images</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Images</a></li>
+                <li class="breadcrumb-item active">List </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row fl">
+                <div class="col-sm-12">
+                  <div class="text-sm-end">
+                  </div>
+                </div>
+              </div>
+              <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                id="table_backup_img">
+                <thead class="table-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Instance</th>
+                    <th>Creation date</th>
+                    <th>Size</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let backup of backupExecutionsList" data-id="backup-img-{{backup.id}}">
+                    <td>{{backup?.id}} </td>
+                    <td>{{backup?.backup?.operation?.name}} </td>
+                    <td>
+                      <div *ngIf="backup?.backup?.operation?.layout == 1">All</div>
+                      <div *ngIf="backup?.backup?.operation?.layout == 2">Files</div>
+                      <div *ngIf="backup?.backup?.operation?.layout == 3">Folders</div>
+                      <div *ngIf="backup?.backup?.operation?.layout == 4">Dtabases</div>
+                    </td>
+                    <td>{{backup?.instance?.name}}</td>
+                    <td>{{backup?.backup?.start_date | date:'yyyy-MM-dd'}}</td>
+                    <td>---</td>
+                    <td>
+                      <div class="d-flex gap-2 justify-content-center">
+                        <a class="btn btn-sm btn-soft-success " placement="top" ngbTooltip="Download">
+                          <i class="mdi mdi-file-download-outline font-size-16"></i>
+                        </a>
+                        <a class="btn btn-sm btn-soft-primary " placement="top" ngbTooltip="Restore">
+                          <i class="mdi mdi-file-restore-outline font-size-16"></i>
+                        </a>
+                        <a *ngIf="this.usrPer.backups.includes('delete')==true" class="btn btn-sm btn-soft-danger"
+                          type="button" placement="top" ngbTooltip="Delete" (click)="deleteBackupImage(backup?.id)">
+                          <i class="mdi mdi-delete font-size-16"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

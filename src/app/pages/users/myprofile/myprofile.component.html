@@ -1,0 +1,292 @@
+<div class="updateProfileLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Profile</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Profile</a></li>
+                <li class="breadcrumb-item active">My profile </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+              <div class="row">
+                <div class="col-5 align-self-end"
+                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%);">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-3">
+              <div class="text-center">
+                <img src="assets/images/uploads/{{user?.photo}}" alt="" height="100" width="100"
+                  class="mx-auto d-block image-crop">
+                <h5 class="mt-4 mb-2">{{user?.firstname}}</h5>
+                <p class="text-muted mb-2">#{{user?.id}}</p>
+                <div *ngIf="user?.role == 1">
+                  <p class="text-muted mb-2">Admin</p>
+                </div>
+                <div *ngIf="user?.role == 2">
+                  <p class="text-muted mb-2">Admin</p>
+                </div>
+                <div *ngIf="user?.role == 3">
+                  <p class="text-muted mb-2">Agent</p>
+                </div>
+                <div *ngIf="user?.role == 4">
+                  <p class="text-muted mb-2">Supervisor</p>
+                </div>
+                <div *ngIf="user?.status == 1">
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
+                </div>
+                <div *ngIf="user?.status == 2">
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Inactive</p>
+                </div>
+                <div *ngIf="user?.status == 3">
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>In Progress
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mini-stats-wid">
+                <div class="card-body p-0">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad active" data-bs-toggle="tab" href="#form" role="tab" aria-selected="true">
+                        <span class="fas fa-bars"></span>
+                        <span class=""> MODULES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#details" role="tab" aria-selected="false">
+                        <span class="fa fa-info-circle"></span>
+                        <span class=""> DETAILS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#applications" role="tab"
+                        aria-selected="false">
+                        <span class="fa fa-cog"></span>
+                        <span class=""> SETTINGS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#logs" role="tab" aria-selected="false">
+                        <span class="fa fa-history"></span>
+                        <span class=""> LOGS</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="pills-tabContent">
+            <div id="form" class="tab-pane active">
+              <div class="row">
+                <div *ngIf="modulesList?.length === 0 || modulesList === undefined;else other_content">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-center mt-2">
+                        <label class="text-dark text-center">No data to display</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ng-template #other_content>
+                  <div *ngFor="let module of modulesList" class="col-xl-3 col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="assets/images/companies/img-2.png" alt="" height="50" class="mb-3">
+                        <h5 class="fs-17 mb-2"><a class="text-dark">{{module?.name}}</a></h5>
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <p class="text-muted fs-14 mb-1">{{module?.start_date | date:'yyyy-MM-dd'}}</p>
+                          </li>
+                        </ul>
+                        <div *ngIf="module?.status == 1">
+                          <div class="d-flex justify-content-between mt-2 hstack gap-5">
+                            <span class="badge rounded-1 badge-soft-success font-size-13">Active</span>
+                            <a role="button" (click)="change(module,module?.id)" placement="top"
+                              ngbTooltip="Deactivate">
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/on-button.png" alt=""
+                                height="40"></a>
+                          </div>
+                        </div>
+                        <div *ngIf="module?.status == 2">
+                          <div class="d-flex justify-content-between mt-2 hstack gap-5">
+                            <span class="badge rounded-1 badge-soft-danger font-size-13">Inactive</span>
+                            <a role="button" (click)="change(module,module?.id)" placement="top" ngbTooltip="Activate">
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/off-button.png" alt=""
+                                height="40"></a>
+                          </div>
+                        </div>
+                        <div *ngIf="module?.status == 3">
+                          <div class="d-flex justify-content-between mt-2 hstack gap-5">
+                            <span class="badge rounded-1 badge-soft-warning font-size-13">In Progress</span>
+                            <a role="button" (click)="change(module,module?.id)" placement="top" ngbTooltip="Activate">
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/off-button.png" alt=""
+                                height="40"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+
+            <div id="details" class="tab-pane fade">
+              <div class="card">
+                <div class="card-body">
+                  <form [formGroup]="userForm" (ngSubmit)="UpdateUser(user?.id)" class="custom-validation">
+
+                    <div class="mb-6" class="row mb-4">
+                      <div class="col-6">
+                        <label>Login</label>
+                        <div>
+                          <input type="text" formControlName="login" class="form-control"
+                            [ngModel]="userSecurity?.login"
+                            [ngClass]="{ 'is-invalid': submitted && userform['login'].errors }">
+                          <div *ngIf="submitted && userform['login'].errors" class="invalid-feedback">
+                            <div *ngIf="userform['login'].errors userform['login'].required">Login is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <label>Password </label>
+                        <div class="d-flex">
+                          <input type="password" formControlName="password" [ngModel]="userSecurity?.password"
+                            required="true" class="form-control" aria-label="Password" aria-describedby="password-addon" minlength="2" min="2"
+                            [ngClass]="{ 'is-invalid': submitted && userform['password'].errors }">
+                          <button class="btn btn-light " type="button" id="password-addon"><i
+                              class="mdi mdi-eye-outline"></i></button>
+                        </div>
+                        <div *ngIf="submitted && userform['password'].errors" class="d-flex invalid-feedback">
+                          <div *ngIf="userform['password'].errors userform['password'].required">Password is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-6" class="row mb-3">
+                      <div class="col-6">
+                        <label>Firstname</label>
+                        <div>
+                          <input type="text" formControlName="firstname" class="form-control"
+                            [ngModel]="user?.firstname"
+                            [ngClass]="{ 'is-invalid': submitted && userform['firstname'].errors }">
+                          <div *ngIf="submitted && userform['firstname'].errors" class="invalid-feedback">
+                            <div *ngIf="userform['firstname'].errors userform['firstname'].required">Firstname is
+                              required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <label>Lastname </label>
+                        <div>
+                          <input type="text" formControlName="lastname" class="form-control" [ngModel]="user?.lastname"
+                            [ngClass]="{ 'is-invalid': submitted && userform['lastname'].errors }">
+                          <div *ngIf="submitted && userform['lastname'].errors" class="invalid-feedback">
+                            <div *ngIf="userform['lastname'].errors userform['lastname'].required">Lastname is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+                <div class="card-footer bg-transparent border-top text-muted">
+                  <div class="col-xs-6 d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m" (click)="UpdateUser(user?.id)">Save
+                      changes </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="applications" class="tab-pane fade">
+            </div>
+
+            <div id="logs" class="tab-pane fade">
+              <div>
+                <div class="card">
+                  <div class="card-body">
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_user_logs">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Action</th>
+                          <th>Element</th>
+                          <th>Element ID</th>
+                          <th>Action date</th>
+                          <th>Source</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let log of userLogsList">
+                          <td>{{log?.id}}</td>
+                          <td>{{log?.action}}</td>
+                          <td>{{log?.element}}</td>
+                          <td>{{log?.element_id}}</td>
+                          <td>{{log?.log_date}}</td>
+                          <td>{{log?.source}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

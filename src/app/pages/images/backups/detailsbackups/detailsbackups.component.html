@@ -1,0 +1,365 @@
+<div class="updateBackLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Backup details</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Backup</a></li>
+                <li class="breadcrumb-item active">Details</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+              <div class="row">
+                <div class="col-5 align-self-end"
+                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%);">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-3">
+              <div class="text-center">
+                <h5 class="mt-3 mb-1">{{backup?.name}}</h5>
+                <p class="text-muted mb-0">#{{backup?.id}}</p>
+                <div *ngIf="backup?.status == 1">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
+                </div>
+                <div *ngIf="backup?.status == 2">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
+                </div>
+                <div *ngIf="backup?.status == 3">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  </p>
+                </div>
+              </div>
+              <ul class="list-unstyled mt-4">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex"><i class="bx bx-calendar text-primary fs-4"></i>
+                      <div class="ms-3">
+                        <h6 class="fs-14 mb-2">Creation date</h6>
+                        <p class="text-muted fs-14 mb-0">{{backup?.start_date | date:'yyyy-MM-dd'}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex"><i class="bx bx-calendar text-primary fs-4"></i>
+                      <div class="ms-3">
+                        <h6 class="fs-14 mb-2">Last execution date</h6>
+                        <p class="text-muted fs-14 text-break mb-0">----</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <li class="mt-3">
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class=" pt border-top d-flex pt-3">
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2 " placement="top" ngbTooltip="Play">
+                <i class="mdi mdi-play  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="stop">
+                <i class="mdi mdi-stop  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Restore">
+                <i class="mdi mdi-restore  font-size-20"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mini-stats-wid">
+                <div class="card-body p-0">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad active" data-bs-toggle="tab" href="#form" role="tab" aria-selected="true">
+                        <span class="fa fa-info-circle"></span>
+                        <span class=""> DETAILS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#files" role="tab" aria-selected="false">
+                        <span class="fa fa-history"></span>
+                        <span class=""> FILES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#logs" role="tab" aria-selected="false">
+                        <span class="far fa-object-group"></span>
+                        <span class=""> LOGS</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="pills-tabContent">
+            <div id="form" class="tab-pane active">
+              <div class="card ">
+                <div class="card-body ">
+                  <form [formGroup]="backupForm">
+                    <div class="row mb-2">
+                      <div class="col-md-4">
+                        <label class="col-md-4 col-form-label">Name </label>
+                        <div>
+                          <input class="form-control" formControlName="name" [ngModel]="backup?.name" type="text"
+                            placeholder="" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }">
+                          <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
+                            <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="example-text-input" class="col-md-6 col-form-label">Layout </label>
+                        <div>
+                          <ng-select class="ng-select" formControlName="layout" [ngModel]="backup?.layout"
+                            [ngClass]="{ 'is-invalid': submitted && form['layout'].errors }">
+                            <ng-option *ngFor="let l of layout" [value]="l.value">{{l.name}}</ng-option>
+                          </ng-select>
+                          <div *ngIf="submitted && form['layout'].errors" class="invalid-feedback">
+                            <div *ngIf="form['layout'].errors form['layout'].required">Layout is required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="col-md-4 col-form-label">Status</label>
+                        <div>
+                          <ng-select class="ng-select" formControlName="status" [ngModel]="backup?.status"
+                            [ngClass]="{ 'is-invalid': submitted && form['status'].errors }">
+                            <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
+                          </ng-select>
+                          <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
+                            <div *ngIf="form['status'].errors form['status'].required">Status is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer bg-transparent border-top text-muted ">
+                  <div class="col-xs-6 d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m"
+                      (click)="updateBackup(backup?.id)">Save changes </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="files" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>4</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>
+                          <div class="d-flex gap-2 justify-content-center">
+                            <a class="btn btn-sm btn-soft-danger" type="button" placement="top" ngbTooltip="Delete">
+                              <i class="mdi mdi-delete font-size-16"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>application</td>
+                        <td>test</td>
+                        <td>
+                          <div class="d-flex gap-2 justify-content-center">
+                            <a class="btn btn-sm btn-soft-danger" type="button" placement="top" ngbTooltip="Delete">
+                              <i class="mdi mdi-delete font-size-16"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div id="logs" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                    class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                    id="table_backup_logs">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Element</th>
+                        <th>Element ID</th>
+                        <th>Action date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let log of userLogsList">
+                        <td>{{log?.id}}</td>
+                        <td>{{log?.action}}</td>
+                        <td>{{log?.element}}</td>
+                        <td>{{log?.element_id}}</td>
+                        <td>{{log?.log_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal1" class="modal fade " data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Add new version</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="custom-validation">
+            <div class="row">
+              <div class="mb-3">
+                <label>Version name</label>
+                <div>
+                  <input type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label>Element</label>
+                <div>
+                  <select class="form-select" required>
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label>Element value </label>
+                <div>
+                  <input type="text" class="form-control" required>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"><i
+                  class="glyphicon glyphicon-ok"></i> Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal2" class="modal fade " data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Add new access</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="custom-validation">
+            <div class="row">
+              <div class="mb-3">
+                <label>SSH root</label>
+                <div>
+                  <select class="form-select" required>
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label>SSH user</label>
+                <div>
+                  <select class="form-select" required>
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label>App </label>
+                <div>
+                  <select class="form-select" required>
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"><i
+                  class="glyphicon glyphicon-ok"></i> Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

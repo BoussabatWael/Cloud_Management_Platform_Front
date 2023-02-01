@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -17,6 +20,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+                    "crypto-js"
+            ],
             "outputPath": "dist/serverMonitoring",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,24 +31,32 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+
             ],
             "styles": [
               "src/styles.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/pages/form-wizard.init.js"
+
+
+
+
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "15kb",
+                  "maximumError": "15kb"
                 }
               ],
               "fileReplacements": [
@@ -94,7 +108,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/flatpickr/dist/flatpickr.css"
+
+
             ],
             "scripts": []
           }

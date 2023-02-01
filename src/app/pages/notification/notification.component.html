@@ -1,0 +1,67 @@
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Notifications</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Notifications</a></li>
+                <li class="breadcrumb-item active">Notifications List </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-2" style="float: right !important;">
+                <div class="col-sm-12">
+                  <div class="text-sm-end">
+                  </div>
+                </div>
+              </div>
+              <table [dtOptions]="dtOptions" datatable class="row-border"
+                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>DEVICE</th>
+                    <th>CLASS</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1 </td>
+                    <td>test</td>
+                    <td>SMS</td>
+                    <td>Reminder</td>
+                    <td><span class="badge rounded-pill badge-soft-success font-size-12">Active</span></td>
+                    <td>
+                      <div class="d-flex gap-2 justify-content-center">
+                        <a class="btn btn-sm btn-soft-primary" [routerLink]="['/application-details',1]" placement="top"
+                          ngbTooltip="View">
+                          <i class="mdi mdi-eye-outline font-size-16"></i>
+                        </a>
+                        <a class="btn btn-sm btn-soft-danger" (click)="confirmBox()" type="button" placement="top"
+                          ngbTooltip="Delete">
+                          <i class="mdi mdi-delete font-size-16"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

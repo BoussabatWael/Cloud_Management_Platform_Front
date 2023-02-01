@@ -1,0 +1,23 @@
+.col-5.align-self-end.card-head {
+  height: 60px !important;
+  width: 100% !important;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  background-image: linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%);
+}
+
+.image-crop {
+  border-radius: 10%;
+  border: 1px solid #f6f6f600;
+}
+
+.pad {
+  padding: 0.7rem;
+}
+
+@media (min-width: 992px) {
+  .position {
+    max-width: 800px;
+
+    margin-left: 550px;
+  }
+}

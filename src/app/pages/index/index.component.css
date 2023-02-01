@@ -1,0 +1,12 @@
+#border {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+#left {
+  padding-left: 60%;
+}
+
+#icone {
+  background: #8f9feb;
+}

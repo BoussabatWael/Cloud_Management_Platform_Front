@@ -1,0 +1,859 @@
+<div class="updateUserLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">User details</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>User</a></li>
+                <li class="breadcrumb-item active">Details</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+              <div class="row">
+                <div class="col-5 align-self-end"
+                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%);">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-3">
+              <div class="text-center">
+                <img src="assets/images/uploads/{{user?.photo}}" alt="" width="100" height="100"
+                  class="mx-auto d-block image-crop">
+                <h5 class="mt-4 mb-2">{{user?.firstname}}</h5>
+                <p class="text-muted mb-2">#{{user?.id}}</p>
+                <div *ngIf="user?.role == 2">
+                  <p class="text-muted mb-2"> <span>Admin</span></p>
+                </div>
+                <div *ngIf="user?.role == 3">
+                  <p class="text-muted mb-2"> <span>Agent</span></p>
+                </div>
+                <div *ngIf="user?.role == 4">
+                  <p class="text-muted mb-2"> <span>Supervisor</span></p>
+                </div>
+
+                <div *ngIf="user?.status == 1">
+                  <p class="text-muted mb-2"> <span class="badge rounded-pill bg-success font-size-12">Active</span></p>
+                </div>
+                <div *ngIf="user?.status == 2">
+                  <p class="text-muted mb-2"> <span class="badge rounded-pill bg-danger font-size-12">Inactive</span>
+                  </p>
+                </div>
+                <div *ngIf="user?.status == 3">
+                  <p class="text-muted mb-2"> <span class="badge rounded-pill bg-warning font-size-12">In
+                      Progress</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th scope="col">LANGUAGE</th>
+                      <td scope="col">{{user?.language}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">TIMEZONE</th>
+                      <td scope="col">{{user?.timezone}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">BROWSER</th>
+                      <td scope="col">{{user?.browser}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">IP ADDRESS</th>
+                      <td scope="col">{{user?.ip_address}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mini-stats-wid">
+                <div class="card-body  p-0">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad active" data-bs-toggle="tab" href="#form" role="tab" aria-selected="true">
+                        <span class="fa fa-info-circle"></span>
+                        <span class=""> DETAILS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#permission" role="tab" aria-selected="false">
+                        <span class="fas fa-user-secret"></span>
+                        <span class=""> PERMISSIONS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#security" role="tab" aria-selected="false">
+                        <span class="fas fa-lock"></span>
+                        <span class=""> SECURITY</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#instance" role="tab" aria-selected="false">
+                        <span class="fas fa-server"></span>
+                        <span class=""> INSTANCES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#module" role="tab" aria-selected="true">
+                        <span class="fas fa-border-all"></span>
+                        <span class=""> MODULES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#logs" role="tab" aria-selected="false">
+                        <span class="fa fa-history"></span>
+                        <span class=""> LOGS</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="pills-tabContent">
+            <div id="form" class="tab-pane active">
+              <div class="card">
+                <div class="card-body">
+                  <form [formGroup]="userForm" (ngSubmit)="updateUser(user.id)" class="custom-validation">
+                    <div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label>Firstname</label>
+                          <div>
+                            <input type="text" formControlName="firstname" [ngModel]="user?.firstname"
+                              class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && userform['firstname'].errors }" required="true">
+                            <div *ngIf="submitted && userform['firstname'].errors" class="invalid-feedback">
+                              <div *ngIf="userform['firstname'].errors userform['firstname'].required">Firstname is
+                                required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Lastname </label>
+                          <div>
+                            <input type="text" formControlName="lastname" [ngModel]="user?.lastname"
+                              class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && userform['lastname'].errors }" required="">
+                            <div *ngIf="submitted && userform['lastname'].errors" class="invalid-feedback">
+                              <div *ngIf="userform['lastname'].errors userform['lastname'].required">Lastname is
+                                required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label>Email </label>
+                          <div>
+                            <input type="text" formControlName="email" [ngModel]="user?.email" class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && userform['email'].errors }" required="">
+                            <div *ngIf="submitted && userform['email'].errors" class="invalid-feedback">
+                              <div *ngIf="userform['email'].errors userform['email'].required">Email is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Role</label>
+                          <div>
+                            <ng-select class="ng-select" formControlName="role"
+                              [ngClass]="{ 'is-invalid': submitted && userform['role'].errors }" [ngModel]="user?.role">
+                              <ng-option *ngFor="let r of role" [value]="r.value">{{r.name}}</ng-option>
+                            </ng-select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <div class="col-md-6">
+                          <label>Language</label>
+                          <div>
+                            <ng-select class="ng-select" formControlName="language" [ngModel]='user?.language'>
+                              <ng-option value="SQ">Albanian</ng-option>
+                              <ng-option value="AR">Arabic</ng-option>
+                              <ng-option value="BG">Bulgarian</ng-option>
+                              <ng-option value="CA">Catalan</ng-option>
+                              <ng-option value="ZH">Chinese (Mandarin)</ng-option>
+                              <ng-option value="HR">Croatian</ng-option>
+                              <ng-option value="CS">Czech</ng-option>
+                              <ng-option value="DA">Danish</ng-option>
+                              <ng-option value="NL">Dutch</ng-option>
+                              <ng-option value="EN">English</ng-option>
+                              <ng-option value="ET">Estonian</ng-option>
+                              <ng-option value="FR">French</ng-option>
+                              <ng-option value="KA">Georgian</ng-option>
+                              <ng-option value="DE">German</ng-option>
+                              <ng-option value="EL">Greek</ng-option>
+                              <ng-option value="HI">Hindi</ng-option>
+                              <ng-option value="HU">Hungarian</ng-option>
+                              <ng-option value="IS">Icelandic</ng-option>
+                              <ng-option value="ID">Indonesian</ng-option>
+                              <ng-option value="GA">Irish</ng-option>
+                              <ng-option value="IT">Italian</ng-option>
+                              <ng-option value="JA">Japanese</ng-option>
+                              <ng-option value="KO">Korean</ng-option>
+                              <ng-option value="LA">Latin</ng-option>
+                              <ng-option value="LV">Latvian</ng-option>
+                              <ng-option value="LT">Lithuanian</ng-option>
+                              <ng-option value="MK">Macedonian</ng-option>
+                              <ng-option value="MT">Maltese</ng-option>
+                              <ng-option value="PT">Portuguese</ng-option>
+                              <ng-option value="RO">Romanian</ng-option>
+                              <ng-option value="RU">Russian</ng-option>
+                              <ng-option value="SR">Serbian</ng-option>
+                              <ng-option value="SK">Slovak</ng-option>
+                              <ng-option value="SL">Slovenian</ng-option>
+                              <ng-option value="ES">Spanish</ng-option>
+                              <ng-option value="SV">Swedish </ng-option>
+                              <ng-option value="TR">Turkish</ng-option>
+                              <ng-option value="UK">Ukrainian</ng-option>
+                            </ng-select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Timezone</label>
+                          <div>
+                            <ng-select class="ng-select" formControlName="timezone" [ngModel]='user?.timezone'>
+                              <ng-option value="-12">(GMT -12:00) Eniwetok, Kwajalein</ng-option>
+                              <ng-option value="-11">(GMT -11:00) Midway Island, Samoa</ng-option>
+                              <ng-option value="-10">(GMT -10:00) Hawaii</ng-option>
+                              <ng-option value="-09">(GMT -9:00) Alaska</ng-option>
+                              <ng-option value="-08">(GMT -8:00) Pacific Time (US & Canada)</ng-option>
+                              <ng-option value="-07">(GMT -7:00) Mountain Time (US & Canada)</ng-option>
+                              <ng-option value="-06">(GMT -6:00) Central Time (US & Canada), Mexico City</ng-option>
+                              <ng-option value="-05">(GMT -5:00) Eastern Time (US & Canada), Bogota, Lima</ng-option>
+                              <ng-option value="-04">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</ng-option>
+                              <ng-option value="-03">(GMT -3:00) Brazil, Buenos Aires, Georgetown</ng-option>
+                              <ng-option value="-02">(GMT -2:00) Mid-Atlantic</ng-option>
+                              <ng-option value="-01">(GMT -1:00) Azores, Cape Verde Islands</ng-option>
+                              <ng-option value="+00">(GMT) Western Europe Time, London, Lisbon, Casablanca</ng-option>
+                              <ng-option value="+01">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</ng-option>
+                              <ng-option value="+02">(GMT +2:00) Kaliningrad, South Africa</ng-option>
+                              <ng-option value="+03">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</ng-option>
+                              <ng-option value="+04">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</ng-option>
+                              <ng-option value="+05">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</ng-option>
+                              <ng-option value="+06">(GMT +6:00) Almaty, Dhaka, Colombo</ng-option>
+                              <ng-option value="+07">(GMT +7:00) Bangkok, Hanoi, Jakarta</ng-option>
+                              <ng-option value="+08">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</ng-option>
+                              <ng-option value="+09">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</ng-option>
+                              <ng-option value="+10">(GMT +10:00) Eastern Australia, Guam, Vladivostok</ng-option>
+                              <ng-option value="+11">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</ng-option>
+                              <ng-option value="+12">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</ng-option>
+                            </ng-select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-0 row">
+                        <div class="col-md-6">
+                          <label>Status</label>
+                          <div>
+                            <ng-select class="ng-select" formControlName="status"
+                              [ngClass]="{ 'is-invalid': submitted && userform['status'].errors }"
+                              [ngModel]="user?.status">
+                              <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
+                            </ng-select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="example-datetime-local-input"><a class="text-dark">Photo</a></label>
+                          <div class="mb-6" class="row mb-3">
+                            <div class="col-xs-6">
+                              <div *ngIf="imgUrl;else other">
+                                <img src={{imgUrl}} width=80 height=80 class="image-crop">
+                              </div>
+                              <ng-template #other>
+                                <img src="assets/images/uploads/{{user?.photo}}" class="image-crop" width=80 height=80>
+                              </ng-template>
+                              <input class="form-control" type="file" formControlName="photo" [ngModel]='user?.photo'
+                                id="example-datetime-local-input" (change)="selectImge($event)">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer bg-transparent border-top text-muted ">
+                  <div class="col-xs-6 d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m" (click)="updateUser(user?.id)">Save
+                      changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive text-center" id="permission" class="tab-pane fade">
+              <div class="card">
+                <div class="card-body">
+                  <table class="table align-middle table-nowrap text-center">
+                    <thead class="table-light">
+                      <tr>
+                        <th>#</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                        <th>View</th>
+                        <th>Create</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-permission="users" *ngIf="PermissionsList['users'] !== undefined">
+                        <td>
+                          Users
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['users'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['users'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['users'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['users'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="providers" *ngIf="PermissionsList['providers'] !== undefined">
+                        <td>
+                          Providers
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['providers'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['providers'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['providers'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['providers'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="deployments" *ngIf="PermissionsList['deployments'] !== undefined">
+                        <td>
+                          Deployments
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['deployments'].includes('update'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['deployments'].includes('delete'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['deployments'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['deployments'].includes('create'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="servers" *ngIf="PermissionsList['servers'] !== undefined">
+                        <td>
+                          Servers
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['servers'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['servers'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['servers'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['servers'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="domains" *ngIf="PermissionsList['domains'] !== undefined">
+                        <td>
+                          Domain Names
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['domains'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['domains'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['domains'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['domains'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="applications" *ngIf="PermissionsList['applications'] !== undefined">
+                        <td>
+                          Applications
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['applications'].includes('update'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['applications'].includes('delete'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['applications'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['applications'].includes('create'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="backups" *ngIf="PermissionsList['backups'] !== undefined">
+                        <td>
+                          Backups
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['backups'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['backups'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['backups'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['backups'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="access_credentials"
+                        *ngIf="PermissionsList['access_credentials'] !== undefined">
+                        <td>
+                          Access credentials
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['access_credentials'].includes('update'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['access_credentials'].includes('delete'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['access_credentials'].includes('view'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['access_credentials'].includes('create'))"
+                            class="form-check-input" type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="hosts" *ngIf="PermissionsList['hosts'] !== undefined">
+                        <td>
+                          Hosts
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['hosts'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['hosts'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['hosts'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['hosts'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                      <tr data-permission="ssl" *ngIf="PermissionsList['ssl'] !== undefined">
+                        <td>
+                          SSL certificates
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['ssl'].includes('update'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'update')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['ssl'].includes('delete'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'delete')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['ssl'].includes('view'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'view')">
+                        </td>
+                        <td>
+                          <input [checked]="(PermissionsList['ssl'].includes('create'))" class="form-check-input"
+                            type="checkbox" (click)="onchange($event,'create')">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary btn-rounded pull-right" (click)="save()">Save
+                        changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="security" class="tab-pane fade">
+              <div class="card">
+                <div class="card-body">
+                  <form [formGroup]="userSecurityForm" (ngSubmit)="updateUserSecurity(user?.id)"
+                    class="custom-validation">
+                    <div class="mb-6" class="row mb-2">
+                      <div class="col-md-6">
+                        <label>Login</label>
+                        <div>
+                          <input type="text" formControlName="login" [ngModel]="userSecurity?.login"
+                            [ngClass]="{ 'is-invalid': submitted && usersecurityform['login'].errors }"
+                            class="form-control" required="true">
+                          <div *ngIf="submitted && usersecurityform['login'].errors" class="invalid-feedback">
+                            <div *ngIf="usersecurityform['login'].errors usersecurityform['login'].required">Login is
+                              required</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Password </label>
+                        <div class="d-flex">
+                          <input type="password" formControlName="password" [ngModel]="userSecurity?.password"
+                            required="true" class="form-control" aria-label="Password" minlength="2" min="2"
+                            [ngClass]="{ 'is-invalid': submitted && usersecurityform['password'].errors }"
+                            aria-describedby="password-addon">
+                          <button class="btn btn-light " type="button" id="password-addon"><i
+                              class="mdi mdi-eye-outline"></i></button>
+                        </div>
+                        <div *ngIf="submitted && usersecurityform['password'].errors" class="d-flex invalid-feedback">
+                          <div *ngIf="usersecurityform['password'].errors usersecurityform['password'].required">
+                            Password is required</div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer bg-transparent border-top text-muted ">
+                  <div class="col-xs-6 d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m"
+                      (click)="updateUserSecurity(user?.id)">Save changes </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive text-center" id="instance" class="tab-pane fade">
+              <div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.servers.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              (click)="getAllServers();getAllDomainNames();getAllApplications()"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#myModal">
+                              <i class="mdi mdi-plus me-1"></i>New instance </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                      class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_ui">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Element</th>
+                          <th>Element ID</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let instance of userInstances" data-id="ui-{{instance.id}}">
+                          <td>{{instance?.id}}</td>
+                          <td>
+                            <div *ngIf="instance?.element == 1">Server</div>
+                            <div *ngIf="instance?.element == 2">Domain name</div>
+                            <div *ngIf="instance?.element == 3">Application</div>
+                          </td>
+                          <td>{{instance?.element_id}}</td>
+                          <td>
+                            <div *ngIf="instance?.status == 1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></div>
+                            <div *ngIf="instance?.status == 2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></div>
+                            <div *ngIf="instance?.status == 3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></div>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.servers.includes('delete')==true" class="btn btn-sm btn-soft-danger"
+                                type="button" placement="top" ngbTooltip="Delete"
+                                (click)="deleteUserInstance(instance?.id)">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.servers.includes('delete')==false">
+                                ---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="module" class="tab-pane fade">
+              <div class="row">
+                <div *ngIf="modulesList.length === 0 || modulesList === undefined;else other_content">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-center mt-2">
+                        <label class="text-dark text-center">No data to display</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ng-template #other_content>
+                  <div *ngFor="let module of modulesList" class="col-xl-3 col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="assets/images/companies/img-2.png" alt="" height="50" class="mb-3">
+                        <h5 class="fs-17 mb-2"><a class="text-dark">{{module?.module?.name}}</a></h5>
+                        <ul class="list-inline mb-2">
+                          <li class="list-inline-item">
+                            <p class="text-muted fs-14 mb-1">{{module?.module?.start_date | date:'yyyy-MM-dd'}}</p>
+                          </li>
+                        </ul>
+                        <div *ngIf="module?.module?.status == 1">
+                          <span class="badge rounded-1 badge-soft-success font-size-12">Active</span>
+                        </div>
+                        <div *ngIf="module?.module?.status == 2">
+                          <span class="badge rounded-1 badge-soft-danger font-size-12">Inactive</span>
+                        </div>
+                        <div *ngIf="module?.module?.status == 3">
+                          <span class="badge rounded-1 badge-soft-warning font-size-12">In Progress</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+            <div id="logs" class="tab-pane fade">
+              <div>
+                <div class="card">
+                  <div class="card-body">
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                      class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_user_contact_logs">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Action</th>
+                          <th>Element</th>
+                          <th>Element ID</th>
+                          <th>Action date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let log of userLogsList">
+                          <td>{{log?.id}}</td>
+                          <td>{{log?.action}}</td>
+                          <td>{{log?.element}}</td>
+                          <td>{{log?.element_id}}</td>
+                          <td>{{log?.log_date}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="adduserinstance d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 16%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new instance</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="instanceForm" (ngSubmit)="addInstance()">
+          <div class="row">
+            <div class="col-12 text-center">
+              <div class="mb-4">
+                <label class="mb-4 col-md-4 text-center">Instance</label>
+                <div class="radio-box d-flex gap-4 justify-content-center">
+                  <input type="radio" formControlName="element" value="1" (click)="cpuChange(1)"
+                    [ngClass]="{ 'is-invalid': submitted1 && instanceform['element'].errors }" required="true" />
+                  <label class="mb-0 point">Server</label>
+                  <input type="radio" formControlName="element" value="2" (click)="cpuChange(2)"
+                    [ngClass]="{ 'is-invalid': submitted1 && instanceform['element'].errors }" required="true" />
+                  <label class="mb-0 point">Domaine name</label>
+                  <input type="radio" formControlName="element" value="3" (click)="cpuChange(3)"
+                    [ngClass]="{ 'is-invalid': submitted1 && instanceform['element'].errors }" required="true" />
+                  <label class="mb-0 point">Application</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="mb-3" *ngIf="value === 1">
+                <label> Servers list</label>
+                <ng-select class="ng-select" formControlName="element_id"
+                  [ngClass]="{ 'is-invalid': submitted1 && instanceform['element_id'].errors }" required="true">
+                  <ng-option *ngFor="let s of serversList" [value]="s?.id">{{s?.instance?.name}}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted1 && instanceform['element_id'].errors" class="invalid-feedback">
+                  <div *ngIf="instanceform['element_id'].errors instanceform['element_id'].required">Server is required
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3" *ngIf="value === 2">
+                <label>Domain names list</label>
+                <ng-select class="ng-select" formControlName="element_id"
+                  [ngClass]="{ 'is-invalid': submitted1 && instanceform['element_id'].errors }" required="true">
+                  <ng-option *ngFor="let d of domainNamesList" [value]="d?.id">{{d?.name}}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted1 && instanceform['element_id'].errors" class="invalid-feedback">
+                  <div *ngIf="instanceform['element_id'].errors instanceform['element_id'].required">Domain name is
+                    required</div>
+                </div>
+              </div>
+              <div class="mb-3" *ngIf="value === 3">
+                <label>Applications list</label>
+                <ng-select class="ng-select" formControlName="element_id"
+                  [ngClass]="{ 'is-invalid': submitted1 && instanceform['element_id'].errors }" required="true">
+                  <ng-option *ngFor="let a of applicationsList" [value]="a?.id">{{a?.name}}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted1 && instanceform['element_id'].errors" class="invalid-feedback">
+                  <div *ngIf="instanceform['element_id'].errors instanceform['element_id'].required">Application is
+                    required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect"
+              data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

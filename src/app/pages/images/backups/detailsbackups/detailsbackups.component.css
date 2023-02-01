@@ -1,0 +1,31 @@
+.pd-1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.pt {
+  background-color: #ffffff;
+  border-radius: 5px;
+  justify-content: space-around;
+}
+
+.pad {
+  padding: 0.7rem;
+}
+
+.ico {
+  text-align: center;
+  background-color: #d8d9f3b0 !important;
+  margin-bottom: 3%;
+}
+
+.ico:hover {
+  cursor: pointer;
+  background-color: #abaff7a2 !important;
+}
+
+.image-crop {
+  border: 1px solid #f6f6f600;
+}

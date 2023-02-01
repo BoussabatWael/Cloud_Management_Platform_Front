@@ -1,0 +1,50 @@
+div.radio-box {
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+input[name="source_type"] {
+  display: none
+}
+
+input[name="source_type"]+label {
+  width: 60px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[name="source_type"]+label {
+  transition: all 200ms cubic-bezier(.4, .25, .3, 1);
+  padding: 9px 0;
+  color: rgb(83, 80, 80);
+  background-color: transparent;
+  border: 1px dashed rgba(78, 76, 76, 0.5);
+  margin-left: 11px;
+}
+
+input[name="source_type"]+label:hover {
+  opacity: .65
+}
+
+input[name="source_type"]+label:active {
+  transition: none;
+  transform: scale(.925);
+}
+
+input[name="source_type"]:checked+label,
+input[name="source_type"]:checked+label:hover {
+  background-color: rgb(234 238 253);
+  color: #0c0b0b;
+  border: 1px dashed rgb(40 38 38 / 50%);
+  opacity: 4;
+  transform: scale(1.2, 1.2);
+  font-weight: bold;
+  margin-left: 11px;
+}

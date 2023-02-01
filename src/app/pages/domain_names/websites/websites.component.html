@@ -1,0 +1,57 @@
+<app-navbar2></app-navbar2>
+
+<div class="main-content">
+
+  <div class="page-content">
+    <div class="container-fluid">
+
+      <!-- start page title -->
+      <div class="row">
+        <div class="col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Websites List</h4>
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-2">
+                <div class="col-sm-4">
+                  <div class="search-box me-2 mb-2 d-inline-block">
+                    <div class="position-relative">
+                      <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
+                        [(ngModel)]="searchText">
+                      <i class="bx bx-search-alt search-icon"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="text-sm-end">
+
+                    <button type="button"
+                      class="btn  btn-success btn-rounded waves-effect waves-light waves-light mb-2 me-2"
+                      data-bs-toggle="modal" data-bs-target=".bs-example-modal-center" data-keyboard="false"> <i
+                        class="mdi mdi-plus me-1"></i>New domain name</button>
+                  </div>
+                </div><!-- end col-->
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal-dialog -->
+  </div>
+
+  <!-- END layout-wrapper -->
+
+  <!-- Right bar overlay-->
+  <div class="rightbar-overlay"></div>

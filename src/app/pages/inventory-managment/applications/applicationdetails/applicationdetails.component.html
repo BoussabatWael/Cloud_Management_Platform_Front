@@ -1,0 +1,879 @@
+<div class="updateAppLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Application details</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Application</a></li>
+                <li class="breadcrumb-item active">Details</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+              <div class="row">
+                <div class="col-5 align-self-end"
+                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%)">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-3">
+              <div class="text-center">
+                <img src="assets/images/uploads/{{application?.logo}}" alt="" width="70"
+                  class="mx-auto d-block image-crop">
+                <h5 class="mt-3 mb-1">{{application?.name}}</h5>
+                <p class="text-muted mb-0">#{{application?.id}}</p>
+                <div *ngIf="application?.status == 1">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
+                </div>
+                <div *ngIf="application?.status == 2">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
+                </div>
+                <div *ngIf="application?.status == 3">
+                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  </p>
+                </div>
+              </div>
+              <ul class="list-unstyled mt-4">
+                <li>
+                  <div class="d-flex"><i class="bx bx-calendar text-primary fs-4"></i>
+                    <div class="ms-3">
+                      <h6 class="fs-14 mb-2">Creation date</h6>
+                      <p class="text-muted fs-14 mb-0">{{application?.start_date | date:'yyyy-MM-dd'}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mini-stats-wid">
+                <div class="card-body p-0">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad active" data-bs-toggle="tab" href="#form" role="tab" aria-selected="true">
+                        <span class="fa fa-info-circle"></span>
+                        <span class=""> DETAILS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#dependence" role="tab" aria-selected="false">
+                        <span class="far fa-list-alt"></span>
+                        <span class=""> DEPENDENCIES </span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#deployments" role="tab" aria-selected="false">
+                        <span class="fa fa-check-square"></span>
+                        <span class=""> DEPLOYMENTS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#version" role="tab" aria-selected="false">
+                        <span class="fas fa-server"></span>
+                        <span class=""> VERSIONNING</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#database" role="tab" aria-selected="false">
+                        <span class="fas fa-server"></span>
+                        <span class=""> DATABASES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#sources" role="tab" aria-selected="false">
+                        <span class="fas fa-server"></span>
+                        <span class=""> SOURCES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#logs" role="tab" aria-selected="false">
+                        <span class="fa fa-history"></span>
+                        <span class=""> LOGS</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="pills-tabContent">
+            <div id="form" class="tab-pane active">
+              <div class="card">
+                <div class="card-body">
+                  <form [formGroup]="formapplication">
+                    <div>
+                      <div class="row mb-3">
+                        <div class="col-md-4">
+                          <label class="col-md-4 col-form-label">Name</label>
+                          <div>
+                            <input type="text" formControlName="name" [ngModel]="application?.name" class="form-control"
+                              required="" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }">
+                            <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
+                              <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="col-md-4 col-form-label">Category</label>
+                          <div>
+                            <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                            </ng-select>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="col-md-4 col-form-label">Type</label>
+                            <ng-select class="ng-select" formControlName="classe" [ngModel]="application?.classe"
+                              [ngClass]="{ 'is-invalid': submitted && form['classe'].errors }">
+                              <ng-option *ngFor="let c of classe" [value]="c.value">{{c.name}}</ng-option>
+                            </ng-select>
+                            <div *ngIf="submitted && form['classe'].errors" class="invalid-feedback">
+                              <div *ngIf="form['classe'].errors form['classe'].required">Type is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-4">
+                          <label class="col-md-4 col-form-label">Status</label>
+                          <div>
+                            <ng-select class="ng-select" formControlName="status" [ngModel]="application?.status"
+                              [ngClass]="{ 'is-invalid': submitted && form['status'].errors }">
+                              <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
+                            </ng-select>
+                            <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
+                              <div *ngIf="form['status'].errors form['status'].required">Status is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="col-md-4 col-form-label">Logo</label>
+                          <div class="mb-6" class="row mb-3">
+                            <div class="col-xs-6">
+                              <div *ngIf="imgUrl;else other">
+                                <img src={{imgUrl}} width=100 height=100 class="image-crop">
+                              </div>
+                              <ng-template #other>
+                                <img src="assets/images/uploads/{{application?.logo}}" class="image-crop" width=70
+                                  height=70>
+                              </ng-template>
+                              <input class="form-control" type="file" formControlName="logo"
+                                [ngModel]='application?.logo' id="example-datetime-local-input"
+                                (change)="selectImge($event)">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer bg-transparent border-top text-muted ">
+                  <div class="col-xs-6 d-flex justify-content-end gap-2 ">
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m"
+                      (click)="updateApplication(application?.id)">Save changes </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="dependence" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.applications.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#modalAppDependency">
+                              <i class="mdi mdi-plus me-1"></i>New dependency </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_dependencies">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Element</th>
+                          <th>Element value</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let appdep of applicationDependencies" data-id="dependencies-{{appdep.id}}">
+                          <td>{{appdep?.id}}</td>
+                          <td>{{appdep?.element}}</td>
+                          <td>{{appdep?.element_value}}</td>
+                          <td>
+                            <span *ngIf="appdep?.status==1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                            <span *ngIf="appdep?.status==2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                            <span *ngIf="appdep?.status==3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.applications.includes('delete')==true"
+                                class="btn btn-sm btn-soft-danger" (click)="deleteApplicationDependencies(appdep?.id)"
+                                type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.applications.includes('delete')==false">---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="deployments" class="tab-pane fade">
+              <div class="card ">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.applications.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              (click)="getAllServers()" data-bs-backdrop="static" data-bs-toggle="modal"
+                              data-bs-target="#modalAppDeployment">
+                              <i class="mdi mdi-plus me-1"></i>New deployment </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_depl">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Provider</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let dep of applicationDeployment" data-id="depl-{{dep.id}}">
+                          <td>{{dep?.id}}</td>
+                          <td>{{dep?.instance?.name}}</td>
+                          <td>{{dep?.instance?.cloud_provider_account?.provider?.name}}</td>
+                          <td>
+                            <div *ngIf="dep?.status == 1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></div>
+                            <div *ngIf="dep?.status == 2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></div>
+                            <div *ngIf="dep?.status == 3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></div>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.applications.includes('delete')==true"
+                                class="btn btn-sm btn-soft-danger" (click)="deleteApplicationDeployment(dep?.id)"
+                                type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.applications.includes('delete')==false">---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="version" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.applications.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#myModal1">
+                              <i class="mdi mdi-plus me-1"></i>New version </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_vr">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Version</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let appver of applicationVersions" data-id="vr-{{appver.id}}">
+                          <td>{{appver?.id}}</td>
+                          <td>{{appver?.version}}</td>
+                          <td>
+                            <span *ngIf="appver?.status==1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                            <span *ngIf="appver?.status==2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                            <span *ngIf="appver?.status==3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.applications.includes('delete')==true"
+                                class="btn btn-sm btn-soft-danger" (click)="deleteApplicationVersion(appver?.id)"
+                                type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.applications.includes('delete')==false">---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="database" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>IP address</th>
+                          <th>Provider</th>
+                          <th>Hardware</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>4</td>
+                          <td>test</td>
+                          <td>127.0.0.1</td>
+                          <td>test</td>
+                          <td>ram</td>
+                          <td><span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a class="btn btn-sm btn-soft-danger" type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="sources" class="tab-pane fade">
+              <div class="card st">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.applications.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#modalAppSource">
+                              <i class="mdi mdi-plus me-1"></i>New source </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_sc">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Source</th>
+                          <th>Build</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let appsrc of applicationSources" data-id="sc-{{appsrc.id}}">
+                          <td>{{appsrc?.id}}</td>
+                          <td>
+                            <div *ngIf="appsrc?.source_type == 1">Git</div>
+                            <div *ngIf="appsrc?.source_type == 2">Cloud</div>
+                            <div *ngIf="appsrc?.source_type == 3">Local</div>
+                          </td>
+                          <td>
+                            <div
+                              *ngIf="appsrc?.source_build ==='' || appsrc?.source_build ===undefined || appsrc?.source_build ===null;else other2">
+                              ---</div>
+                            <ng-template #other2>{{appsrc?.source_build}}</ng-template>
+                          </td>
+                          <td>
+                            <span *ngIf="appsrc?.status==1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                            <span *ngIf="appsrc?.status==2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                            <span *ngIf="appsrc?.status==3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.applications.includes('delete')==true"
+                                class="btn btn-sm btn-soft-danger" (click)="deleteApplicationSource(appsrc?.id)"
+                                type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.applications.includes('delete')==false">---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="logs" class="tab-pane fade">
+              <div class="card">
+                <div class="card-body">
+                  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                    class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                    id="table_aaplication_logs">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Element</th>
+                        <th>Element ID</th>
+                        <th>Action date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let log of userLogsList">
+                        <td>{{log?.id}}</td>
+                        <td>{{log?.action}}</td>
+                        <td>{{log?.element}}</td>
+                        <td>{{log?.element_id}}</td>
+                        <td>{{log?.log_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal1" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="addappver d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 11%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new version</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="versionForm" (ngSubmit)="addVersion()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Version</label>
+                <input type="text" class="form-control" formControlName="version"
+                  [ngClass]="{ 'is-invalid': submitted1 && versionform['version'].errors }" required="true">
+                <div *ngIf="submitted1 && versionform['version'].errors" class="invalid-feedback">
+                  <div *ngIf="versionform['version'].errors versionform['version'].required">Version is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Status</label>
+                <ng-select class="ng-select" formControlName="status">
+                  <ng-option *ngFor="let s of status" [value]="s?.value">{{s?.name}}</ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+              (click)="close()">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAppDependency" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="addappdep d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 16%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new dependency</h5>
+        <button type="button" class="btn-close" #closebuttonDep data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="dependencyForm" (ngSubmit)="addDependency()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Element</label>
+                <input type="number" min="1" class="form-control" formControlName="element"
+                  [ngClass]="{ 'is-invalid': submitted3 && depform['element'].errors }" required="true">
+                <div *ngIf="submitted3 && depform['element'].errors" class="invalid-feedback">
+                  <div *ngIf="depform['element'].errors depform['element'].required">Element is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Element value</label>
+                <input type="text" class="form-control" formControlName="element_value"
+                  [ngClass]="{ 'is-invalid': submitted3 && depform['element_value'].errors }" required="true">
+                <div *ngIf="submitted3 && depform['element_value'].errors" class="invalid-feedback">
+                  <div *ngIf="depform['element_value'].errors depform['element_value'].required">Element value is
+                    required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Version ID</label>
+                <input type="number" min="1" class="form-control" formControlName="version_id"
+                  [ngClass]="{ 'is-invalid': submitted3 && depform['version_id'].errors }" required="true">
+                <div *ngIf="submitted3 && depform['version_id'].errors" class="invalid-feedback">
+                  <div *ngIf="depform['version_id'].errors depform['version_id'].required">VersionID is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+              (click)="close()">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAppDeployment" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="addappdepl d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 10%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new deployment</h5>
+        <button type="button" class="btn-close" #closebuttonDepl data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="deploymentForm" (ngSubmit)="addDeployment()">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-3" formGroupName="instance">
+                <label>Instances List</label>
+                <ng-select class="ng-select" formControlName="id"
+                  [ngClass]="{ 'is-invalid': submitted4 && deplform['instance'].get('id')?.errors }" required="true">
+                  <ng-option *ngFor="let s of serversList" [value]="s?.instance?.id">{{s?.instance?.name}}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted4 && deplform['instance'].get('id')?.errors" class="invalid-feedback">
+                  <div *ngIf="deplform['instance'].get('id')?.errors deplform['instance'].get('id').required">Instance
+                    is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+              (click)="close()">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAppSource" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="addappsrc d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 14%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new source</h5>
+        <button type="button" class="btn-close" #closebuttonS data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="sourceForm" (ngSubmit)="addSource()">
+          <div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="d-block mb-3 col-md-3">Source </label>
+                  <div class="radio-box">
+                    <input id="source_type1" type="radio" formControlName="source_type"
+                      [ngClass]="{ 'is-invalid': submitted2 && sourceform['source_type'].errors }" required="true"
+                      name="source_type" value="1" (click)="cpuChange(1)" />
+                    <label for="source_type1">Git</label>
+                    <input id="source_type2" type="radio" formControlName="source_type"
+                      [ngClass]="{ 'is-invalid': submitted2 && sourceform['source_type'].errors }" required="true"
+                      name="source_type" value="2" (click)="cpuChange(2)" />
+                    <label for="source_type2">Cloud</label>
+                    <input id="source_type3" type="radio" formControlName="source_type"
+                      [ngClass]="{ 'is-invalid': submitted2 && sourceform['source_type'].errors }" required="true"
+                      name="source_type" value="3" (click)="cpuChange(3)" />
+                    <label for="source_type3">Local</label>
+                    <div *ngIf="submitted2 && sourceform['source_type'].errors" class="invalid-feedback">
+                      <div *ngIf="sourceform['source_type'].errors sourceform['source_type'].required">Source is
+                        required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" *ngIf="value == 1">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label for="example-text-input" class="col-md-2 col-form-label">Repo </label>
+                    <input class="form-control" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" *ngIf="value == 2">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label for="example-text-input" formControlName="source_account"
+                      class="col-md-2 col-form-label">Account </label>
+                    <ng-select>
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6" *ngIf="value ==2">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label for="example-text-input" class="col-md-4 col-form-label">URL</label>
+                    <input class="form-control" formControlName="source_url" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" *ngIf="value == 1">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label for="example-text-input" class="col-md-4 col-form-label">Build command</label>
+                    <input class="form-control" formControlName="source_build" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" *ngIf="value == 1">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label for="example-text-input" class="col-md-4 col-form-label">Run command</label>
+                    <input class="form-control" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+              (click)="close()">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

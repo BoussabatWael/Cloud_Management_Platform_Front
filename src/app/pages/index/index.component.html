@@ -1,0 +1,305 @@
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Dashbord</h4>
+            <div class="page-title-right ">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Dashbord</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card mini-stats-wid " id="border">
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <p class="text-muted fw-medium">Instances</p>
+                  <p class="x"></p>
+                  <div *ngIf="instancesNumber === undefined; else other">
+                    <h4 class="mb-0">---</h4>
+                  </div>
+                  <ng-template #other>
+                    <h4 class="mb-0">{{instancesNumber}}</h4>
+                  </ng-template>
+                </div>
+                <div class="flex-shrink-0 align-self-center">
+                  <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
+                    <span class="avatar-title" id="icone">
+                      <i class=" mdi mdi-database font-size-24"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mini-stats-wid " id="border">
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <p class="text-muted fw-medium">Open incidents</p>
+                  <p class="x"></p>
+                  <h4 class="mb-0">14,487</h4>
+                </div>
+                <div class="flex-shrink-0 align-self-center">
+                  <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
+                    <span class="avatar-title" id="icone">
+                      <i class=" bx bx-error font-size-24"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mini-stats-wid " id="border">
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <p class="text-muted fw-medium">Errors</p>
+                  <p class="x"></p>
+                  <h4 class="mb-0">14,487</h4>
+                </div>
+                <div class="flex-shrink-0 align-self-center">
+                  <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
+                    <span class="avatar-title" id="icone">
+                      <i class="bx bx-error-circle font-size-24"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mini-stats-wid " id="border">
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <p class="text-muted fw-medium">Backups</p>
+                  <p class="x"></p>
+                  <div *ngIf="backupsNumber === undefined; else otherr">
+                    <h4 class="mb-0">---</h4>
+                  </div>
+                  <ng-template #otherr>
+                    <h4 class="mb-0">{{backupsNumber}}</h4>
+                  </ng-template>
+                </div>
+                <div class="flex-shrink-0 align-self-center">
+                  <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
+                    <span class="avatar-title" id="icone">
+                      <i class=" mdi mdi-backup-restore font-size-24"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card mini-stats-wid">
+            <div class="card-body">
+              <h4 class="card-title fw-medium mb-3">My Instances</h4>
+              <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border "
+                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed  text-center">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Provider</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody class="border-top-0">
+                  <tr *ngFor="let instance of instancesList">
+                    <td>{{instance?.id}}</td>
+                    <td>{{instance?.name}}</td>
+                    <td>
+                      <div *ngIf="instance?.creation_type == 1">Server</div>
+                      <div *ngIf="instance?.creation_type == 2">Domain name</div>
+                      <div *ngIf="instance?.creation_type == 3">Application</div>
+                    </td>
+                    <td>{{instance?.cloud_provider_account?.provider?.name}}</td>
+                    <td>
+                      <div *ngIf="instance?.status == 1"><span
+                          class="badge rounded-pill badge-soft-success font-size-12">Active</span></div>
+                      <div *ngIf="instance?.status == 2"><span
+                          class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></div>
+                      <div *ngIf="instance?.status == 3"><span
+                          class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title  fw-medium mb-5"> Last Activity</h4>
+              <div *ngIf="userLogsList.length !== 0;else content1">
+                <ul class="verti-timeline list-unstyled mb-4" *ngFor="let lastAct of LastActivity">
+                  <li class="event-list active">
+                    <div class="event-timeline-dot"><i class="bx bxs-right-arrow-circle font-size-18 bx-fade-right"></i>
+                    </div>
+                    <div class="media">
+                      <div class="mr-3">
+                        <h5 class="font-size-14">{{lastAct.log_date | date:'yyyy-MM-dd'}} <i
+                            class="bx bx-right-arrow-alt font-size-16 text-primary align-middle ms-2 me-3"></i>{{lastAct.action}} {{lastAct.element}}</h5>
+                      </div>
+                      <div class="media-body">
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ng-template #content1>
+                No data to display
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mini-stats-wid">
+            <div class="card-body ">
+              <h4 class="card-title  fw-medium mb-3">Monitoring</h4>
+              <div class="row pt-3">
+                <div class="col-lg-6 pt-1">
+                  <div id="border" class="card mini-stats-wid bg-light">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <div class="flex-grow-1">
+                          <h6 class="text-dark fw-medium">Status </h6>
+                          <h5 class="mb-0">1,235</h5>
+                        </div>
+                        <div class="flex-shrink-0 align-self-center">
+                          <div class="mini-stat-icon avatar-sm rounded-circle"><span id="icone" class="avatar-title"><i
+                                class="mdi mdi-list-status font-size-24"></i></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 pt-1">
+                  <div id="border" class="card mini-stats-wid  bg-light">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <div class="flex-grow-1">
+                          <h6 class="text-dark fw-medium">Availability </h6>
+                          <h5 class="mb-0">1,235</h5>
+                        </div>
+                        <div class="flex-shrink-0 align-self-center">
+                          <div class="mini-stat-icon avatar-sm rounded-circle"><span id="icone" class="avatar-title"><i
+                                class="bx bxl-algolia font-size-24"></i></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row pt-4">
+                <div class="col-lg-6">
+                  <div id="border" class="card mini-stats-wid  bg-light">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <div class="flex-grow-1">
+                          <h6 class="text-dark fw-medium">Response Time </h6>
+                          <h5 class="mb-0">1,235</h5>
+                        </div>
+                        <div class="flex-shrink-0 align-self-center">
+                          <div class="mini-stat-icon avatar-sm rounded-circle"><span id="icone" class="avatar-title"><i
+                                class="mdi mdi-clock-check-outline font-size-24"></i></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div id="border" class="card mini-stats-wid  bg-light">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <div class="flex-grow-1">
+                          <h6 class="text-dark fw-medium">Open incidents </h6>
+                          <h5 class="mb-0">1,235</h5>
+                        </div>
+                        <div class="flex-shrink-0 align-self-center">
+                          <div class="mini-stat-icon avatar-sm rounded-circle"><span id="icone" class="avatar-title"><i
+                                class="bx bx-error font-size-24"></i></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card mini-stats-wid">
+            <div class="card-body">
+              <h4 class="card-title fw-medium mb-3">Logs</h4>
+              <div class="table-responsive">
+                <div *ngIf="userLogsList.length !== 0; else content2">
+                  <table class="table table-bordered mb-1 text-center">
+                    <thead class="table-light text-center">
+                      <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Element</th>
+                        <th>Element ID</th>
+                        <th>Action date</th>
+                        <th>Source</th>
+                      </tr>
+                    </thead>
+                    <tbody class="border-top-0">
+                      <tr *ngFor="let log of userLogsList">
+                        <td>{{log?.id}}</td>
+                        <td>{{log?.action}}</td>
+                        <td>{{log?.element}}</td>
+                        <td>{{log?.element_id}}</td>
+                        <td>{{log?.log_date}}</td>
+                        <td>{{log?.source}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <ng-template #content2>
+                  <table class="table table-bordered mb-1 text-center">
+                    <thead class="table-light text-center">
+                      <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Element</th>
+                        <th>Element ID</th>
+                        <th>Action date</th>
+                        <th>Source</th>
+                      </tr>
+                    </thead>
+                    <tbody class="border-top-0">
+                      <tr>
+                        <td colspan="7">No data to display</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

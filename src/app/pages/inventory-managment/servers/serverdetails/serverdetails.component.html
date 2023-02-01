@@ -1,0 +1,1223 @@
+<div class="updateServerLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Server details</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Server</a></li>
+                <li class="breadcrumb-item active">Details</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+              <div class="row">
+                <div class="col-5 align-self-end"
+                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%);">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-1">
+              <div class="text-center">
+                <h5 class="mt-3 mb-1">{{server?.instance?.name}}</h5>
+                <p class="text-muted mb-0">#{{server?.id}}</p>
+                <p class="text-muted mb-0">
+                  <span *ngIf="server?.instance?.status==1"><span
+                      class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                  <span *ngIf="server?.instance?.status==2"><span
+                      class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                  <span *ngIf="server?.instance?.status==3"><span
+                      class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                </p>
+              </div>
+              <ul class="list-unstyled mt-4">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex"><i class="bx bx-calendar text-primary fs-4"></i>
+                      <div class="ms-3">
+                        <h6 class="fs-14 mb-2">Creation date</h6>
+                        <p class="text-muted fs-14 mb-0">{{server?.instance?.start_date | date:'yyyy-MM-dd'}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex justify-content-center"><i
+                        class="mdi mdi-ip-network-outline text-primary fs-4"></i>
+                      <div class="ms-3">
+                        <h6 class="fs-14 mb-2">IP address</h6>
+                        <p class="text-muted  mb-0">{{server?.ip_address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <li class="mt-3">
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class=" pt border-top d-flex pt-3">
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Play">
+                <i class="mdi mdi-play  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Stop">
+                <i class="mdi mdi-stop  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Restore">
+                <i class="mdi mdi-restore  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-3  ">
+              <a class="btn  bg-info-gradient p-1 px-2" ngbTooltip="Dublicate">
+                <i class="mdi mdi-content-duplicate  font-size-20"></i>
+              </a>
+            </div>
+            <div class=" align-self-center me-2 mb-2  ">
+              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Console">
+                <i class="mdi mdi-console  font-size-20"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card mt-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th scope="col">RAM</th>
+                      <td scope="col">
+                        <div *ngIf="server?.memory==1">16Gb
+                        </div>
+                        <div *ngIf="server?.memory==2">32Gb
+                        </div>
+                        <div *ngIf="server?.memory==3">64Gb
+                        </div>
+                        <div *ngIf="server?.memory==4">128Gb
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col">CPU</th>
+                      <td scope="col">
+                        <div *ngIf="server?.cpu==1">Xeon E3-1275 V6
+                        </div>
+                        <div *ngIf="server?.cpu==2">Core i7-7700T
+                        </div>
+                        <div *ngIf="server?.cpu==3">Core i7-7100T
+                        </div>
+                        <div *ngIf="server?.cpu==4">Core i7-7000T
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col">OS</th>
+                      <td scope="col">
+                        <div *ngIf="server?.operating_system==1">Windows
+                        </div>
+                        <div *ngIf="server?.operating_system==2">Mac OS
+                        </div>
+                        <div *ngIf="server?.operating_system==3">Fire OS
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col">Cloud provider</th>
+                      <td scope="col">{{server?.instance?.cloud_provider_account?.provider?.name}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Template</th>
+                      <div *ngIf="server?.instance?.template?.name === null; else other">
+                        <td>---</td>
+                      </div>
+                      <ng-template #other>
+                        <td> {{server?.instance?.template?.name}}</td>
+                      </ng-template>
+                    </tr>
+                    <tr>
+                      <th scope="row">Price</th>
+                      <td>---</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Last scan date</th>
+                      <td>---</td>
+                    </tr>
+                    <tr>
+                      <th>Last backup</th>
+                      <td>---
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mini-stats-wid mb-2">
+                <div class="card-body p-0">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link active pad" data-bs-toggle="tab" href="#form" role="tab" aria-selected="true">
+                        <span class="fa fa-info-circle"></span>
+                        <span class=""> DETAILS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#apps" role="tab" aria-selected="false">
+                        <span class="far fa-list-alt"></span>
+                        <span class=""> APPLICATIONS </span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#firewall" role="tab" aria-selected="false">
+                        <span class="far fa-object-group"></span>
+                        <span class=""> FIREWALL</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#services" role="tab" aria-selected="false">
+                        <span class="fa fa-history"></span>
+                        <span class=""> SERVICES</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#backups" role="tab" aria-selected="false">
+                        <span class="far fa-object-group"></span>
+                        <span class=""> BACKUPS</span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#acces" role="tab" aria-selected="false">
+                        <span class="far fa-list-alt"></span>
+                        <span class=""> ACCESS CREDENTIALS </span>
+                      </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                      <a class="nav-link pad" data-bs-toggle="tab" href="#logs" role="tab" aria-selected="false">
+                        <span class="far fa-object-group"></span>
+                        <span class=""> LOGS</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="pills-tabContent">
+            <div id="form" class="tab-pane active">
+              <div class="row">
+                <div class="col">
+                  <div class="card mb-2">
+                    <div class="card-header flex-nowrap pt-2">
+                      <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold ">Details</span>
+                      </h3>
+                    </div>
+                    <div class="card-body ">
+                      <form class="custom-validation" [formGroup]="serverForm">
+                        <div class="row  mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-3 col-form-label">Name </label>
+                            <div>
+                              <input class="form-control" formControlName="name" [ngModel]="server?.instance?.name"
+                                type="text" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }">
+                              <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
+                                <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">Category </label>
+                            <div>
+                              <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                              </ng-select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-3 col-form-label">Status </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="status" [ngModel]="server?.instance?.status"
+                                [ngClass]="{ 'is-invalid': submitted && form['status'].errors }">
+                                <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
+                                <div *ngIf="form['status'].errors form['status'].required">Status is required</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer bg-transparent border-top text-muted">
+                      <div class="col-xs-6 d-flex justify-content-end  gap-2">
+                        <button type="submit" class="btn btn-primary btn-rounded"
+                          (click)="updateInstance(server?.instance?.id)">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card mb-2">
+                    <div class="card-header flex-nowrap pt-2">
+                      <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold ">Network</span>
+                      </h3>
+                    </div>
+                    <div class="card-body ">
+                      <form class="custom-validation" [formGroup]="serverForm" (ngSubmit)="updateServer(server.id)">
+                        <div class="row mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" formArrayName="ip_address"
+                              class="col-md-3 col-form-label">IP address </label>
+                            <div>
+                              <input class="form-control" formControlName="ip_address" [ngModel]="server?.ip_address"
+                                type="text" placeholder=""
+                                [ngClass]="{ 'is-invalid': submitted && form['ip_address'].errors }">
+                              <div *ngIf="submitted && form['ip_address'].errors" class="invalid-feedback">
+                                <div *ngIf="form['ip_address'].errors form['ip_address'].required">IP address is
+                                  required</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-3 col-form-label">Private IP </label>
+                            <div>
+                              <input class="form-control" type="text" placeholder="">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">Location </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="location" [ngModel]="server?.location"
+                                [ngClass]="{ 'is-invalid': submitted && form['location'].errors }">
+                                <ng-option *ngFor="let l of location" [value]="l.value">{{l.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['location'].errors" class="invalid-feedback">
+                                <div *ngIf="form['location'].errors form['location'].required">Location is required
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row  mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">Reverse DNS </label>
+                            <div>
+                              <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                              </ng-select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-3 col-form-label">Hostname </label>
+                            <div>
+                              <input class="form-control" type="text" placeholder="">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label"> DNS </label>
+                            <div>
+                              <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                              </ng-select>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer bg-transparent border-top text-muted">
+                      <div class="col-xs-6 d-flex justify-content-end  gap-2">
+                        <button type="submit" class="btn btn-primary btn-rounded"
+                          (click)="updateServer(server?.id)">Save changes </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card mb-2">
+                    <div class="card-header flex-nowrap pt-2">
+                      <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold ">Hardware</span>
+                      </h3>
+                    </div>
+                    <div class="card-body ">
+                      <form class="custom-validation" [formGroup]="serverForm" (ngSubmit)="updateServer(server?.id)">
+                        <div class="row mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-6 col-form-label">OS </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="operating_system"
+                                [ngModel]="server?.operating_system"
+                                [ngClass]="{ 'is-invalid': submitted && form['operating_system'].errors }">
+                                <ng-option *ngFor="let os of operating_system"
+                                  [value]="os.value">{{os.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['operating_system'].errors" class="invalid-feedback">
+                                <div *ngIf="form['operating_system'].errors form['operating_system'].required">OS is
+                                  required</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-6 col-form-label">OS version</label>
+                            <input class="form-control" type="text" formControlName="os_version"
+                              [ngModel]="server?.os_version"
+                              [ngClass]="{ 'is-invalid': submitted && form['os_version'].errors }">
+                            <div *ngIf="submitted && form['os_version'].errors" class="invalid-feedback">
+                              <div *ngIf="form['os_version'].errors form['os_version'].required">OS version is required
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">Kernel name </label>
+                            <div>
+                              <input class="form-control" type="text" placeholder="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row  mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">PHP version </label>
+                            <div>
+                              <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                              </ng-select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label">CPU </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="cpu" [ngModel]="server?.cpu"
+                                [ngClass]="{ 'is-invalid': submitted && form['cpu'].errors }">
+                                <ng-option *ngFor="let c of cpu" [value]="c.value">{{c.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['cpu'].errors" class="invalid-feedback">
+                                <div *ngIf="form['cpu'].errors form['cpu'].required">CPU is required</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label"> RAM </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="memory" [ngModel]="server?.memory"
+                                [ngClass]="{ 'is-invalid': submitted && form['memory'].errors }">
+                                <ng-option *ngFor="let m of memory" [value]="m.value">{{m.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['memory'].errors" class="invalid-feedback">
+                                <div *ngIf="form['memory'].errors form['memory'].required">RAM is required</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row  mb-2">
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label"> Storage </label>
+                            <div>
+                              <ng-select class="ng-select" formControlName="disk_space" [ngModel]="server?.disk_space"
+                                [ngClass]="{ 'is-invalid': submitted && form['disk_space'].errors }">
+                                <ng-option *ngFor="let ds of disk_space" [value]="ds.value">{{ds.name}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && form['disk_space'].errors" class="invalid-feedback">
+                                <div *ngIf="form['disk_space'].errors form['disk_space'].required">Storage is required
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="example-text-input" class="col-md-4 col-form-label"> Bandwidth </label>
+                            <div>
+                              <ng-select class="ng-select" bindLabel="name" bindValue="name">
+                              </ng-select>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer bg-transparent border-top text-muted">
+                      <div class="col-xs-6 d-flex justify-content-end  gap-2">
+                        <button type="submit" class="btn btn-primary btn-rounded"
+                          (click)="updateServer(server?.id)">Save changes </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="apps" class="tab-pane fade">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <div class="row fl">
+                    <div class="col-12">
+                      <div class="d-flex flex-wrap gap-2 pb-1">
+                        <div class="position-relative" *ngIf="this.usrPer.applications.includes('create')==true">
+                          <button type="button" (click)="getAppList()"
+                            class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                            data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#myModal1">
+                            <i class="mdi mdi-plus me-1"></i>New application </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border  "
+                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                    id="table_app_ver">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let app of application" data-id="app-ver-{{app?.id}}">
+                        <td>
+                          <div class="position-name">{{app?.id}}</div>
+                        </td>
+                        <td>
+                          <div class="position-name">{{app?.application?.name}}</div>
+                        </td>
+                        <td>
+                          <span *ngIf="app?.status==1"><span
+                              class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                          <span *ngIf="app?.status==2"><span
+                              class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                          <span *ngIf="app?.status==3"><span
+                              class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-2 justify-content-center">
+                            <a *ngIf="this.usrPer.applications.includes('update')==true"
+                              class="btn btn-sm btn-soft-primary"
+                              [routerLink]="['/application-details',app?.application?.id]" placement="top"
+                              ngbTooltip="Edit">
+                              <i class="mdi mdi-pencil font-size-16"></i>
+                            </a>
+                            <a *ngIf="this.usrPer.applications.includes('delete')==true"
+                              class="btn btn-sm btn-soft-danger" (click)="deleteApplicationInstance(app?.id)"
+                              type="button" placement="top" ngbTooltip="Delete">
+                              <i class="mdi mdi-delete font-size-16"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="firewall" class="tab-pane fade">
+              <div class="card mt-3">
+                <div class="card-body">
+
+                </div>
+              </div>
+            </div>
+
+            <div id="services" class="tab-pane fade">
+              <div class="row">
+                <div class="col-xl-3 col-sm-6">
+                  <div class="card  mt-3 text-center">
+                    <div class="card-body">
+
+                      <div class="avatar-md mx-auto mb-4">
+                        <img src="assets/images/services/PHP-logo.png" class="rounded avatar-lg">
+                      </div>
+                      <h5 class="font-size-20 mb-1"><a class="text-dark">PHP</a></h5>
+                      <p class="text-muted"></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top">
+                      <div class="contact-links d-flex font-size-20">
+                        <div class="flex-fill">
+                          <a type="button" placement="top" ngbTooltip="Select">
+                            <i class="bx bx-check-circle"></i></a>
+                        </div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Delete"><i
+                              class="bx bx-trash-alt"></i></a></div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Restore"><i
+                              class="bx bx-revision"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="card mt-3 text-center">
+                    <div class="card-body">
+                      <div class="avatar-md mx-auto mb-4">
+                        <img src="assets/images/services/1200px-MySQL.png" class="rounded avatar-lg" alt="">
+                      </div>
+                      <h5 class="font-size-20 mb-1"><a class="text-dark">MySQL</a></h5>
+                      <p class="text-muted"></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top">
+                      <div class="contact-links d-flex font-size-20">
+                        <div class="flex-fill">
+                          <a type="button" placement="top" ngbTooltip="Select">
+                            <i class="bx bx-check-circle"></i></a>
+                        </div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Delete"><i
+                              class="bx bx-trash-alt"></i></a></div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Restore"><i
+                              class="bx bx-revision"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="card mt-3 text-center">
+                    <div class="card-body">
+                      <img src="assets/images/services/apach.png" class="rounded avatar-lg" alt="">
+                      <h5 class="font-size-20 mb-1"><a class="text-dark">Apache</a></h5>
+                      <p class="text-muted"></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top">
+                      <div class="contact-links d-flex font-size-20">
+                        <div class="flex-fill">
+                          <a type="button" placement="top" ngbTooltip="Select">
+                            <i class="bx bx-check-circle"></i></a>
+                        </div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Delete"><i
+                              class="bx bx-trash-alt"></i></a></div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Restore"><i
+                              class="bx bx-revision"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <div class="avatar-md mx-auto mb-4">
+                        <img src="assets/images/services/1200px-MySQL.png" alt=""
+                          class="avatar-md rounded-circle d-block mx-auto">
+                      </div>
+                      <h5 class="font-size-15 mb-1"><a class="text-dark">MySQL</a></h5>
+                      <p class="text-muted">Database</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top">
+                      <div class="contact-links d-flex font-size-20">
+                        <div class="flex-fill">
+                          <a type="button" placement="top" ngbTooltip="Select">
+                            <i class="bx bx-check-circle"></i></a>
+                        </div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Delete"><i
+                              class="bx bx-trash-alt"></i></a></div>
+                        <div class="flex-fill"><a type="button" placement="top" ngbTooltip="Restore"><i
+                              class="bx bx-revision"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="backups" class="tab-pane fade">
+              <div class="card mt-3 ">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative" *ngIf="this.usrPer.backups.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#model">
+                              <i class="mdi mdi-plus me-1"></i>New backup </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border  "
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_back">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let backup of backupsList" data-id="b-{{backup.id}}">
+                          <td>{{backup?.id}}</td>
+                          <td>{{backup?.name}}</td>
+                          <td>
+                            <div *ngIf=" backup?.status == 1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12 mt-2">Active</span></div>
+                            <div *ngIf=" backup?.status == 2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12 mt-2">Inactive</span></div>
+                            <div *ngIf=" backup?.status == 3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12 mt-2">In Progress</span></div>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.backups.includes('update')==true"
+                                class="btn btn-sm btn-soft-primary" placement="top" ngbTooltip="Edit"
+                                [routerLink]="['/backups/backups-details',backup?.id]">
+                                <i class="mdi mdi-pencil font-size-16"></i>
+                              </a>
+                              <a class="btn btn-sm btn-soft-primary" placement="top" ngbTooltip="download">
+                                <i class="mdi mdi-arrow-down-bold-box-outline font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.backups.includes('delete')==true" class="btn btn-sm btn-soft-danger"
+                                (click)="deleteBackup(backup?.id)" type="button" placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="acces" class="tab-pane fade">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <div>
+                    <div class="row fl">
+                      <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 pb-1">
+                          <div class="position-relative"
+                            *ngIf="this.usrPer.access_credentials.includes('create')==true">
+                            <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
+                              data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#model_Ajout">
+                              <i class="mdi mdi-plus me-1"></i>New access </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable
+                      class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                      id="table_cre">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Login</th>
+                          <th>Password</th>
+                          <th>Port</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let cred of accessCredentials" data-id="cre-{{cred.id}}">
+                          <td>
+                            <div class="position-name">{{cred?.id}}</div>
+                          </td>
+                          <td>
+                            <div class="position-name">{{cred?.name}}</div>
+                          </td>
+                          <td>
+                            <div class="position-name">{{cred?.login}}</div>
+                          </td>
+                          <td>
+                            <div class="position-name">******</div>
+                          </td>
+                          <td>
+                            <div class="position-name">{{cred?.port}}</div>
+                          </td>
+                          <td>
+                            <span *ngIf="cred?.status==1"><span
+                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                            <span *ngIf="cred?.status==2"><span
+                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                            <span *ngIf="cred?.status==3"><span
+                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></span>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                              <a *ngIf="this.usrPer.access_credentials.includes('delete')==true"
+                                class="btn btn-sm btn-soft-danger" (click)="deleteCredentials(cred?.id)" type="button"
+                                placement="top" ngbTooltip="Delete">
+                                <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.access_credentials.includes('delete')==false">
+                                ---
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="logs" class="tab-pane fade">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
+                    class="table table-bordered text-center t-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center"
+                    id="table_server_logs">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Element</th>
+                        <th>Element ID</th>
+                        <th>Action date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let log of userLogsList">
+                        <td>{{log?.id}}</td>
+                        <td>{{log?.action}}</td>
+                        <td>{{log?.element}}</td>
+                        <td>{{log?.element_id}}</td>
+                        <td>{{log?.log_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal1" class="modal fade " data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-xl p-5">
+    <div class="modal-content">
+      <div class="addappins d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 11%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new application</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"
+          (click)="Close()" (click)="closePopup()">
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <form id="formapplication" [formGroup]="applicationForm" (ngSubmit)="addApplicationInstance()">
+          <h3>Type </h3>
+          <section class="stepper_height">
+            <div>
+              <div class="switch-fieldd">
+                <input type="radio" id="radio-oneee" name="switch-one" value="true" (click)="cpuChange(5)" />
+                <label for="radio-oneee">Application</label>
+                <input type="radio" id="radio-twooo" name="switch-one" value="false" (click)="cpuChange(6)" />
+                <label for="radio-twooo">Package</label>
+              </div>
+            </div>
+          </section>
+          <h3>Choice</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3" *ngIf="value==6">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-4 col-form-label">Packages list</label>
+                      <ng-select class="ng-select">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="mb-3" *ngIf="value==5">
+                    <div class="form-group" formGroupName="application">
+                      <label for="example-text-input" class="col-md-4 col-form-label">Applications list</label>
+                      <ng-select class="ng-select" formControlName="id"
+                        [ngClass]="{ 'is-invalid': submitted2 && appform['application'].get('id')?.errors }"
+                        required="true">
+                        <ng-option *ngFor="let a of applicationList" [value]="a?.id">{{a?.name}}</ng-option>
+                      </ng-select>
+                      <div *ngIf="submitted2 && appform['application'].get('id')?.errors" class="invalid-feedback">
+                        <div
+                          *ngIf="appform['application'].get('id')?.errors appform['application'].get('id')?.required">
+                          Application is required</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Confirm details</h3>
+          <section class="stepper_height">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <div class="text-center">
+                  <div class="mb-2">
+                    <i class="mdi mdi-check-circle-outline text-success display-6"></i>
+                  </div>
+                  <div>
+                    <h5>Confirm details</h5>
+                    <p class="text-muted px">If you are sure about these informations then click Finish</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-success d-none sub-btn">
+                Confirm
+              </button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="model" class="modal fade " data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-xl p-5">
+    <div class="modal-content ">
+      <div class="addbackins d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 18%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new backup</h5>
+        <button type="button" class="btn-close" #closebuttonB data-bs-dismiss="modal" (click)="Close()"
+          aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body  ">
+        <form [formGroup]="backupForm">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="d-block  col-md-3">Type</label>
+                <div class="d-flex gap-4" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" id="btnradio6" autocomplete="off" formControlName="classe"
+                    [ngClass]="{ 'is-invalid': submitted3 && backupform['classe'].errors }" value="1">
+                  <label class="btn btn-outline-primary" for="btnradio6">Backup</label>
+                  <input type="radio" class="btn-check" id="btnradio4" autocomplete="off" formControlName="classe"
+                    [ngClass]="{ 'is-invalid': submitted3 && backupform['classe'].errors }" value="2">
+                  <label class="btn btn-outline-primary" for="btnradio4">Snapshot</label>
+                </div>
+                <div *ngIf="submitted3 && backupform['classe'].errors" class="invalid-feedback">
+                  <div *ngIf="backupform['classe'].errors backupform['classe'].required">
+                    Classe is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Name</label>
+                <input type="text" formControlName="name" class="form-control" required="true"
+                  [ngClass]="{ 'is-invalid': submitted3 && backupform['name'].errors }">
+                <div *ngIf="submitted3 && backupform['name'].errors" class="invalid-feedback">
+                  <div *ngIf="backupform['name'].errors backupform['name'].required">
+                    Name is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Target</label>
+                <ul class="type_radio">
+                  <li class="form-check mb-3">
+                    <input class="form-check-input" type="radio" formControlName="target" value="1" id="formRadios1"
+                      (click)="cpuChange2(5)">
+                    <label class="form-check-label" for="formRadios1">
+                      Local
+                    </label>
+                  </li>
+                  <li class="form-check">
+                    <input class="form-check-input" type="radio" formControlName="target" value="2" id="formRadios2"
+                      (click)="cpuChange2(6)">
+                    <label class="form-check-label" for="formRadios2">
+                      Remote
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="valuue=== 6">
+              <label>Remote server</label>
+              <ng-select class="ng-select">
+              </ng-select>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <div>
+                  <label>Layout</label>
+                  <ng-select class="ng-select" formControlName="layout"
+                    [ngClass]="{ 'is-invalid': submitted3 && backupform['layout'].errors }">
+                    <ng-option *ngFor="let l of layout" [value]="l.value">{{l.name}}</ng-option>
+                  </ng-select>
+                  <div *ngIf="submitted3 && backupform['layout'].errors" class="invalid-feedback">
+                    <div *ngIf="backupform['layout'].errors backupform['layout'].required">
+                      Layout is required</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Schedule</label>
+                <div class="switch-field2">
+                  <input type="radio" id="radio-four" name="switch-two" value="true" checked (click)="cpuChange(2)" />
+                  <label for="radio-four">NO</label>
+                  <input type="radio" id="radio-five" name="switch-two" value="false" (click)="cpuChange(3)" />
+                  <label for="radio-five">Schedule</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="value == 3">
+              <div class="mb-3">
+                <label></label>
+                <input type="datetime-local" formControlName="schedule" class="form-control" id="flatpickr_time"
+                  [ngClass]="{ 'is-invalid': submitted3 && backupform['schedule'].errors }">
+                <div *ngIf="submitted3 && backupform['schedule'].errors" class="invalid-feedback">
+                  <div *ngIf="backupform['schedule'].errors backupform['schedule'].required">
+                    Schedule is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-0 pt-2">
+            <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+              (click)="Close()">Close</button>
+            <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light"
+              (click)="addBackup()">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="model_Ajout" class="modal fade " data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content ">
+      <div class="addcred d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 22%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new access</h5>
+        <button type="button" class="btn-close" #closebuttonCred data-bs-dismiss="modal" aria-label="Close"
+          (click)="Close()">
+        </button>
+      </div>
+      <form [formGroup]="accessForm">
+        <div class="modal-body  ">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Name</label>
+                <input type="text" formControlName="name"
+                  [ngClass]="{ 'is-invalid': submitted1 && accessform['name'].errors }" class="form-control"
+                  required="true">
+                <div *ngIf="submitted1 && accessform['name'].errors" class="invalid-feedback">
+                  <div *ngIf="accessform['name'].errors accessform['name'].required">Name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Class</label>
+                <ng-select class="ng-select" formControlName="classe"
+                  [ngClass]="{ 'is-invalid': submitted1 && accessform['classe'].errors }" required>
+                  <ng-option *ngFor="let c of class" [value]="c.value">{{c.name}}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted1 && accessform['classe'].errors" class="invalid-feedback">
+                  <div *ngIf="accessform['classe'].errors accessform['classe'].required">Class is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Login</label>
+                <input type="text" class="form-control" formControlName="login"
+                  [ngClass]="{ 'is-invalid': submitted1 && accessform['login'].errors }" required>
+                <div *ngIf="submitted1 && accessform['login'].errors" class="invalid-feedback">
+                  <div *ngIf="accessform['login'].errors accessform['login'].required">Login is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Password</label>
+                <div class="col-md-12">
+                  <div class="input-group auth-pass-inputgroup">
+                    <input type="password" class="form-control" formControlName="password" aria-label="Password"
+                      aria-describedby="password-addon"
+                      [ngClass]="{ 'is-invalid': submitted1 && accessform['password'].errors }">
+                    <button class="btn btn-light " type="button" id="password-addon"><i
+                        class="mdi mdi-eye-outline"></i></button>
+                    <div *ngIf="submitted1 && accessform['password'].errors" class="invalid-feedback">
+                      <div *ngIf="accessform['password'].errors accessform['password'].required">Password required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>URL</label>
+                <input type="text" formControlName="url" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label>Port</label>
+                <input type="number" formControlName="port" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted1 && accessform['port'].errors }">
+                <div *ngIf="submitted1 && accessform['port'].errors" class="invalid-feedback">
+                  <div *ngIf="accessform['port'].errors accessform['port'].required">Port required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+            (click)="Close()">Close</button>
+          <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light"
+            (click)="addAccessCredential()">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

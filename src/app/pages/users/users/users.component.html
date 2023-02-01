@@ -1,0 +1,222 @@
+<div class="UserLoad d-none"
+  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+  <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+    <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+      <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
+        from="0 50 50" to="360 50 50" repeatCount="indefinite">
+      </animateTransform>
+    </path>
+  </svg>
+  <div class="text-dark">
+    <span class="logo-lg">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+    </span>
+  </div>
+</div>
+<app-navbar2></app-navbar2>
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pt-5">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Users List</h4>
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a>Users</a></li>
+                <li class="breadcrumb-item active">List</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row fl">
+                <div class="col-sm-12">
+                  <div class="text-sm-end" *ngIf="this.usrPer.users.includes('create')==true">
+                    <button type="button"
+                      class="btn  btn-primary btn-rounded waves-effect waves-light waves-light mb-2 me-2"
+                      data-bs-toggle="modal" data-bs-target=".bs-example-modal-center" data-keyboard="false"> <i
+                        class="mdi mdi-plus me-1"></i>New user</button>
+                  </div>
+                </div>
+              </div>
+              <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border  "
+                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline collapsed text-center "
+                id="table_user">
+                <thead class="table-light">
+                  <tr>
+                    <th>ID </th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of usersList" data-id="user-{{user.id}}">
+                    <td>{{user?.id}}</td>
+                    <td>{{user?.firstname}}</td>
+                    <td>{{user?.lastname}}</td>
+                    <td>{{user?.email}}</td>
+                    <td>
+                      <span *ngIf="user?.role==2"><span>Admin</span></span>
+                      <span *ngIf="user?.role==3"><span>Agent</span></span>
+                      <span *ngIf="user?.role==4"><span>Supervisor</span></span>
+                    </td>
+                    <td>
+                      <span *ngIf="user?.status==1"><span
+                          class="badge rounded-pill badge-soft-success font-size-12">Active</span></span>
+                      <span *ngIf="user?.status==2"><span
+                          class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></span>
+                      <span *ngIf="user?.status==3"><span class="badge rounded-pill badge-soft-warning font-size-12">In
+                          Progress</span></span>
+                    </td>
+                    <td>
+                      <div class="d-flex gap-2 justify-content-center">
+                        <a class="btn btn-sm btn-soft-secondary " placement="top" ngbTooltip="Email">
+                          <i class="mdi mdi-email-plus font-size-16"></i></a>
+                        <a *ngIf="this.usrPer.users.includes('update')==true" class="btn btn-sm btn-soft-primary"
+                          routerLink="/contacts-profile/{{user.id}}" placement="top" ngbTooltip="Edit">
+                          <i class="mdi mdi-pencil font-size-16"></i></a>
+
+                        <a *ngIf="this.usrPer.users.includes('delete')==true" class="btn btn-sm btn-soft-danger"
+                          type="button" (click)="deleteUser(user?.id)" placement="top" ngbTooltip="Delete">
+                          <i class="mdi mdi-delete font-size-16"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-center" data-bs-backdrop="static" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5">
+    <div class="modal-content">
+      <div class="adduser d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 16%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new user</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" (click)="close()"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form [formGroup]="userForm" class="custom-validation">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label>Firstname</label>
+                <div>
+                  <input type="text" formControlName="firstname"
+                    [ngClass]="{ 'is-invalid': submitted && userform['firstname'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted && userform['firstname'].errors" class="invalid-feedback">
+                    <div *ngIf="userform['firstname'].errors userform['firstname'].required">Firstname is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label>Lastname</label>
+                <div>
+                  <input type="text" formControlName="lastname"
+                    [ngClass]="{ 'is-invalid': submitted && userform['lastname'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted && userform['lastname'].errors" class="invalid-feedback">
+                    <div *ngIf="userform['lastname'].errors userform['lastname'].required">Lastname is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label>Email</label>
+                <div>
+                  <input type="text" formControlName="email"
+                    [ngClass]="{ 'is-invalid': submitted && userform['email'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted && userform['email'].errors" class="invalid-feedback">
+                    <div *ngIf="userform['email'].errors userform['email'].required">Email is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label>Role</label>
+                <div>
+                  <ng-select class="ng-select" formControlName="role"
+                    [ngClass]="{ 'is-invalid': submitted && userform['role'].errors }" required>
+                    <ng-option *ngFor="let o of adminop" [value]="o.value">{{o.name}}</ng-option>
+                  </ng-select>
+                  <div *ngIf="submitted && userform['role'].errors" class="invalid-feedback">
+                    <div *ngIf="userform['role'].errors userform['role'].required">Role is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer p-0 pt-2">
+              <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+                (click)="close()">Close</button>
+              <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light"
+                (click)="addUser()">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rightbar-overlay"></div>

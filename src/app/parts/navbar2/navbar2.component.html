@@ -1,0 +1,857 @@
+<body data-topbar="dark" data-layout="horizontal">
+  <div id="layout-wrapper">
+    <header id="page-topbar">
+      <div class="navbar-header">
+        <div class="d-flex">
+          <div class="navbar-brand-box">
+            <a routerLink="/index" class="logo logo-dark">
+              <span class="logo-sm">
+                <img src="./assets/images/logo-argus-dark.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="./assets/images/logo-argus-dark.png" alt="" height="17">
+              </span>
+            </a>
+            <a routerLink="/index" class="logo logo-light">
+              <span class="logo-sm">
+                <img src="./assets/images/logo-argus-dark.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="./assets/images/logo-argus-dark.png" alt="" height="35">
+              </span>
+            </a>
+          </div>
+          <button type="button"
+            class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light collapsed"
+            data-bs-toggle="collapse" data-bs-target="#topnav-menu-content" aria-expanded="false">
+            <i class="fa fa-fw fa-bars"></i>
+          </button>
+          <div class="dropdown d-none d-lg-block ms-2">
+            <div class="dropdown ms-1 d-flex p-0 align-items-center"
+              *ngIf="this.usrPer.users.includes('create')==true || this.usrPer.servers.includes('create')==true || this.usrPer.applications.includes('create')==true">
+              <button type="button" class="btn header-item noti-icon waves-effect pad" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="bx bxs-plus-square"></i>
+                <span class="card-title mb-0" key="t-henry" style="font-weight: 400;padding-left: 10px;">Add New</span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <button *ngIf="this.usrPer.users.includes('create')==true" data-bs-backdrop="static"
+                  data-bs-toggle="modal" data-bs-target="#modalAddUser" class="dropdown-item">User</button>
+                <button *ngIf="this.usrPer.servers.includes('create')==true" data-bs-toggle="modal"
+                  data-bs-target="#modalAddServer" class="dropdown-item">Server</button>
+                <button *ngIf="this.usrPer.applications.includes('create')==true" data-bs-backdrop="static"
+                  data-bs-toggle="modal" data-bs-target="#modalAddApplication"
+                  class="dropdown-item">Application</button>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <form class="app-search d-none d-lg-block px-4">
+            <div class="position-relative">
+              <input type="text" class="form-control" placeholder="Search...">
+              <span class="bx bx-search-alt"></span>
+            </div>
+          </form>
+          <div class="dropdown d-inline-block" placement="left" ngbTooltip="Notifications">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="bx bx-bell bx-tada"></i>
+              <span class="badge bg-danger rounded-pill">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+              aria-labelledby="page-header-notifications-dropdown">
+              <div class="p-3">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h6 class="m-0" key="t-notifications"> Notifications </h6>
+                  </div>
+                  <div class="col-auto"><a routerLink="/notifi" role="button" class="small">View All</a>
+                  </div>
+                </div>
+              </div>
+              <div data-simplebar="init">
+                <div class="simplebar-wrapper">
+                  <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
+                  </div>
+                  <div class="simplebar-mask">
+                    <div class="simplebar-offset">
+                      <div class="simplebar-content-wrapper">
+                        <div class="simplebar-content">
+                          <a class="text-reset notification-item">
+                            <div class="d-flex">
+                              <div class="avatar-xs me-2">
+                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                  <i class="bx bx-bell-off"></i>
+                                </span><span> </span>
+                              </div>
+                              <div class="flex-grow-1">
+                                <h6 class="my-2" key="t-your-order">No notifications yet </h6>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="simplebar-placeholder"></div>
+                </div>
+                <div class="simplebar-track simplebar-horizontal">
+                  <div class="simplebar-scrollbar"></div>
+                </div>
+                <div class="simplebar-track simplebar-vertical">
+                  <div class="simplebar-scrollbar"></div>
+                </div>
+              </div>
+              <div class="p-2 border-top d-grid"><a routerLink="/notifi"
+                  class="btn btn-sm btn-link font-size-14 text-center"><i
+                    class="mdi mdi-arrow-right-circle me-1"></i><span key="t-view-more">View More..</span></a></div>
+            </div>
+          </div>
+          <div class="dropdown d-inline-block d-lg-none ms-2">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="mdi mdi-magnify"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+              aria-labelledby="page-header-search-dropdown">
+
+              <form class="p-3">
+                <div class="form-group m-0">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="rounded-circle header-profile-user" src="assets/images/uploads/{{user?.photo}}"
+                alt="Header Avatar">
+              <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user?.firstname}}</span>
+              <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" routerLink="/my_profile" role="button"><i
+                  class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">My Profile</span></a>
+              <a *ngIf="this.usrPer.users.includes('view')==true" class="dropdown-item" role="button"
+                routerLink="/users"><i class="bx bx-group font-size-16 align-middle me-1"></i> <span
+                  key="t-profile">Users</span></a>
+              <a *ngIf="this.usrPer.providers.includes('view')==true" class="dropdown-item" role="button"
+                routerLink="/providers"><i class="bx bx-user-minus font-size-16 align-middle me-1"></i> <span
+                  key="t-profile">Providers</span></a>
+              <a *ngIf="this.usrPer.deployments.includes('view')==true" class="dropdown-item" role="button"
+                routerLink="/deployment"><i class="bx bx-up-arrow-alt font-size-16 align-middle me-1"></i> <span
+                  key="t-profile">Deployments</span></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" role="button" (click)="logout()"><i
+                  class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                  key="t-logout">Logout</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <app-sidebar2></app-sidebar2>
+  </div>
+</body>
+
+<div id="modalAddUser" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg position p-5" style="margin-left: 29%;">
+    <div class="modal-content">
+      <div class="addusern d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 16%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new user</h5>
+        <button type="button" class="btn-close" #closebuttonusr data-bs-dismiss="modal" (click)="close()"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form [formGroup]="userAddForm" class="custom-validation">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label>Firstname</label>
+                <div>
+                  <input type="text" formControlName="firstname"
+                    [ngClass]="{ 'is-invalid': submitted10 && useraddform['firstname'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted10 && useraddform['firstname'].errors" class="invalid-feedback">Firstname is
+                    required</div>
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label>Lastname</label>
+                <div>
+                  <input type="text" formControlName="lastname"
+                    [ngClass]="{ 'is-invalid': submitted10 && useraddform['lastname'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted10 && useraddform['lastname'].errors" class="invalid-feedback">Lastname is
+                    required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label>Email</label>
+                <div>
+                  <input type="text" formControlName="email"
+                    [ngClass]="{ 'is-invalid': submitted10 && useraddform['email'].errors }" class="form-control"
+                    required="true">
+                  <div *ngIf="submitted10 && useraddform['email'].errors" class="invalid-feedback">Email is required
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label>Role</label>
+                <div>
+                  <ng-select class="ng-select" formControlName="role"
+                    [ngClass]="{ 'is-invalid': submitted10 && useraddform['role'].errors }" required>
+                    <ng-option *ngFor="let o of adminop" [value]="o.value">{{o.name}}</ng-option>
+                  </ng-select>
+                  <div *ngIf="submitted10 && useraddform['role'].errors" class="invalid-feedback">Role is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer p-0 pt-2">
+              <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect" data-bs-dismiss="modal"
+                (click)="close()">Close</button>
+              <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light"
+                (click)="saveUser()">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAddServer" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl p-2">
+    <div class="modal-content">
+      <div class="addservern d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 17%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new server</h5>
+        <button type="button" class="btn-close" #closebuttonsrv data-bs-dismiss="modal" (click)="close()"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <form id="formapplicationserver" [formGroup]="serverAddForm" (ngSubmit)="saveServerr()" class="vertical-wizard">
+          <h3>Creation mode </h3>
+          <section class="stepper_height">
+            <div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="radio-tile-group">
+                    <div class="input-container">
+                      <input type="radio" class="radio-button" value="true" checked (click)="cpuChange(2)" />
+                      <div class="radio-tile">
+                        <div class="icon fly-icon">
+                          <span fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+                          </span>
+                        </div>
+                        <label for="fly" class="radio-tile-label">Manually </label>
+                        <p class="text">Create your server from scratch</p>
+                      </div>
+                    </div>
+                    <div class="input-container">
+                      <input type="radio" class="radio-button" value="false" (click)="cpuChange(3)" />
+                      <div class="radio-tile">
+                        <div class="icon walk-icon">
+                          <span fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+                          </span>
+                        </div>
+                        <label for="walk" class="radio-tile-label">By agent</label>
+                        <p class="text">Create your server by agent</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Setup</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3" formGroupName="cloud_provider_account">
+                    <label class="col-md-4 col-form-label ">Cloud account</label>
+                    <ng-select class="ng-select" formControlName="id" required="true"
+                      [ngClass]="{ 'is-invalid': submitted20 && serveraddform['cloud_provider_account'].get('id')?.errors }">
+                      <ng-option *ngFor="let p of cloudProvidersAccountsList" [value]="p?.id">{{p?.account?.name}} -
+                        {{p?.provider?.name}}</ng-option>
+                    </ng-select>
+                    <div *ngIf="submitted20 && serveraddform['cloud_provider_account'].get('id')?.errors"
+                      class="invalid-feedback">Cloud account is required</div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label class="col-md-4 col-form-label">Location </label>
+                      <ng-select class="ng-select" formControlName="location" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['location'].errors }">
+                        <ng-option *ngFor="let l of location" [value]="l.value">{{l.name}}</ng-option>
+                      </ng-select>
+                      <div *ngIf="submitted20 && serveraddform['location'].errors" class="invalid-feedback">Location is
+                        required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="d-block mb-2 col-md-4">Select mode</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
+                        value="option0">
+                      <label class="form-check-label" for="inlineRadio0">From scratch </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
+                        value="option1">
+                      <label class="form-check-label" for="inlineRadio1">By template </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
+                        value="option2">
+                      <label class="form-check-label" for="inlineRadio2">ISO</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Select a template</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group" formGroupName="template">
+                      <label class="col-md-4 col-form-label">Templates list</label>
+                      <ng-select formControlName="id">
+                        <ng-option *ngFor="let t of templatesList" [value]="t?.id">{{t?.name}}</ng-option>
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Configuration</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="d-block mb-3 col-md-3">CPU</label>
+                      <div class="radio-box d-flex justify-content-between">
+                        <input id="radio-b-11" type="radio" formControlName="cpu" required="true" name="cpu"
+                          value="1" />
+                        <label for="radio-b-11">Xeon E3-1275 V6</label>
+                        <input id="radio-b-22" type="radio" formControlName="cpu" required="true" name="cpu"
+                          value="2" />
+                        <label for="radio-b-22">Core i7-7700T</label>
+                        <input id="radio-b-33" type="radio" formControlName="cpu" required="true" name="cpu"
+                          value="3" />
+                        <label for="radio-b-33">Core i7-7100T</label>
+                        <input id="radio-b-44" type="radio" formControlName="cpu" required="true" name="cpu"
+                          value="4" />
+                        <label for="radio-b-44">Core i7-7000T</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="d-block mb-3 col-md-3">Disk space</label>
+                      <div class="radio-box d-flex justify-content-between">
+                        <input id="radios-b-11" type="radio" formControlName="disk_space" required="true"
+                          name="disk_space" value="1" />
+                        <label for="radios-b-11">512Go</label>
+                        <input id="radios-b-22" type="radio" formControlName="disk_space" required="true"
+                          name="disk_space" value="2" />
+                        <label for="radios-b-22">1024Go</label>
+                        <input id="radios-b-33" type="radio" formControlName="disk_space" required="true"
+                          name="disk_space" value="3" />
+                        <label for="radios-b-33">2048Go</label>
+                        <input id="radios-b-44" type="radio" formControlName="disk_space" required="true"
+                          name="disk_space" value="4" />
+                        <label for="radios-b-44">5000Go</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="d-block mb-3 col-md-3">Memory</label>
+                      <div class="radio-box d-flex justify-content-between">
+                        <input id="radio02-b-11" type="radio" formControlName="memory" required="true" name="memory"
+                          value="1" />
+                        <label for="radio02-b-11">16Go</label>
+                        <input id="radio02-b-22" type="radio" formControlName="memory" required="true" name="memory"
+                          value="2" />
+                        <label for="radio02-b-22">32Go</label>
+                        <input id="radio02-b-33" type="radio" formControlName="memory" required="true" name="memory"
+                          value="3" />
+                        <label for="radio02-b-33">64Go</label>
+                        <input id="radio02-b-44" type="radio" formControlName="memory" required="true" name="memory"
+                          value="4" />
+                        <label for="radio02-b-44">128Go</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Network</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-3 col-form-label">IP address</label>
+                      <input class="form-control" formControlName="ip_address" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['ip_address'].errors }">
+                      <div *ngIf="submitted20 && serveraddform['ip_address'].errors" class="invalid-feedback">IP address
+                        is
+                        required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label class="col-md-3 col-form-label">Hostname</label>
+                      <input class="form-control" formControlName="hostname" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['hostname'].errors }">
+                      <div *ngIf="submitted20 && serveraddform['hostname'].errors" class="invalid-feedback">Hostname is
+                        required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>More</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-3 col-form-label">Name</label>
+                      <input class="form-control" formControlName="name" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['name'].errors }">
+                      <div *ngIf="submitted20 && serveraddform['name'].errors" class="invalid-feedback">Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group" formGroupName="category">
+                      <label class="col-md-3 col-form-label">Category</label>
+                      <ng-select formControlName="id" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['category'].get('id')?.errors }">
+                        <ng-option *ngFor="let c of categories" [value]="c?.value">{{c?.name}}</ng-option>
+                      </ng-select>
+                      <div *ngIf="submitted20 && serveraddform['category'].get('id')?.errors" class="invalid-feedback">
+                        Category
+                        is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="d-block mb-2 col-md-4">SSH credentials </label>
+                    <div class="form-check form-check-inline" (click)="cpuChange(1)">
+                      <input class="form-check-input" type="radio" formControlName="ssh" value="yes"
+                        (change)="changecheck($event)">
+                      <label class="form-check-label">YES</label>
+                    </div>
+                    <div class="form-check form-check-inline" (click)="cpuChange(2)">
+                      <input class="form-check-input" type="radio" formControlName="ssh" value="no"
+                        (change)="changecheck($event)">
+                      <label class="form-check-label">NO</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" *ngIf="value == 1">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-3 col-form-label">Login</label>
+                      <input class="form-control" type="text" formControlName="login" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['login'].errors }">
+                      <div *ngIf="submitted20 && serveraddform['login'].errors" class="invalid-feedback">Login is
+                        required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="value == 1">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-3 col-form-label">Port</label>
+                      <input class="form-control" type="number" formControlName="port" required="true"
+                        [ngClass]="{ 'is-invalid': submitted20 && serveraddform['port'].errors }">
+                      <div *ngIf="submitted20 && serveraddform['port'].errors" class="invalid-feedback">Port is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="example-text-input" class="col-md-4 col-form-label">Password</label>
+                    <div class="col-md-12">
+                      <div class="input-group auth-pass-inputgroup">
+                        <input type="password" class="form-control" formControlName="password" aria-label="Password"
+                          [ngClass]="{ 'is-invalid': submitted20 && serveraddform['password'].errors }"
+                          aria-describedby="password-addon">
+                        <button class="btn btn-light " type="button" id="password-addon"><i
+                            class="mdi mdi-eye-outline"></i></button>
+                        <div *ngIf="submitted20 && serveraddform['password'].errors" class="invalid-feedback">Password
+                          required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Confirm details</h3>
+          <section class="stepper_height">
+            <div class="row pt-4 justify-content-center">
+              <div class="col-lg-6 pt-4">
+                <div class="text-center mt-4 pt-4">
+                  <div class="mb-4">
+                    <i class="mdi mdi-check-circle-outline text-success display-4"></i>
+                  </div>
+                  <div>
+                    <h5>Confirm details</h5>
+                    <p class="text-muted">If you are sure about these informations then click Finish</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-success d-none sub-btn">
+                Confirm
+              </button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAddApplication" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl p-5">
+    <div class="modal-content">
+      <div class="addappn d-none"
+        style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+        <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100" xml:space="preserve" style="width: 4%; margin-top: 11%;">
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                                                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                                                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+          <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                                                    L82,35.7z">
+            <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
+              dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
+            </animateTransform>
+          </path>
+        </svg>
+        <div class="text-dark">
+          <span class="logo-lg">
+            <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="40">
+          </span>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Add new application</h5>
+        <button type="button" class="btn-close" #closebuttonapk data-bs-dismiss="modal" aria-label="Close"
+          (click)="close()"></button>
+      </div>
+      <div class="modal-body p-0">
+        <form id="formapplicationapp" [formGroup]="applicationAddForm" (ngSubmit)="saveApplication()"
+          class="vertical-wizard">
+          <h3>Add application </h3>
+          <section class="stepper_height">
+            <div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label class="col-md-4 col-form-label">Name </label>
+                          <input class="form-control" formControlName="name" type="text"
+                            [ngClass]="{ 'is-invalid': submitted30 && appaddform['name'].errors }" required="true">
+                          <div *ngIf="submitted30 && appaddform['name'].errors" class="invalid-feedback">Name is
+                            required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label class="col-md-2 col-form-label">Version </label>
+                          <input class="form-control" formControlName="version" type="text"
+                            [ngClass]="{ 'is-invalid': submitted30 && appaddform['version'].errors }" required="true">
+                          <div *ngIf="submitted30 && appaddform['version'].errors" class="invalid-feedback">Version is
+                            required</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label class="col-md-4 col-form-label">Type </label>
+                          <ng-select formControlName="classe"
+                            [ngClass]="{ 'is-invalid': submitted30 && appaddform['classe'].errors }" required="true">
+                            <ng-option *ngFor="let cl of classe" [value]="cl?.value">{{cl?.name}}</ng-option>
+                          </ng-select>
+                          <div *ngIf="submitted30 && appaddform['classe'].errors" class="invalid-feedback">Type is
+                            required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label class="col-md-2 col-form-label">Logo </label>
+                          <input class="form-control" formControlName="logo" type="file" (change)="selectImge($event)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h3>Application source</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="d-block mb-3 col-md-3">Source </label>
+                    <div class="radio-box">
+                      <input id="source_type11" type="radio" formControlName="source_type"
+                        [ngClass]="{ 'is-invalid': submitted30 && appaddform['source_type'].errors }" required="true"
+                        name="source_type" value="1" (click)="cpuChange(1)" />
+                      <label for="source_type11">Git</label>
+                      <input id="source_type22" type="radio" formControlName="source_type"
+                        [ngClass]="{ 'is-invalid': submitted30 && appaddform['source_type'].errors }" required="true"
+                        name="source_type" value="2" (click)="cpuChange(2)" />
+                      <label for="source_type22">Cloud</label>
+                      <input id="source_type33" type="radio" formControlName="source_type"
+                        [ngClass]="{ 'is-invalid': submitted30 && appaddform['source_type'].errors }" required="true"
+                        name="source_type" value="3" (click)="cpuChange(3)" />
+                      <label for="source_type33">Local</label>
+                      <div *ngIf="submitted30 && appaddform['source_type'].errors" class="invalid-feedback">Source is
+                        required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" *ngIf="value == 1">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-2 col-form-label">Repo </label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" *ngIf="value == 2">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" formControlName="source_account"
+                        class="col-md-2 col-form-label">Account </label>
+                      <ng-select>
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" *ngIf="value ==2">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-4 col-form-label">URL</label>
+                      <input class="form-control" formControlName="source_url" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" *ngIf="value == 1">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-4 col-form-label">Build command</label>
+                      <input class="form-control" formControlName="source_build" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" *ngIf="value == 1">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-4 col-form-label">Run command</label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </section>
+          <h3>Add application database</h3>
+          <section class="stepper_height">
+            <div>
+              <div class="row">
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="example-text-input" class="col-md-2 col-form-label">File </label>
+                      <input class="form-control" type="file">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label class="col-md-4 col-form-label">Build command </label>
+                      <input class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </section>
+          <h3>Confirm details</h3>
+          <section class="stepper_height">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="text-center">
+                  <div class="mb-4">
+                    <i class="mdi mdi-check-circle-outline text-success display-4"></i>
+                  </div>
+                  <div>
+                    <h5>Confirm details</h5>
+                    <p class="text-muted">If you are sure about these informations then click Finish</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-success d-none sub-btn">
+                Confirm
+              </button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

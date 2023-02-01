@@ -1,0 +1,99 @@
+<div class="topnav">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+      <div class="collapse navbar-collapse mm-active" id="topnav-menu-content">
+        <ul class="navbar-nav  mm-show ">
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle arrow-none " routerLink="/index"
+              id="topnav-dashboard" role="button">
+              <span key="t-modules/-dashboard">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="this.usrPer.servers.includes('view')==true || this.usrPer.domains.includes('view')==true || this.usrPer.applications.includes('view')==true">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-instances">Instances</span>
+              <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="topnav-instances">
+              <a *ngIf="this.usrPer.servers.includes('view')==true" routerLink="/servers" class="dropdown-item"
+                key="t-servers-list">Servers</a>
+              <a *ngIf="this.usrPer.domains.includes('view')==true" routerLink="/domain_names" class="dropdown-item"
+                key="t-servers-list">Domaine names</a>
+              <div class="dropdown" *ngIf="this.usrPer.applications.includes('view')==true">
+                <a class="dropdown-item dropdown-toggle arrow-none" id="topnav-blog" role="button">
+                  <span key="t-application-templates">Applications</span>
+                  <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-blog">
+                  <a routerLink="/applications" class="dropdown-item" key="t-basic-action">Apps List</a>
+                  <a routerLink="/packages" class="dropdown-item" key="t-servers-list">Packages</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown" *ngIf="this.usrPer.backups.includes('view')==true">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-image">Backups</span>
+              <div class="arrow-down breadcrumb-item"></div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="topnav-image">
+              <a routerLink="/backups" class="dropdown-item" key="t-servers-list">Operations</a>
+              <a routerLink="/snapshots" class="dropdown-item" key="t-servers-list">Images</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-image">Firewall</span>
+              <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="topnav-image">
+              <a routerLink="/" class="dropdown-item" key="t-servers-list">Rules</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-image">Monitoring</span>
+              <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="topnav-image">
+              <a class="dropdown-item" key="t-servers-list">Alerts</a>
+              <a class="dropdown-item" key="t-servers-list">Performance</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-image">Tools</span>
+              <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="topnav-image">
+              <a routerLink="/commands" class="dropdown-item" key="t-servers-list">Commands</a>
+              <a routerLink="/policies" class="dropdown-item" key="t-servers-list">Policies</a>
+              <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" id="topnav-blog" role="button">
+                  <span key="t-application-templates">Scan</span>
+                  <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-blog">
+                  <a routerLink="/anti_virus" class="dropdown-item" key="t-servers-list">Anti Virus</a>
+                  <a routerLink="/anti_malwares" class="dropdown-item" key="t-servers-list">Anti Malwares</a>
+                  <a routerLink="/performance" class="dropdown-item" key="t-servers-list"> Performance</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list">DNS</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list">Vulnerablity</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list"> Blacklist</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list"> Email Delivery</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list"> SSL</a>
+                  <a class="dropdown-item" role="button" key="t-servers-list"> SEO</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" role="button">
+              <span key="t-inventory_management-settings">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

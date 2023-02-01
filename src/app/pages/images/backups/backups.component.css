@@ -1,0 +1,74 @@
+#border {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+
+.switch {
+  display: flex;
+  margin-bottom: 36px;
+  overflow: hidden;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.switch input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch label {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+
+.switch label:hover {
+  cursor: pointer;
+}
+
+.switch input:checked+label {
+  background-color: #2f49c7;
+  box-shadow: none;
+  color: white;
+
+}
+
+.switch label:first-of-type {
+  border-radius: 4px 4px 4px 4px;
+}
+
+.switch label:last-of-type {
+  border-radius: 4px 4px 4px 4px;
+}
+
+span#icone {
+  background-color: #8093cc;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.type_radio {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.inline-flatpickr .form-control,
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
+  display: none;
+}

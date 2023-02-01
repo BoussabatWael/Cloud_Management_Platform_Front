@@ -1,0 +1,25 @@
+button.btn.btn-success.btn-rounded.waves-effect.waves-light.waves-light.mb-2.me-2 {
+  margin-right: 0.1em;
+}
+
+.badge-soft-success {
+  color: #34c38f;
+  background-color: rgba(52, 195, 143, .18);
+}
+
+.badge-soft-danger {
+  color: #f46a6a;
+  background-color: rgba(244, 106, 106, .18);
+}
+
+.badge-soft-warning {
+  color: #f1b44c;
+  background-color: rgba(241, 180, 76, .18);
+}
+
+@media (min-width: 992px) {
+  .position {
+    max-width: 800px;
+    margin-left: 550px;
+  }
+}
