@@ -32,8 +32,6 @@ export class UsersComponent implements OnInit {
   userLogs: logs = new logs();
   user: any;
   usr: any;
-  account: any;
-  // user: Users = new Users(1)
   response: any;
   newuser: any;
   response2: any;
@@ -88,8 +86,6 @@ export class UsersComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -199,18 +195,18 @@ export class UsersComponent implements OnInit {
             new_object = this.usersList1[key];
           }
         }
-        if (new_object.role === 2) {
+        if (new_object?.role === 2) {
           new_object.role = 'Admin';
-        } else if (new_object.role === 3) {
+        } else if (new_object?.role === 3) {
           new_object.role = 'Agent';
         } else {
           new_object.role = 'Supervisor';
         }
 
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -268,13 +264,13 @@ export class UsersComponent implements OnInit {
         $('#table_user')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.firstname,
-            new_object.lastname,
-            new_object.email,
-            new_object.role,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.firstname,
+            new_object?.lastname,
+            new_object?.email,
+            new_object?.role,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore

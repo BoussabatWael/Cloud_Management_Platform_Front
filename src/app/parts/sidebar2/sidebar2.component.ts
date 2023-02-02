@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class Sidebar2Component implements OnInit {
   usr: any;
   user: any;
-  account: any;
   userPermission: any;
   usrPer: any;
   constructor(private router: Router) {}
@@ -20,8 +19,6 @@ export class Sidebar2Component implements OnInit {
     }
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);

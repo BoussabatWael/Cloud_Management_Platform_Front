@@ -1,7 +1,7 @@
-import { InventoryTemplatesService } from './../../../../Services/inventory-templates.service';
+import { InventoryTemplatesService } from './../../../Services/inventory-templates.service';
 import { AccessCredentialsService } from 'src/app/Services/access-credentials.service';
-import { ApplicationService } from './../../../../Services/application.service';
-import { DomaineNameService } from './../../../../Services/domaine-name.service';
+import { ApplicationService } from './../../../Services/application.service';
+import { DomaineNameService } from './../../../Services/domaine-name.service';
 import { ServerService } from 'src/app/Services/server.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -58,7 +58,8 @@ export class ProvidersdetailsComponent implements OnInit {
   submitted2: boolean = false;
   usr: any;
   user: any;
-  account: any;
+  userPermission: any;
+  usrPer: any;
   userLogs: logs = new logs();
   public providerForm!: FormGroup;
   public instanceForm!: FormGroup;
@@ -120,10 +121,10 @@ export class ProvidersdetailsComponent implements OnInit {
     public datepipe: DatePipe
   ) {
     this.providerForm = this.fb.group({
-      name: ['',Validators.required],
+      name: ['', Validators.required],
       logo: [''],
       status: [''],
-      website: ['',Validators.required],
+      website: ['', Validators.required],
     });
 
     this.instanceForm = this.fb.group({
@@ -146,7 +147,7 @@ export class ProvidersdetailsComponent implements OnInit {
         id: [''],
       }),
       login: [''],
-      password: ['',Validators.required],
+      password: ['', Validators.required],
       port: [''],
     });
 
@@ -188,7 +189,8 @@ export class ProvidersdetailsComponent implements OnInit {
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
 
-    this.account = this.user['account'];
+    this.userPermission = localStorage.getItem('permissions');
+    this.usrPer = JSON.parse(this.userPermission);
 
     this.dtOptions = {
       lengthMenu: [5, 10, 20, 50, 100],
@@ -382,10 +384,10 @@ export class ProvidersdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -393,28 +395,34 @@ export class ProvidersdetailsComponent implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.creation_type === 1) {
+          if (new_object?.creation_type === 1) {
             new_object.creation_type = 'Server';
-          } else if (new_object.creation_type === 2) {
+          } else if (new_object?.creation_type === 2) {
             new_object.creation_type = 'Domain name';
           } else {
             new_object.creation_type = 'Application';
           }
-
+          if(this.usrPer.servers.includes('delete') == true && this.usrPer.domains.includes('delete') == true){
           new_object.actions = `<div class="d-flex gap-2 justify-content-center">
                               <a class="btn btn-sm btn-soft-danger btnDelInsProv" data-id="${new_object?.id}"  type="button" placement="top" ngbTooltip="Delete" (click)="deleteInstance(ins?.id)">
                                 <i class="mdi mdi-delete font-size-16"></i>
                               </a>
                             </div>`;
+          }else{
+          new_object.actions = `<div class="d-flex gap-2 justify-content-center">
+                              ---
+                            </div>`;
+          }
+
 
           $('#table_p_ins')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.name,
-              new_object.creation_type,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.name,
+              new_object?.creation_type,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
@@ -840,11 +848,11 @@ export class ProvidersdetailsComponent implements OnInit {
         $('#table_provider_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
           ])
           .draw();
         return new_object;

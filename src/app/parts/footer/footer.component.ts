@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
   usr: any;
   user: any;
-  account: any;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -18,7 +17,5 @@ export class FooterComponent implements OnInit {
     }
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
   }
 }

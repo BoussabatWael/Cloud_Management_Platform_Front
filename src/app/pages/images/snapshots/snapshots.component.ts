@@ -19,7 +19,6 @@ export class SnapshotsComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   userPermission: any;
   usrPer: any;
@@ -37,8 +36,6 @@ export class SnapshotsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);

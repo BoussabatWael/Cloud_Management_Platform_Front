@@ -40,7 +40,6 @@ export class BackupsComponent implements OnInit {
   valuue: any;
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   backupForm!: FormGroup;
   userPermission: any;
@@ -61,7 +60,7 @@ export class BackupsComponent implements OnInit {
       layout: ['', Validators.required],
       classe: [''],
       target: [''],
-      schedule: ['',Validators.required],
+      schedule: ['', Validators.required],
       instance: this.fb.group({
         id: ['', Validators.required],
       }),
@@ -91,8 +90,6 @@ export class BackupsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -188,32 +185,32 @@ export class BackupsComponent implements OnInit {
             new_object = this.backupOperationsList1[key];
           }
         }
-        if (new_object.layout === 1) {
+        if (new_object?.layout === 1) {
           new_object.layout = 'All';
-        } else if (new_object.layout === 2) {
+        } else if (new_object?.layout === 2) {
           new_object.layout = 'Files';
-        } else if (new_object.layout === 3) {
+        } else if (new_object?.layout === 3) {
           new_object.layout = 'Folders';
         } else {
           new_object.layout = 'Databases';
         }
 
-        if (new_object.synchronization === 1) {
+        if (new_object?.synchronization === 1) {
           new_object.synchronization = 'YES';
         } else {
           new_object.synchronization = 'NO';
         }
 
-        if (new_object.target === 1) {
+        if (new_object?.target === 1) {
           new_object.target = 'Local';
         } else {
           new_object.target = 'Remote';
         }
 
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<i class="mdi mdi-circle text-success align-middle me-1"></i>Active';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive';
         } else {
@@ -283,18 +280,18 @@ export class BackupsComponent implements OnInit {
         $('#table_backup_op')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.name,
-            new_object.layout,
-            new_object.target,
-            new_object.synchronization,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.name,
+            new_object?.layout,
+            new_object?.target,
+            new_object?.synchronization,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
         $('#table_backup_op').DataTable().row(':last').node().id =
-          'backup-op-' + new_object.id;
+          'backup-op-' + new_object?.id;
         return new_object;
       },
       (error) => {

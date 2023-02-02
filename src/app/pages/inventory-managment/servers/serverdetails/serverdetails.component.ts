@@ -65,7 +65,6 @@ export class ServerdetailsComponent implements OnInit {
   valuue: any;
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   submitted = false;
   submitted1 = false;
@@ -172,11 +171,11 @@ export class ServerdetailsComponent implements OnInit {
     });
 
     this.backupForm = this.fb.group({
-      name: ['',Validators.required],
-      layout: ['',Validators.required],
-      classe: ['',Validators.required],
-      target: ['',Validators.required],
-      schedule: ['',Validators.required],
+      name: ['', Validators.required],
+      layout: ['', Validators.required],
+      classe: ['', Validators.required],
+      target: ['', Validators.required],
+      schedule: ['', Validators.required],
     });
   }
   status = [
@@ -277,8 +276,6 @@ export class ServerdetailsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -551,7 +548,6 @@ export class ServerdetailsComponent implements OnInit {
         });
         this.Close();
         this.closebutton.nativeElement.click();
-        //this.getDiffApp()
         this.getDiffAppInstance();
         this.getDiff();
       },
@@ -1150,11 +1146,11 @@ export class ServerdetailsComponent implements OnInit {
         $('#table_server_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
           ])
           .draw();
         return new_object;
@@ -1190,10 +1186,10 @@ export class ServerdetailsComponent implements OnInit {
           }
         }
 
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -1249,15 +1245,15 @@ export class ServerdetailsComponent implements OnInit {
         $('#table_app_ver')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.application.name,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.application?.name,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
         $('#table_app_ver').DataTable().row(':last').node().id =
-          'app-ver-' + new_object.id;
+          'app-ver-' + new_object?.id;
         return new_object;
       },
       (error) => {
@@ -1290,10 +1286,10 @@ export class ServerdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -1365,15 +1361,15 @@ export class ServerdetailsComponent implements OnInit {
           $('#table_back')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.name,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.name,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_back').DataTable().row(':last').node().id =
-            'b-' + new_object.id;
+            'b-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -1406,10 +1402,10 @@ export class ServerdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -1434,18 +1430,18 @@ export class ServerdetailsComponent implements OnInit {
           $('#table_cre')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.name,
-              new_object.login,
-              new_object.password,
-              new_object.port,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.name,
+              new_object?.login,
+              new_object?.password,
+              new_object?.port,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_cre').DataTable().row(':last').node().id =
-            'cre-' + new_object.id;
+            'cre-' + new_object?.id;
           return new_object;
         },
         (error) => {

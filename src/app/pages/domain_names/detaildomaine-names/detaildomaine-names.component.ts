@@ -57,7 +57,6 @@ export class DetaildomaineNamesComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   submitted = false;
   submitted1 = false;
@@ -155,7 +154,7 @@ export class DetaildomaineNamesComponent implements OnInit {
     this.sslForm = this.fb.group({
       name: ['', Validators.required],
       status: [''],
-      cloud_provider_id: ['',Validators.required],
+      cloud_provider_id: ['', Validators.required],
       domain: this.fb.group({
         id: [''],
       }),
@@ -189,7 +188,6 @@ export class DetaildomaineNamesComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -330,10 +328,10 @@ export class DetaildomaineNamesComponent implements OnInit {
             new_object = this.networkHosts1[key];
           }
         }
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -357,16 +355,17 @@ export class DetaildomaineNamesComponent implements OnInit {
         $('#table_h')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.hosting.name,
-            new_object.cloud_provider_account.provider.name,
-            new_object.instance.name,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.hosting.name,
+            new_object?.cloud_provider_account?.provider?.name,
+            new_object?.instance?.name,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
-        $('#table_h').DataTable().row(':last').node().id = 'h-' + new_object.id;
+        $('#table_h').DataTable().row(':last').node().id =
+          'h-' + new_object?.id;
         return new_object;
       },
       (error) => {
@@ -418,15 +417,15 @@ export class DetaildomaineNamesComponent implements OnInit {
             $('#table_s_d')
               .DataTable()
               .row.add([
-                new_object.id,
-                new_object.name,
-                new_object.cloud_provider_account?.provider?.name,
-                new_object.actions,
+                new_object?.id,
+                new_object?.name,
+                new_object?.cloud_provider_account?.provider?.name,
+                new_object?.actions,
               ])
               .draw();
             //@ts-ignore
             $('#table_s_d').DataTable().row(':last').node().id =
-              's-d-' + new_object.id;
+              's-d-' + new_object?.id;
             return new_object;
           },
           (error) => {
@@ -468,10 +467,10 @@ export class DetaildomaineNamesComponent implements OnInit {
               new_object = this.networkSSLCertificates1[key];
             }
           }
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -495,15 +494,15 @@ export class DetaildomaineNamesComponent implements OnInit {
           $('#table_net_ssl')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.name,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.name,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_net_ssl').DataTable().row(':last').node().id =
-            'net-ssl-' + new_object.id;
+            'net-ssl-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -1126,11 +1125,11 @@ export class DetaildomaineNamesComponent implements OnInit {
         $('#table_domain_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
           ])
           .draw();
         return new_object;

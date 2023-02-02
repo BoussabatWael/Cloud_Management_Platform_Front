@@ -25,7 +25,6 @@ export class DetailsbackupsComponent implements OnInit {
   backupForm!: FormGroup;
   usr: any;
   user: any;
-  account: any;
   submitted = false;
   userLogs: logs = new logs();
   userPermission: any;
@@ -118,8 +117,6 @@ export class DetailsbackupsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -282,11 +279,11 @@ export class DetailsbackupsComponent implements OnInit {
         $('#table_backup_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
           ])
           .draw();
         return new_object;

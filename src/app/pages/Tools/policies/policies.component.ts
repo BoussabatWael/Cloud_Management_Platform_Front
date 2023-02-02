@@ -10,8 +10,6 @@ export class PoliciesComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   usr: any;
   user: any;
-  account: any;
-
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -21,8 +19,6 @@ export class PoliciesComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.dtOptions = {
       lengthMenu: [5, 10, 20, 50, 100],

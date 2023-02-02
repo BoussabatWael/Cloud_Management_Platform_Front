@@ -1,30 +1,36 @@
-<div class="updateProviderLoad d-none"
-  style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+<div class="updateProviderLoad d-none" style="
+    position: absolute;
+    left: 0;
+    height: 100%;
+    opacity: 80%;
+    margin: auto;
+    background: #fff;
+    text-align: center;
+    right: 0;
+    z-index: 1003;
+  ">
   <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
-    xml:space="preserve" style="width: 4%; margin-top: 22%;">
+    xml:space="preserve" style="width: 4%; margin-top: 22%">
     <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
                                                     c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
       <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
-        from="0 50 50" to="360 50 50" repeatCount="indefinite">
-      </animateTransform>
+        from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
     </path>
     <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
                                                     c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
       <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="1s"
-        from="0 50 50" to="-360 50 50" repeatCount="indefinite">
-      </animateTransform>
+        from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
     </path>
     <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
                                                     L82,35.7z">
       <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate" dur="2s"
-        from="0 50 50" to="360 50 50" repeatCount="indefinite">
-      </animateTransform>
+        from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
     </path>
   </svg>
   <div class="text-dark">
     <span class="logo-lg">
-      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50">
+      <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt="" height="50" />
     </span>
   </div>
 </div>
@@ -50,59 +56,78 @@
           <div class="card overflow-hidden">
             <div class="bg-primary bg-soft">
               <div class="row">
-                <div class="col-5 align-self-end"
-                  style="height: 60px;width: 100%;background-image: linear-gradient(0deg, #ffffff 0%, #2a3042 400%);">
-                </div>
+                <div class="col-5 align-self-end" style="
+                    height: 60px;
+                    width: 100%;
+                    background-image: linear-gradient(
+                      0deg,
+                      #ffffff 0%,
+                      #2a3042 400%
+                    );
+                  "></div>
               </div>
             </div>
             <div class="card-body pt-3">
               <div class="text-center">
-                <h5 class="mt-3 mb-1">{{provider?.name}}</h5>
-                <p class="text-muted mb-0">#{{provider?.id}}</p>
+                <h5 class="mt-3 mb-1">{{ provider?.name }}</h5>
+                <p class="text-muted mb-0">#{{ provider?.id }}</p>
                 <div *ngIf="provider?.status == 1">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-success align-middle me-1"></i>active</p>
+                  <p class="text-muted mb-0">
+                    <i class="mdi mdi-circle text-success align-middle me-1"></i>active
+                  </p>
                 </div>
                 <div *ngIf="provider?.status == 2">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
+                  <p class="text-muted mb-0">
+                    <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive
+                  </p>
                 </div>
                 <div *ngIf="provider?.status == 3">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-0">
+                    <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
               <ul class="list-unstyled mt-4">
                 <div class="row mb-4">
                   <div class="col">
-                    <div class="d-flex"><i class="bx bx-calendar text-primary fs-4"></i>
+                    <div class="d-flex">
+                      <i class="bx bx-calendar text-primary fs-4"></i>
                       <div class="ms-3">
                         <h6 class="fs-14 mb-2">Start Date</h6>
-                        <p class="text-muted fs-14 mb-0">{{provider?.start_date | date:'yyyy-MM-dd'}}</p>
+                        <p class="text-muted fs-14 mb-0">
+                          {{ provider?.start_date | date : "yyyy-MM-dd" }}
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div class="col">
-                    <div class="d-flex"><i class="bx bx-globe text-primary fs-4"></i>
+                    <div class="d-flex">
+                      <i class="bx bx-globe text-primary fs-4"></i>
                       <div class="ms-3">
                         <h6 class="fs-14 mb-2">Website Link</h6>
-                        <p class="text-muted  mb-0">{{provider?.website}}</p>
+                        <p class="text-muted mb-0">{{ provider?.website }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row ">
+                <div class="row">
                   <div class="col">
-                    <div class="d-flex"><i class="mdi mdi-database-settings-outline text-primary fs-4"></i>
+                    <div class="d-flex">
+                      <i class="mdi mdi-database-settings-outline text-primary fs-4"></i>
                       <div class="ms-3">
                         <h6 class="fs-14 mb-2">Instance Number</h6>
-                        <p class="text-muted fs-14 mb-0">{{instancesNumber}}</p>
+                        <p class="text-muted fs-14 mb-0">
+                          {{ instancesNumber }}
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div class="col">
-                    <div class="d-flex"><i class="bx bx-globe text-primary fs-4"></i>
+                    <div class="d-flex">
+                      <i class="bx bx-globe text-primary fs-4"></i>
                       <div class="ms-3">
                         <h6 class="fs-14 mb-2">Technical URL</h6>
-                        <p class="text-muted  mb-0">----</p>
+                        <p class="text-muted mb-0">----</p>
                       </div>
                     </div>
                   </div>
@@ -110,15 +135,15 @@
               </ul>
             </div>
           </div>
-          <div class=" pt border-top d-flex pt-3">
-            <div class=" align-self-center me-2 mb-3  ">
-              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Sync">
-                <i class="mdi mdi-cog-sync-outline  font-size-20"></i>
+          <div class="pt border-top d-flex pt-3">
+            <div class="align-self-center me-2 mb-3">
+              <a class="btn bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Sync">
+                <i class="mdi mdi-cog-sync-outline font-size-20"></i>
               </a>
             </div>
-            <div class=" align-self-center me-2 mb-3  ">
-              <a class="btn  bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Simulator">
-                <i class="mdi mdi-application-cog  font-size-20"></i>
+            <div class="align-self-center me-2 mb-3">
+              <a class="btn bg-info-gradient p-1 px-2" placement="top" ngbTooltip="Simulator">
+                <i class="mdi mdi-application-cog font-size-20"></i>
               </a>
             </div>
           </div>
@@ -173,70 +198,91 @@
 
           <div class="tab-content" id="pills-tabContent">
             <div id="form" class="tab-pane active">
-              <div class="card ">
-                <div class="card-body ">
+              <div class="card">
+                <div class="card-body">
                   <form [formGroup]="providerForm" (ngSubmit)="updateProvider(provider?.id)">
                     <div class="row mb-2">
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-6 col-form-label">Name </label>
+                        <label for="example-text-input" class="col-md-6 col-form-label">Name
+                        </label>
                         <div>
                           <input class="form-control" formControlName="name" [ngModel]="provider?.name" type="text"
-                            [ngClass]="{ 'is-invalid': submitted && providerform['name'].errors }" placeholder=""
-                            required="true">
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && providerform['name'].errors
+                            }" placeholder="" required="true" />
                           <div *ngIf="submitted && providerform['name'].errors" class="invalid-feedback">
-                            <div *ngIf="providerform['name'].errors providerform['name'].required">Name is required
+                            <div *ngIf="
+                                providerform['name'].errors;
+                                providerform: ['name'].required
+                              ">
+                              Name is required
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-6 col-form-label">Logo </label>
+                        <label for="example-text-input" class="col-md-6 col-form-label">Logo
+                        </label>
                         <div>
-                          <input class="form-control" type="file" placeholder="">
+                          <input class="form-control" type="file" placeholder="" />
                         </div>
                       </div>
                     </div>
                     <div class="row mb-2">
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-4 col-form-label">Category </label>
+                        <label for="example-text-input" class="col-md-4 col-form-label">Category
+                        </label>
                         <div>
                           <ng-select class="ng-select" bindLabel="name" bindValue="name">
                           </ng-select>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-4 col-form-label">Website URL </label>
+                        <label for="example-text-input" class="col-md-4 col-form-label">Website URL
+                        </label>
                         <input class="form-control" formControlName="website" [ngModel]="provider?.website" type="text"
-                          [ngClass]="{ 'is-invalid': submitted && providerform['website'].errors }" placeholder=""
-                          required="true">
+                          [ngClass]="{
+                            'is-invalid':
+                              submitted && providerform['website'].errors
+                          }" placeholder="" required="true" />
                         <div *ngIf="submitted && providerform['website'].errors" class="invalid-feedback">
-                          <div *ngIf="providerform['website'].errors providerform['website'].required">Website is
-                            required</div>
+                          <div *ngIf="
+                              providerform['website'].errors;
+                              providerform: ['website'].required
+                            ">
+                            Website is required
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div class="row mb-2">
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-4 col-form-label">User account URL </label>
+                        <label for="example-text-input" class="col-md-4 col-form-label">User account URL
+                        </label>
                         <div>
                           <ng-select class="ng-select" bindLabel="name" bindValue="name">
                           </ng-select>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-6 col-form-label">Technical support URL </label>
+                        <label for="example-text-input" class="col-md-6 col-form-label">Technical support URL
+                        </label>
                         <div>
-                          <input class="form-control" type="text" placeholder="">
+                          <input class="form-control" type="text" placeholder="" />
                         </div>
                       </div>
                     </div>
                     <div class="row mb-2">
                       <div class="col-md-6">
-                        <label for="example-text-input" class="col-md-4 col-form-label">Status </label>
+                        <label for="example-text-input" class="col-md-4 col-form-label">Status
+                        </label>
                         <div>
-                          <ng-select class="ng-select" formControlName="status" [ngModel]="provider?.status"
-                            [ngClass]="{ 'is-invalid': submitted && providerform['status'].errors }">
-                            <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
+                          <ng-select class="ng-select" formControlName="status" [ngModel]="provider?.status" [ngClass]="{
+                              'is-invalid':
+                                submitted && providerform['status'].errors
+                            }">
+                            <ng-option *ngFor="let s of status" [value]="s.value">{{ s.name }}</ng-option>
                           </ng-select>
                         </div>
                       </div>
@@ -250,68 +296,74 @@
                     </div>
                   </form>
                 </div>
-                <div class="card-footer bg-transparent border-top text-muted ">
+                <div class="card-footer bg-transparent border-top text-muted">
                   <div class="col-xs-6 d-flex justify-content-end gap-2">
                     <button type="submit" class="btn btn-primary btn-rounded btn-m"
-                      (click)="updateProvider(provider?.id)">Save changes </button>
+                      (click)="updateProvider(provider?.id)">
+                      Save changes
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
             <div id="feature" class="tab-pane fade">
-              <div class="card ">
-                <div class="card-body ">
+              <div class="card">
+                <div class="card-body">
                   <form>
                     <div class="row mb-4 d-flex justify-content-between">
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Firewall </label>
+                        <label for="example-text-input" class="col-form-label">Firewall
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-1" value="option1">
+                            <input class="form-check-input" type="radio" name="value-1" value="option1" />
                             <label class="form-check-label" for="value1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-1" value="option2">
+                            <input class="form-check-input" type="radio" name="value-1" value="option2" />
                             <label class="form-check-label" for="value2">No</label>
                           </div>
                         </div>
                       </div>
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Backup </label>
+                        <label for="example-text-input" class="col-form-label">Backup
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-2" value="option1">
+                            <input class="form-check-input" type="radio" name="value-2" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-2" value="option2">
+                            <input class="form-check-input" type="radio" name="value-2" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
                       </div>
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Snapshot </label>
+                        <label for="example-text-input" class="col-form-label">Snapshot
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-3" value="option1">
+                            <input class="form-check-input" type="radio" name="value-3" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-3" value="option2">
+                            <input class="form-check-input" type="radio" name="value-3" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
                       </div>
                       <div class="col-2 mb-4">
-                        <label for="example-text-input" class="col-form-label">VPS </label>
+                        <label for="example-text-input" class="col-form-label">VPS
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-4" value="option1">
+                            <input class="form-check-input" type="radio" name="value-4" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-4" value="option2">
+                            <input class="form-check-input" type="radio" name="value-4" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
@@ -319,56 +371,57 @@
                     </div>
                     <div class="row mb-4 d-flex justify-content-between">
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Domaine name </label>
+                        <label for="example-text-input" class="col-form-label">Domaine name
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="option1">
+                            <input class="form-check-input" type="radio" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="option2">
+                            <input class="form-check-input" type="radio" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
-
                       </div>
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Server </label>
+                        <label for="example-text-input" class="col-form-label">Server
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="option1">
+                            <input class="form-check-input" type="radio" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="option2">
+                            <input class="form-check-input" type="radio" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
-
                       </div>
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Database </label>
+                        <label for="example-text-input" class="col-form-label">Database
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-5" value="option1">
+                            <input class="form-check-input" type="radio" name="value-5" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-5" value="option2">
+                            <input class="form-check-input" type="radio" name="value-5" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
-
                       </div>
                       <div class="col-2">
-                        <label for="example-text-input" class="col-form-label">Load balancer </label>
+                        <label for="example-text-input" class="col-form-label">Load balancer
+                        </label>
                         <div class="d-flex col-2 justify-content-between">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-7" value="option1">
+                            <input class="form-check-input" type="radio" name="value-7" value="option1" />
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="value-7" value="option2">
+                            <input class="form-check-input" type="radio" name="value-7" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">No</label>
                           </div>
                         </div>
@@ -376,24 +429,30 @@
                     </div>
                   </form>
                 </div>
-                <div class="card-footer bg-transparent border-top text-muted ">
+                <div class="card-footer bg-transparent border-top text-muted">
                   <div class="col-xs-6 d-flex justify-content-end gap-2">
-                    <button type="submit" class="btn btn-primary btn-rounded btn-m">Save changes </button>
+                    <button type="submit" class="btn btn-primary btn-rounded btn-m">
+                      Save changes
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
             <div id="instance" class="tab-pane fade">
-              <div class="card ">
+              <div class="card">
                 <div class="card-body">
                   <div>
                     <div class="row fl">
                       <div class="col-12">
                         <div class="d-flex flex-wrap gap-2 pb-1">
-                          <div class="position-relative">
+                          <div class="position-relative" *ngIf="
+                              this.usrPer.servers.includes('create') == true &&
+                              this.usrPer.domains.includes('create') == true
+                            ">
                             <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2"
                               data-bs-backdrop="static" data-bs-toggle="modal" data-bs-target="#myModal">
-                              <i class="mdi mdi-plus me-1"></i>New instance </button>
+                              <i class="mdi mdi-plus me-1"></i>New instance
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -411,27 +470,37 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let ins of instancesList" data-id="p-ins-{{ins.id}}">
-                          <td>{{ins?.id}}</td>
-                          <td>{{ins?.name}}</td>
+                        <tr *ngFor="let ins of instancesList" data-id="p-ins-{{ ins.id }}">
+                          <td>{{ ins?.id }}</td>
+                          <td>{{ ins?.name }}</td>
                           <td>
                             <div *ngIf="ins?.creation_type == 1">Server</div>
-                            <div *ngIf="ins?.creation_type == 2">Domain name</div>
-                            <div *ngIf="ins?.creation_type == 3">Application</div>
+                            <div *ngIf="ins?.creation_type == 2">
+                              Domain name
+                            </div>
+                            <div *ngIf="ins?.creation_type == 3">
+                              Application
+                            </div>
                           </td>
                           <td>
-                            <div *ngIf="ins?.status == 1"><span
-                                class="badge rounded-pill badge-soft-success font-size-12">Active</span></div>
-                            <div *ngIf="ins?.status == 2"><span
-                                class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span></div>
-                            <div *ngIf="ins?.status == 3"><span
-                                class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span></div>
+                            <div *ngIf="ins?.status == 1">
+                              <span class="badge rounded-pill badge-soft-success font-size-12">Active</span>
+                            </div>
+                            <div *ngIf="ins?.status == 2">
+                              <span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>
+                            </div>
+                            <div *ngIf="ins?.status == 3">
+                              <span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>
+                            </div>
                           </td>
                           <td>
                             <div class="d-flex gap-2 justify-content-center">
-                              <a class="btn btn-sm btn-soft-danger" type="button" placement="top" ngbTooltip="Delete"
+                              <a *ngIf="this.usrPer.servers.includes('delete') == true && this.usrPer.domains.includes('delete') == true" class="btn btn-sm btn-soft-danger" type="button" placement="top" ngbTooltip="Delete"
                                 (click)="deleteInstance(ins?.id)">
                                 <i class="mdi mdi-delete font-size-16"></i>
+                              </a>
+                              <a *ngIf="this.usrPer.servers.includes('delete') == false && this.usrPer.domains.includes('delete') == false">
+                                ---
                               </a>
                             </div>
                           </td>
@@ -444,7 +513,7 @@
             </div>
 
             <div id="apiuser" class="tab-pane fade">
-              <div class="card ">
+              <div class="card">
                 <div class="card-body">
                   <div>
                     <div class="row fl">
@@ -453,7 +522,8 @@
                           <div class="position-relative">
                             <button type="button"
                               class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2">
-                              <i class="mdi mdi-plus me-1"></i>New user </button>
+                              <i class="mdi mdi-plus me-1"></i>New user
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -474,7 +544,9 @@
                         <tr>
                           <td>4</td>
                           <td>$dsffs414dsfsd</td>
-                          <td><span class="badge rounded-pill bg-primary font-size-12">mehdi</span></td>
+                          <td>
+                            <span class="badge rounded-pill bg-primary font-size-12">mehdi</span>
+                          </td>
                           <td>mehdihas</td>
                           <td>123456</td>
                           <td>
@@ -495,18 +567,20 @@
             <div id="cost" class="tab-pane fade">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="card mini-stats-wid " id="border">
+                  <div class="card mini-stats-wid" id="border">
                     <div class="card-body">
                       <div class="d-flex">
                         <div class="flex-grow-1">
-                          <p class="text-muted fw-medium">current month costs</p>
+                          <p class="text-muted fw-medium">
+                            current month costs
+                          </p>
                           <p class="x"></p>
                           <h4 class="mb-0">14,487</h4>
                         </div>
                         <div class="flex-shrink-0 align-self-center">
                           <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
                             <span class="avatar-title" id="icone">
-                              <i class=" mdi mdi-database font-size-24"></i>
+                              <i class="mdi mdi-database font-size-24"></i>
                             </span>
                           </div>
                         </div>
@@ -515,18 +589,20 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card mini-stats-wid " id="border">
+                  <div class="card mini-stats-wid" id="border">
                     <div class="card-body">
                       <div class="d-flex">
                         <div class="flex-grow-1">
-                          <p class="text-muted fw-medium">average monthly costs</p>
+                          <p class="text-muted fw-medium">
+                            average monthly costs
+                          </p>
                           <p class="x"></p>
                           <h4 class="mb-0">14,487</h4>
                         </div>
                         <div class="flex-shrink-0 align-self-center">
                           <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
                             <span class="avatar-title" id="icone">
-                              <i class=" bx bx-error font-size-24"></i>
+                              <i class="bx bx-error font-size-24"></i>
                             </span>
                           </div>
                         </div>
@@ -536,7 +612,7 @@
                 </div>
 
                 <div class="col-md-4">
-                  <div class="card mini-stats-wid " id="border">
+                  <div class="card mini-stats-wid" id="border">
                     <div class="card-body">
                       <div class="d-flex">
                         <div class="flex-grow-1">
@@ -558,7 +634,7 @@
               </div>
             </div>
             <div id="logs" class="tab-pane fade">
-              <div class="card ">
+              <div class="card">
                 <div class="card-body">
                   <div>
                     <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border"
@@ -575,11 +651,11 @@
                       </thead>
                       <tbody>
                         <tr *ngFor="let log of userLogsList">
-                          <td>{{log?.id}}</td>
-                          <td>{{log?.action}}</td>
-                          <td>{{log?.element}}</td>
-                          <td>{{log?.element_id}}</td>
-                          <td>{{log?.log_date}}</td>
+                          <td>{{ log?.id }}</td>
+                          <td>{{ log?.action }}</td>
+                          <td>{{ log?.element }}</td>
+                          <td>{{ log?.element_id }}</td>
+                          <td>{{ log?.log_date }}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -590,71 +666,82 @@
           </div>
         </div>
       </div>
-
     </div>
     <div id="myModal" class="modal fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-xl p-5">
         <div class="modal-content">
-          <div class="addser d-none"
-            style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+          <div class="addser d-none" style="
+              position: absolute;
+              left: 0;
+              height: 100%;
+              opacity: 80%;
+              margin: auto;
+              background: #fff;
+              text-align: center;
+              right: 0;
+              z-index: 1003;
+            ">
             <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
-              enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 24%;">
+              enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 24%">
               <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
                                                     c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
               <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
                                                     c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
               <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
                                                     L82,35.7z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
             </svg>
             <div class="text-dark">
               <span class="logo-lg">
                 <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt=""
-                  height="40">
+                  height="40" />
               </span>
             </div>
           </div>
-          <div class="adddom d-none"
-            style="position: absolute;left: 0;height: 100%;opacity:80%;  margin: auto;background: #fff;text-align: center;right: 0;z-index: 1003;">
+          <div class="adddom d-none" style="
+              position: absolute;
+              left: 0;
+              height: 100%;
+              opacity: 80%;
+              margin: auto;
+              background: #fff;
+              text-align: center;
+              right: 0;
+              z-index: 1003;
+            ">
             <svg _ngcontent-cev-c121="" version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
-              enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 14%;">
+              enable-background="new 0 0 100 100" xml:space="preserve" style="width: 5%; margin-top: 14%">
               <path _ngcontent-cev-c121="" fill="#f29832" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
                                                     c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
               <path _ngcontent-cev-c121="" fill="#f29832" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
                                                     c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
               <path _ngcontent-cev-c121="" fill="#f29832" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
                                                     L82,35.7z">
                 <animateTransform _ngcontent-cev-c121="" attributeName="transform" attributeType="XML" type="rotate"
-                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite">
-                </animateTransform>
+                  dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
             </svg>
             <div class="text-dark">
               <span class="logo-lg">
                 <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/logo-argus-dark.png" alt=""
-                  height="40">
+                  height="40" />
               </span>
             </div>
           </div>
@@ -676,11 +763,11 @@
               </div>
             </div>
 
-            <div *ngIf="value1===1">
+            <div *ngIf="value1 === 1">
               <form id="formapplicationinstance" [formGroup]="instanceForm" (ngSubmit)="addInstance()"
                 class="vertical-wizard">
                 <!-- Seller Details -->
-                <h3>Creation mode </h3>
+                <h3>Creation mode</h3>
                 <section class="stepper_height">
                   <div>
                     <div class="form-group">
@@ -694,8 +781,11 @@
                                 <span fill="#000000" height="24" viewBox="0 0 24 24" width="24">
                                 </span>
                               </div>
-                              <label for="fly" class="radio-tile-label">Manually </label>
-                              <p class="text">Create your server from scratch</p>
+                              <label for="fly" class="radio-tile-label">Manually
+                              </label>
+                              <p class="text">
+                                Create your server from scratch
+                              </p>
                             </div>
                           </div>
                           <div class="input-container">
@@ -718,35 +808,46 @@
                 <h3>Setup</h3>
                 <section class="stepper_height">
                   <div>
-                    <div class="row">
-                    </div>
+                    <div class="row"></div>
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="mb-3" formGroupName="cloud_provider_account">
-                          <label class="col-md-4 col-form-label ">Cloud account</label>
-                          <ng-select class="ng-select" formControlName="id"
-                            [ngClass]="{ 'is-invalid': submitted1 && form['cloud_provider_account'].get('id')?.errors }"
-                            required="true">
-                            <ng-option *ngFor="let p of cloudProvidersAccountsList" [value]="p?.id">{{p?.account?.name}}
-                              - {{p?.provider?.name}}</ng-option>
+                          <label class="col-md-4 col-form-label">Cloud account</label>
+                          <ng-select class="ng-select" formControlName="id" [ngClass]="{
+                              'is-invalid':
+                                submitted1 &&
+                                form['cloud_provider_account'].get('id')?.errors
+                            }" required="true">
+                            <ng-option *ngFor="let p of cloudProvidersAccountsList" [value]="p?.id">{{ p?.account?.name
+                              }} -
+                              {{ p?.provider?.name }}</ng-option>
                           </ng-select>
-                          <div *ngIf="submitted1 && form['cloud_provider_account'].get('id')?.errors"
-                            class="invalid-feedback">
-                            <div *ngIf="form['cloud_provider_account'].get('id')?.errors">
-                              Cloud account is required</div>
+                          <div *ngIf="
+                              submitted1 &&
+                              form['cloud_provider_account'].get('id')?.errors
+                            " class="invalid-feedback">
+                            <div *ngIf="
+                                form['cloud_provider_account'].get('id')?.errors
+                              ">
+                              Cloud account is required
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="mb-3">
                           <div class="form-group">
-                            <label class="col-md-4 col-form-label">Location </label>
-                            <ng-select class="ng-select" formControlName="location"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['location'].errors }" required="true">
-                              <ng-option *ngFor="let l of location" [value]="l.value">{{l.name}}</ng-option>
+                            <label class="col-md-4 col-form-label">Location
+                            </label>
+                            <ng-select class="ng-select" formControlName="location" [ngClass]="{
+                                'is-invalid':
+                                  submitted1 && form['location'].errors
+                              }" required="true">
+                              <ng-option *ngFor="let l of location" [value]="l.value">{{ l.name }}</ng-option>
                             </ng-select>
                             <div *ngIf="submitted1 && form['location'].errors" class="invalid-feedback">
-                              <div *ngIf="form['location'].errors">Location is required
+                              <div *ngIf="form['location'].errors">
+                                Location is required
                               </div>
                             </div>
                           </div>
@@ -759,17 +860,19 @@
                           <label class="d-block mb-2 col-md-4">Select mode</label>
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
-                              value="option0">
-                            <label class="form-check-label" for="inlineRadio0">From scratch </label>
+                              value="option0" />
+                            <label class="form-check-label" for="inlineRadio0">From scratch
+                            </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
-                              value="option1">
-                            <label class="form-check-label" for="inlineRadio1">By template </label>
+                              value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">By template
+                            </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]"
-                              value="option2">
+                              value="option2" />
                             <label class="form-check-label" for="inlineRadio2">ISO</label>
                           </div>
                         </div>
@@ -785,10 +888,12 @@
                         <div class="mb-3">
                           <div class="form-group" formGroupName="template">
                             <label class="col-md-4 col-form-label">Templates list</label>
-                            <ng-select formControlName="id"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['template'].get('id')?.errors }"
-                              required="true">
-                              <ng-option *ngFor="let t of templatesList" [value]="t?.id">{{t?.name}}</ng-option>
+                            <ng-select formControlName="id" [ngClass]="{
+                                'is-invalid':
+                                  submitted1 &&
+                                  form['template'].get('id')?.errors
+                              }" required="true">
+                              <ng-option *ngFor="let t of templatesList" [value]="t?.id">{{ t?.name }}</ng-option>
                             </ng-select>
                           </div>
                         </div>
@@ -804,22 +909,22 @@
                         <div class="col-12">
                           <div class="mb-3">
                             <label class="d-block mb-3 col-md-3">CPU</label>
-                            <div class="radio-box d-flex " style="justify-content: space-between;">
-                              <input type="radio" formControlName="cpu"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['cpu'].errors }" required="true"
-                                name="cpu" value="1" />
+                            <div class="radio-box d-flex" style="justify-content: space-between">
+                              <input type="radio" formControlName="cpu" [ngClass]="{
+                                  'is-invalid': submitted1 && form['cpu'].errors
+                                }" required="true" name="cpu" value="1" />
                               <label>Xeon E3-1275 V6</label>
-                              <input type="radio" formControlName="cpu"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['cpu'].errors }" required="true"
-                                name="cpu" value="2" />
+                              <input type="radio" formControlName="cpu" [ngClass]="{
+                                  'is-invalid': submitted1 && form['cpu'].errors
+                                }" required="true" name="cpu" value="2" />
                               <label>Core i7-7700T</label>
-                              <input type="radio" formControlName="cpu"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['cpu'].errors }" required="true"
-                                name="cpu" value="3" />
+                              <input type="radio" formControlName="cpu" [ngClass]="{
+                                  'is-invalid': submitted1 && form['cpu'].errors
+                                }" required="true" name="cpu" value="3" />
                               <label>Core i7-7100T</label>
-                              <input type="radio" formControlName="cpu"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['cpu'].errors }" required="true"
-                                name="cpu" value="4" />
+                              <input type="radio" formControlName="cpu" [ngClass]="{
+                                  'is-invalid': submitted1 && form['cpu'].errors
+                                }" required="true" name="cpu" value="4" />
                               <label>Core i7-7000T</label>
                             </div>
                           </div>
@@ -829,22 +934,26 @@
                         <div class="col-12">
                           <div class="mb-3">
                             <label class="d-block mb-3 col-md-3">Disk space</label>
-                            <div class="radio-box d-flex " style="justify-content: space-between;">
-                              <input type="radio" formControlName="disk_space"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['disk_space'].errors }" required="true"
-                                name="disk_space" value="1" />
+                            <div class="radio-box d-flex" style="justify-content: space-between">
+                              <input type="radio" formControlName="disk_space" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['disk_space'].errors
+                                }" required="true" name="disk_space" value="1" />
                               <label>512Go</label>
-                              <input type="radio" formControlName="disk_space"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['disk_space'].errors }" required="true"
-                                name="disk_space" value="2" />
+                              <input type="radio" formControlName="disk_space" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['disk_space'].errors
+                                }" required="true" name="disk_space" value="2" />
                               <label>1024Go</label>
-                              <input type="radio" formControlName="disk_space"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['disk_space'].errors }" required="true"
-                                name="disk_space" value="3" />
+                              <input type="radio" formControlName="disk_space" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['disk_space'].errors
+                                }" required="true" name="disk_space" value="3" />
                               <label>2048Go</label>
-                              <input type="radio" formControlName="disk_space"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['disk_space'].errors }" required="true"
-                                name="disk_space" value="4" />
+                              <input type="radio" formControlName="disk_space" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['disk_space'].errors
+                                }" required="true" name="disk_space" value="4" />
                               <label>5000Go</label>
                             </div>
                           </div>
@@ -854,22 +963,26 @@
                         <div class="col-12">
                           <div class="mb-3">
                             <label class="d-block mb-3 col-md-3">Memory</label>
-                            <div class="radio-box d-flex " style="justify-content: space-between;">
-                              <input type="radio" formControlName="memory"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['memory'].errors }" required="true"
-                                name="memory" value="1" />
+                            <div class="radio-box d-flex" style="justify-content: space-between">
+                              <input type="radio" formControlName="memory" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['memory'].errors
+                                }" required="true" name="memory" value="1" />
                               <label>16Go</label>
-                              <input type="radio" formControlName="memory"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['memory'].errors }" required="true"
-                                name="memory" value="2" />
+                              <input type="radio" formControlName="memory" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['memory'].errors
+                                }" required="true" name="memory" value="2" />
                               <label>32Go</label>
-                              <input type="radio" formControlName="memory"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['memory'].errors }" required="true"
-                                name="memory" value="3" />
+                              <input type="radio" formControlName="memory" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['memory'].errors
+                                }" required="true" name="memory" value="3" />
                               <label>64Go</label>
-                              <input type="radio" formControlName="memory"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['memory'].errors }" required="true"
-                                name="memory" value="4" />
+                              <input type="radio" formControlName="memory" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['memory'].errors
+                                }" required="true" name="memory" value="4" />
                               <label>128Go</label>
                             </div>
                           </div>
@@ -886,10 +999,13 @@
                         <div class="mb-3">
                           <div class="form-group">
                             <label for="example-text-input" class="col-md-3 col-form-label">IP address</label>
-                            <input class="form-control" formControlName="ip_address"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['ip_address'].errors }" required="true">
+                            <input class="form-control" formControlName="ip_address" [ngClass]="{
+                                'is-invalid':
+                                  submitted1 && form['ip_address'].errors
+                              }" required="true" />
                             <div *ngIf="submitted1 && form['ip_address'].errors" class="invalid-feedback">
-                              <div *ngIf="form['ip_address'].errors">IP address is required
+                              <div *ngIf="form['ip_address'].errors">
+                                IP address is required
                               </div>
                             </div>
                           </div>
@@ -899,10 +1015,14 @@
                         <div class="mb-3">
                           <div class="form-group">
                             <label class="col-md-3 col-form-label">Hostname</label>
-                            <input class="form-control" formControlName="hostname"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['hostname'].errors }" required="true">
+                            <input class="form-control" formControlName="hostname" [ngClass]="{
+                                'is-invalid':
+                                  submitted1 && form['hostname'].errors
+                              }" required="true" />
                             <div *ngIf="submitted1 && form['hostname'].errors" class="invalid-feedback">
-                              <div *ngIf="form['hostname'].errors">Hostname is required</div>
+                              <div *ngIf="form['hostname'].errors">
+                                Hostname is required
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -918,10 +1038,13 @@
                         <div class="mb-3">
                           <div class="form-group">
                             <label for="example-text-input" class="col-md-3 col-form-label">Name</label>
-                            <input class="form-control" formControlName="name"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['name'].errors }" required="true">
+                            <input class="form-control" formControlName="name" [ngClass]="{
+                                'is-invalid': submitted1 && form['name'].errors
+                              }" required="true" />
                             <div *ngIf="submitted1 && form['name'].errors" class="invalid-feedback">
-                              <div *ngIf="form['name'].errors">Name is required</div>
+                              <div *ngIf="form['name'].errors">
+                                Name is required
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -930,10 +1053,12 @@
                         <div class="mb-3">
                           <div class="form-group" formGroupName="category">
                             <label class="col-md-3 col-form-label">Category</label>
-                            <ng-select formControlName="id"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['category'].get('id')?.errors }"
-                              required="true">
-                              <ng-option *ngFor="let c of categories" [value]="c?.value">{{c?.name}}</ng-option>
+                            <ng-select formControlName="id" [ngClass]="{
+                                'is-invalid':
+                                  submitted1 &&
+                                  form['category'].get('id')?.errors
+                              }" required="true">
+                              <ng-option *ngFor="let c of categories" [value]="c?.value">{{ c?.name }}</ng-option>
                             </ng-select>
                           </div>
                         </div>
@@ -942,15 +1067,16 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="mb-3">
-                          <label class="d-block mb-2 col-md-4">SSH credentials </label>
+                          <label class="d-block mb-2 col-md-4">SSH credentials
+                          </label>
                           <div class="form-check form-check-inline" (click)="Change(1)">
                             <input class="form-check-input" type="radio" formControlName="ssh" value="yes"
-                              (change)="changecheck($event)">
+                              (change)="changecheck($event)" />
                             <label class="form-check-label">YES</label>
                           </div>
                           <div class="form-check form-check-inline" (click)="Change(2)">
                             <input class="form-check-input" type="radio" formControlName="ssh" value="no"
-                              (change)="changecheck($event)">
+                              (change)="changecheck($event)" />
                             <label class="form-check-label">NO</label>
                           </div>
                         </div>
@@ -959,25 +1085,30 @@
                         <div class="mb-3">
                           <div class="form-group">
                             <label for="example-text-input" class="col-md-3 col-form-label">Login</label>
-                            <input class="form-control" type="text" formControlName="login"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['login'].errors }" required="true">
+                            <input class="form-control" type="text" formControlName="login" [ngClass]="{
+                                'is-invalid': submitted1 && form['login'].errors
+                              }" required="true" />
                             <div *ngIf="submitted1 && form['login'].errors" class="invalid-feedback">
-                              <div *ngIf="form['login'].errors">Login is required</div>
+                              <div *ngIf="form['login'].errors">
+                                Login is required
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-
                     </div>
                     <div class="row" *ngIf="valuee == 1">
                       <div class="col-lg-6">
                         <div class="mb-3">
                           <div class="form-group">
                             <label for="example-text-input" class="col-md-3 col-form-label">Port</label>
-                            <input class="form-control" type="number" formControlName="port"
-                              [ngClass]="{ 'is-invalid': submitted1 && form['port'].errors }" required="true">
+                            <input class="form-control" type="number" formControlName="port" [ngClass]="{
+                                'is-invalid': submitted1 && form['port'].errors
+                              }" required="true" />
                             <div *ngIf="submitted1 && form['port'].errors" class="invalid-feedback">
-                              <div *ngIf="form['port'].errors">Port is required</div>
+                              <div *ngIf="form['port'].errors">
+                                Port is required
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -988,12 +1119,17 @@
                           <div class="col-md-12">
                             <div class="input-group auth-pass-inputgroup">
                               <input type="password" class="form-control" aria-label="Password"
-                                aria-describedby="password-addon" formControlName="password"
-                                [ngClass]="{ 'is-invalid': submitted1 && form['password'].errors }">
-                              <button class="btn btn-light " type="button" id="password-addon"><i
-                                  class="mdi mdi-eye-outline"></i></button>
+                                aria-describedby="password-addon" formControlName="password" [ngClass]="{
+                                  'is-invalid':
+                                    submitted1 && form['password'].errors
+                                }" />
+                              <button class="btn btn-light" type="button" id="password-addon">
+                                <i class="mdi mdi-eye-outline"></i>
+                              </button>
                               <div *ngIf="submitted1 && form['password'].errors" class="invalid-feedback">
-                                <div *ngIf="form['password'].errors">Password required</div>
+                                <div *ngIf="form['password'].errors">
+                                  Password required
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1012,7 +1148,10 @@
                         </div>
                         <div>
                           <h5>Confirm details</h5>
-                          <p class="text-muted">If you are sure about these informations then click Finish</p>
+                          <p class="text-muted">
+                            If you are sure about these informations then click
+                            Finish
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -1025,34 +1164,49 @@
                 </section>
               </form>
             </div>
-            <div *ngIf="value1===2">
+            <div *ngIf="value1 === 2">
               <form [formGroup]="domainForm">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label>Name</label>
-                      <input type="text" formControlName="name"
-                        [ngClass]="{ 'is-invalid': submitted2 && domainform['name'].errors }" required="true"
-                        class="form-control">
+                      <input type="text" formControlName="name" [ngClass]="{
+                          'is-invalid': submitted2 && domainform['name'].errors
+                        }" required="true" class="form-control" />
                       <div *ngIf="submitted2 && domainform['name'].errors" class="invalid-feedback">
-                        <div *ngIf="domainform['name'].errors domainform['name'].required">Name is required</div>
+                        <div *ngIf="
+                            domainform['name'].errors;
+                            domainform: ['name'].required
+                          ">
+                          Name is required
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="mb-3" formGroupName="cloud_provider_account">
                       <label>Cloud provider account </label>
-                      <ng-select class="ng-select" formControlName="id"
-                        [ngClass]="{ 'is-invalid': submitted2 && domainform['cloud_provider_account'].get('id')?.errors }"
-                        required="true">
-                        <ng-option *ngFor="let p of cloudProvidersAccountsList" [value]="p?.id">{{p?.account?.name}} -
-                          {{p?.provider?.name}}</ng-option>
+                      <ng-select class="ng-select" formControlName="id" [ngClass]="{
+                          'is-invalid':
+                            submitted2 &&
+                            domainform['cloud_provider_account'].get('id')
+                              ?.errors
+                        }" required="true">
+                        <ng-option *ngFor="let p of cloudProvidersAccountsList" [value]="p?.id">{{ p?.account?.name }} -
+                          {{ p?.provider?.name }}</ng-option>
                       </ng-select>
-                      <div *ngIf="submitted2 && domainform['cloud_provider_account'].get('id')?.errors"
-                        class="invalid-feedback">
-                        <div
-                          *ngIf="domainform['cloud_provider_account'].get('id')?.errors domainform['cloud_provider_account'].get('id')?.required">
-                          Cloud account is required</div>
+                      <div *ngIf="
+                          submitted2 &&
+                          domainform['cloud_provider_account'].get('id')?.errors
+                        " class="invalid-feedback">
+                        <div *ngIf="
+                            domainform['cloud_provider_account'].get('id')
+                              ?.errors;
+                            domainform: ['cloud_provider_account'].get('id')
+                              ?.required
+                          ">
+                          Cloud account is required
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1061,19 +1215,22 @@
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label>Renew date </label>
-                      <input type="datetime-local" formControlName="renew_date" class="form-control">
+                      <input type="datetime-local" formControlName="renew_date" class="form-control" />
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer p-0 pt-2">
                   <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect"
-                    data-bs-dismiss="modal" (click)="close()">Close</button>
-                  <button type="submit" class="btn btn-primary  btn-rounded waves-effect waves-light"
-                    (click)="addDomain()">Save</button>
+                    data-bs-dismiss="modal" (click)="close()">
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light"
+                    (click)="addDomain()">
+                    Save
+                  </button>
                 </div>
               </form>
             </div>
-
           </div>
         </div>
       </div>
@@ -1108,3 +1265,5 @@
       </div>
     </div>
 -->
+  </div>
+</div>

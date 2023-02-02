@@ -152,24 +152,24 @@
                             <span class="badge rounded-1 badge-soft-success font-size-13">Active</span>
                             <a role="button" (click)="change(module,module?.id)" placement="top"
                               ngbTooltip="Deactivate">
-                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/on-button.png" alt=""
-                                height="40"></a>
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/toggle-on.png" alt=""
+                                height="35"></a>
                           </div>
                         </div>
                         <div *ngIf="module?.status == 2">
                           <div class="d-flex justify-content-between mt-2 hstack gap-5">
                             <span class="badge rounded-1 badge-soft-danger font-size-13">Inactive</span>
                             <a role="button" (click)="change(module,module?.id)" placement="top" ngbTooltip="Activate">
-                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/off-button.png" alt=""
-                                height="40"></a>
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/toggle-off.png" alt=""
+                                height="35"></a>
                           </div>
                         </div>
                         <div *ngIf="module?.status == 3">
                           <div class="d-flex justify-content-between mt-2 hstack gap-5">
                             <span class="badge rounded-1 badge-soft-warning font-size-13">In Progress</span>
                             <a role="button" (click)="change(module,module?.id)" placement="top" ngbTooltip="Activate">
-                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/off-button.png" alt=""
-                                height="40"></a>
+                              <img src="https://wael.local.itwise.pro/cloud_manager/assets/images/toggle-off.png" alt=""
+                                height="35"></a>
                           </div>
                         </div>
                       </div>

@@ -28,7 +28,6 @@ export class DomainNamesComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   domainForm!: FormGroup;
   submitted: boolean = false;
@@ -64,8 +63,6 @@ export class DomainNamesComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -143,10 +140,10 @@ export class DomainNamesComponent implements OnInit {
             new_object = this.domainName1[key];
           }
         }
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -201,15 +198,15 @@ export class DomainNamesComponent implements OnInit {
         $('#table_domain')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.name,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.name,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
         $('#table_domain').DataTable().row(':last').node().id =
-          'domain-' + new_object.id;
+          'domain-' + new_object?.id;
         return new_object;
       },
       (error) => {

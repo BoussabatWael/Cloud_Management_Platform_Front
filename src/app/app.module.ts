@@ -1,6 +1,6 @@
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ProvidersdetailsComponent } from './pages/firewall/providers/providersdetails/providersdetails.component';
+import { ProvidersdetailsComponent } from './pages/providers/providersdetails/providersdetails.component';
 import { DataTablesModule } from 'angular-datatables';
 import {
   CommonModule,
@@ -17,11 +17,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SortDirective } from './directive/sort.directive';
-import { AddaplicationComponent } from './pages/inventory-managment/applications/addaplication/addaplication.component';
 import { ApplicationdetailsComponent } from './pages/inventory-managment/applications/applicationdetails/applicationdetails.component';
 
 import { ApplicationsComponent } from './pages/inventory-managment/applications/applications.component';
-import { ServerapplicationComponent } from './pages/inventory-managment/servers/serverdetails/serverapplication/serverapplication.component';
 import { ServerdetailsComponent } from './pages/inventory-managment/servers/serverdetails/serverdetails.component';
 import { ServersComponent } from './pages/inventory-managment/servers/servers.component';
 import { UsercontactComponent } from './pages/users/usercontact/usercontact.component';
@@ -35,7 +33,7 @@ import { MyprofileComponent } from './pages/users/myprofile/myprofile.component'
 import { DomainNamesComponent } from './pages/domain_names/domain-names/domain-names.component';
 import { WebsitesComponent } from './pages/domain_names/websites/websites.component';
 
-import { ProvidersComponent } from './pages/firewall/providers/providers.component';
+import { ProvidersComponent } from './pages/providers/providers.component';
 import { BackupsComponent } from './pages/images/backups/backups.component';
 import { SnapshotsComponent } from './pages/images/snapshots/snapshots.component';
 
@@ -68,10 +66,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ServersComponent,
     ServerdetailsComponent,
     ApplicationsComponent,
-    AddaplicationComponent,
     ApplicationdetailsComponent,
-
-    ServerapplicationComponent,
     SearchFilterPipe,
     SortDirective,
     IndexComponent,

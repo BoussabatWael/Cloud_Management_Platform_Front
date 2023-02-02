@@ -2,16 +2,15 @@ import { PoliciesComponent } from './pages/Tools/policies/policies.component';
 import { CommandsComponent } from './pages/Tools/commands/commands.component';
 import { DeploymentsComponent } from './pages/deployments/deployments.component';
 import { DetaildomaineNamesComponent } from './pages/domain_names/detaildomaine-names/detaildomaine-names.component';
-import { ProvidersdetailsComponent } from './pages/firewall/providers/providersdetails/providersdetails.component';
+import { ProvidersdetailsComponent } from './pages/providers/providersdetails/providersdetails.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 
-import { ProvidersComponent } from './pages/firewall/providers/providers.component';
+import { ProvidersComponent } from './pages/providers/providers.component';
 import { BackupsComponent } from './pages/images/backups/backups.component';
 import { SnapshotsComponent } from './pages/images/snapshots/snapshots.component';
 import { IndexComponent } from './pages/index/index.component';
-import { AddaplicationComponent } from './pages/inventory-managment/applications/addaplication/addaplication.component';
 import { ApplicationdetailsComponent } from './pages/inventory-managment/applications/applicationdetails/applicationdetails.component';
 import { ApplicationsComponent } from './pages/inventory-managment/applications/applications.component';
 import { ServerdetailsComponent } from './pages/inventory-managment/servers/serverdetails/serverdetails.component';
@@ -37,7 +36,6 @@ const routes: Routes = [
   { path: 'servers', component: ServersComponent },
   { path: 'my_profile', component: MyprofileComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'addapplication', component: AddaplicationComponent },
   { path: 'application-details/:id', component: ApplicationdetailsComponent },
   { path: 'applications', component: ApplicationsComponent },
   { path: 'contacts-profile/:id', component: UsercontactComponent },

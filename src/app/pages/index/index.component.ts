@@ -24,7 +24,6 @@ export class IndexComponent implements OnInit {
   LastActivity: any;
   usr: any;
   user: any;
-  account: any;
   ipAddress: any;
   elementType: { [key: string]: any } = {
     1: 'User',
@@ -82,8 +81,6 @@ export class IndexComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.dtOptions = {
       lengthMenu: [5, 10, 20, 50, 100],

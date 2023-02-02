@@ -32,7 +32,6 @@ export class DeploymentsComponent implements OnInit {
   response3: any;
   usr: any;
   user: any;
-  account: any;
   deploymentForm!: FormGroup;
   userLogs: logs = new logs();
   userPermission: any;
@@ -57,7 +56,7 @@ export class DeploymentsComponent implements OnInit {
         id: [''],
       }),
       instance: this.fb.group({
-        id: ['',Validators.required],
+        id: ['', Validators.required],
       }),
     });
   }
@@ -69,8 +68,6 @@ export class DeploymentsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -154,10 +151,10 @@ export class DeploymentsComponent implements OnInit {
             new_object = this.deploymentsList1[key];
           }
         }
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -176,16 +173,16 @@ export class DeploymentsComponent implements OnInit {
         $('#table_deployment')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.instance.name,
-            new_object.application.name,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.instance.name,
+            new_object?.application.name,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
         $('#table_deployment').DataTable().row(':last').node().id =
-          'deployment-' + new_object.id;
+          'deployment-' + new_object?.id;
         return new_object;
       },
       (error) => {

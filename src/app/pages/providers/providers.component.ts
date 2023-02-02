@@ -1,4 +1,4 @@
-import { CloudProvidersAccountsService } from './../../../Services/cloud-providers-accounts.service';
+import { CloudProvidersAccountsService } from './../../Services/cloud-providers-accounts.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -18,7 +18,6 @@ export class ProvidersComponent implements OnInit {
   CloudProvidersList: any;
   usr: any;
   user: any;
-  account: any;
   userLogs: logs = new logs();
   userPermission: any;
   usrPer: any;
@@ -40,8 +39,6 @@ export class ProvidersComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -66,7 +63,6 @@ export class ProvidersComponent implements OnInit {
         },
       });
     }, 20);
-
   }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

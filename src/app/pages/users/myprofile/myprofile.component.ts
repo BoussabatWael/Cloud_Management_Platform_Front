@@ -20,7 +20,6 @@ export class MyprofileComponent implements OnInit {
   response: any;
   response1: any;
   response2: any;
-  account: any;
   usr: any;
   user: any;
   userSecurity: any;
@@ -111,8 +110,6 @@ export class MyprofileComponent implements OnInit {
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
 
-    this.account = this.user['account'];
-
     this.dtOptions = {
       lengthMenu: [5, 10, 20, 50, 100],
       pageLength: 5,
@@ -198,8 +195,8 @@ export class MyprofileComponent implements OnInit {
               icon: 'success',
               title: 'Module updated',
             });
-            this.getUserModulesList();
             this.getDiff();
+            this.getUserModulesList();
           } else {
             document
               .querySelector('.updateProfileLoad')
@@ -285,8 +282,8 @@ export class MyprofileComponent implements OnInit {
               icon: 'success',
               title: 'Module updated',
             });
-            this.getUserModulesList();
             this.getDiff();
+            this.getUserModulesList();
           } else {
             document
               .querySelector('.updateProfileLoad')
@@ -797,12 +794,12 @@ export class MyprofileComponent implements OnInit {
         $('#table_user_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
-            new_object.source,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
+            new_object?.source,
           ])
           .draw();
         return new_object;

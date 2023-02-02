@@ -10,7 +10,6 @@ export class WebsitesComponent implements OnInit {
   searchText: any;
   usr: any;
   user: any;
-  account: any;
 
   constructor(private router: Router) {}
 
@@ -21,6 +20,5 @@ export class WebsitesComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-    this.account = this.user['account'];
   }
 }

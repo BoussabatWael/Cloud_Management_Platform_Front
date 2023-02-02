@@ -35,9 +35,7 @@
                 <div class="mb-4">
                   <label class="form-label">Login</label>
                   <input type="text" class="form-control" formControlName="login" id="login" placeholder="Enter login"
-                    [ngClass]="{
-                      'is-invalid': submitted && form['login'].errors
-                    }" />
+                    [ngClass]="{'is-invalid': submitted && form['login'].errors}" />
                   <div *ngIf="submitted && form['login'].errors" class="invalid-feedback">
                     <div *ngIf="form['login'].errors; form: ['login'].required">
                       Login is required
@@ -48,17 +46,13 @@
                   <label class="form-label">Password</label>
                   <div class="input-group auth-pass-inputgroup">
                     <input type="password" class="form-control" formControlName="password" placeholder="Enter password"
-                      aria-label="Password" aria-describedby="password-addon" [ngClass]="{
-                        'is-invalid': submitted && form['password'].errors
-                      }" />
+                      aria-label="Password" aria-describedby="password-addon"
+                      [ngClass]="{'is-invalid': submitted && form['password'].errors}" />
                     <button class="btn btn-light" type="button" id="password-addon">
                       <i class="mdi mdi-eye-outline"></i>
                     </button>
                     <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
-                      <div *ngIf="
-                          form['password'].errors;
-                          form: ['password'].required
-                        ">
+                      <div *ngIf="form['password'].errors; form: ['password'].required">
                         Password is required
                       </div>
                     </div>

@@ -66,7 +66,6 @@ export class ApplicationdetailsComponent implements OnInit {
   activeUser: any;
   usr: any;
   user: any;
-  account: any;
   userLogsList: any;
   userLogsList1: any;
   userLogs: logs = new logs();
@@ -215,8 +214,6 @@ export class ApplicationdetailsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -571,16 +568,16 @@ export class ApplicationdetailsComponent implements OnInit {
           $('#table_depl')
             .DataTable()
             .row.add([
-              new_object.id,
+              new_object?.id,
               new_object?.instance?.name,
               new_object?.instance?.cloud_provider_account?.provider?.name,
               new_object?.status,
-              new_object.actions,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_depl').DataTable().row(':last').node().id =
-            'depl-' + new_object.id;
+            'depl-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -612,10 +609,10 @@ export class ApplicationdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -623,9 +620,9 @@ export class ApplicationdetailsComponent implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.classe === 1) {
+          if (new_object?.classe === 1) {
             new_object.classe = 'Website';
-          } else if (new_object.classe === 2) {
+          } else if (new_object?.classe === 2) {
             new_object.classe = 'Platform';
           } else {
             new_object.classe = 'SaaS';
@@ -647,16 +644,16 @@ export class ApplicationdetailsComponent implements OnInit {
           $('#table_dependencies')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.element,
-              new_object.element_value,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.element,
+              new_object?.element_value,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_dependencies').DataTable().row(':last').node().id =
-            'dependencies-' + new_object.id;
+            'dependencies-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -688,10 +685,10 @@ export class ApplicationdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -699,15 +696,15 @@ export class ApplicationdetailsComponent implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.source_type === 1) {
+          if (new_object?.source_type === 1) {
             new_object.source_type = 'Git';
-          } else if (new_object.source_type === 2) {
+          } else if (new_object?.source_type === 2) {
             new_object.source_type = 'Cloud';
           } else {
             new_object.source_type = 'Local';
           }
 
-          if (new_object.source_build === '') {
+          if (new_object?.source_build === '') {
             new_object.source_build = '---';
           }
           if (this.usrPer.applications.includes('delete') == true) {
@@ -726,16 +723,16 @@ export class ApplicationdetailsComponent implements OnInit {
           $('#table_sc')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.source_type,
-              new_object.source_build,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.source_type,
+              new_object?.source_build,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_sc').DataTable().row(':last').node().id =
-            'sc-' + new_object.id;
+            'sc-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -768,10 +765,10 @@ export class ApplicationdetailsComponent implements OnInit {
             }
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -795,15 +792,15 @@ export class ApplicationdetailsComponent implements OnInit {
           $('#table_vr')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.version,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.version,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_vr').DataTable().row(':last').node().id =
-            'vr-' + new_object.id;
+            'vr-' + new_object?.id;
           return new_object;
         },
         (error) => {
@@ -1501,11 +1498,11 @@ export class ApplicationdetailsComponent implements OnInit {
         $('#table_aaplication_logs')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.action,
-            new_object.element,
-            new_object.element_id,
-            new_object.log_date,
+            new_object?.id,
+            new_object?.action,
+            new_object?.element,
+            new_object?.element_id,
+            new_object?.log_date,
           ])
           .draw();
         return new_object;

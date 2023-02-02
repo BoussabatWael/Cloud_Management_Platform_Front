@@ -35,7 +35,6 @@ export class Navbar2Component implements OnInit {
   usr: any;
   user: any;
   value: any;
-  account: any;
   userPermission: any;
   templatesList: any;
   usersList: any;
@@ -150,7 +149,7 @@ export class Navbar2Component implements OnInit {
         id: [''],
       }),
       login: [''],
-      password: ['',Validators.required],
+      password: ['', Validators.required],
       port: [''],
     });
 
@@ -172,8 +171,6 @@ export class Navbar2Component implements OnInit {
     }
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -622,18 +619,18 @@ export class Navbar2Component implements OnInit {
             new_object = this.usersList1[key];
           }
         }
-        if (new_object.role === 2) {
+        if (new_object?.role === 2) {
           new_object.role = 'Admin';
-        } else if (new_object.role === 3) {
+        } else if (new_object?.role === 3) {
           new_object.role = 'Agent';
         } else {
           new_object.role = 'Supervisor';
         }
 
-        if (new_object.status === 1) {
+        if (new_object?.status === 1) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-        } else if (new_object.status === 2) {
+        } else if (new_object?.status === 2) {
           new_object.status =
             '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
@@ -691,18 +688,18 @@ export class Navbar2Component implements OnInit {
         $('#table_user')
           .DataTable()
           .row.add([
-            new_object.id,
-            new_object.firstname,
-            new_object.lastname,
-            new_object.email,
-            new_object.role,
-            new_object.status,
-            new_object.actions,
+            new_object?.id,
+            new_object?.firstname,
+            new_object?.lastname,
+            new_object?.email,
+            new_object?.role,
+            new_object?.status,
+            new_object?.actions,
           ])
           .draw();
         //@ts-ignore
         $('#table_user').DataTable().row(':last').node().id =
-          'user-' + new_object.id;
+          'user-' + new_object?.id;
         return new_object;
       },
       (error) => {
@@ -925,10 +922,10 @@ export class Navbar2Component implements OnInit {
             new_object = this.serversList1[key];
           }
 
-          if (new_object.instance.status === 1) {
+          if (new_object?.instance?.status === 1) {
             new_object.instance.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.instance.status === 2) {
+          } else if (new_object?.instance?.status === 2) {
             new_object.instance.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -936,21 +933,21 @@ export class Navbar2Component implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.cpu === 1) {
+          if (new_object?.cpu === 1) {
             new_object.cpu = `Xeon E3-1275 V6`;
-          } else if (new_object.cpu === 2) {
+          } else if (new_object?.cpu === 2) {
             new_object.cpu = `Core i7-7700T`;
-          } else if (new_object.cpu === 3) {
+          } else if (new_object?.cpu === 3) {
             new_object.cpu = `Core i7-7100T`;
           } else {
             new_object.cpu = `Core i7-7000T`;
           }
 
-          if (new_object.disk_space === 1) {
+          if (new_object?.disk_space === 1) {
             new_object.disk_space = '512Go';
-          } else if (new_object.disk_space === 2) {
+          } else if (new_object?.disk_space === 2) {
             new_object.disk_space = '1024Go';
-          } else if (new_object.disk_space === 3) {
+          } else if (new_object?.disk_space === 3) {
             new_object.disk_space = '2048Go';
           } else {
             new_object.disk_space = '5000Go';
@@ -1088,19 +1085,19 @@ export class Navbar2Component implements OnInit {
           $('#table_server')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.instance.name,
-              new_object.ip_address,
-              new_object.instance.cloud_provider_account.provider.name,
-              new_object.cpu,
-              new_object.disk_space,
-              new_object.instance.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.instance?.name,
+              new_object?.ip_address,
+              new_object?.instance.cloud_provider_account?.provider?.name,
+              new_object?.cpu,
+              new_object?.disk_space,
+              new_object?.instance?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_server').DataTable().row(':last').node().id =
-            'server-' + new_object.id;
+            'server-' + new_object?.id;
           return new_object;
         }
       },
@@ -1396,10 +1393,10 @@ export class Navbar2Component implements OnInit {
             new_object = this.applicationList1[key];
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.instance.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -1407,21 +1404,21 @@ export class Navbar2Component implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.classe === 1) {
+          if (new_object?.classe === 1) {
             new_object.classe = `Website`;
-          } else if (new_object.classe === 2) {
+          } else if (new_object?.classe === 2) {
             new_object.classe = `Platform`;
-          } else if (new_object.classe === 3) {
+          } else if (new_object?.classe === 3) {
             new_object.classe = `Tool`;
           } else {
             new_object.classe = `SaaS`;
           }
 
-          if (new_object.environment === 1) {
+          if (new_object?.environment === 1) {
             new_object.environment = 'Env1';
-          } else if (new_object.environment === 2) {
+          } else if (new_object?.environment === 2) {
             new_object.environment = 'Env2';
-          } else if (new_object.environment === 3) {
+          } else if (new_object?.environment === 3) {
             new_object.environment = 'Env3';
           } else {
             new_object.environment = 'Env4';
@@ -1474,17 +1471,17 @@ export class Navbar2Component implements OnInit {
           $('#table_app')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.classe,
-              new_object.name,
-              new_object.environment,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.classe,
+              new_object?.name,
+              new_object?.environment,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_app').DataTable().row(':last').node().id =
-            'app-' + new_object.id;
+            'app-' + new_object?.id;
           return new_object;
         }
       },

@@ -31,7 +31,6 @@ export class ApplicationsComponent implements OnInit {
   value: any;
   usr: any;
   user: any;
-  account: any;
   application: inventory_applications = new inventory_applications();
   userLogs: logs = new logs();
   applicationForm!: FormGroup;
@@ -83,8 +82,6 @@ export class ApplicationsComponent implements OnInit {
 
     this.usr = localStorage.getItem('user');
     this.user = JSON.parse(this.usr);
-
-    this.account = this.user['account'];
 
     this.userPermission = localStorage.getItem('permissions');
     this.usrPer = JSON.parse(this.userPermission);
@@ -168,10 +165,10 @@ export class ApplicationsComponent implements OnInit {
             new_object = this.applicationList1[key];
           }
 
-          if (new_object.status === 1) {
+          if (new_object?.status === 1) {
             new_object.status =
               '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
-          } else if (new_object.status === 2) {
+          } else if (new_object?.status === 2) {
             new_object.instance.status =
               '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
           } else {
@@ -179,11 +176,11 @@ export class ApplicationsComponent implements OnInit {
               '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
           }
 
-          if (new_object.classe === 1) {
+          if (new_object?.classe === 1) {
             new_object.classe = `Website`;
-          } else if (new_object.classe === 2) {
+          } else if (new_object?.classe === 2) {
             new_object.classe = `Platform`;
-          } else if (new_object.classe === 3) {
+          } else if (new_object?.classe === 3) {
             new_object.classe = `Tool`;
           } else {
             new_object.classe = `SaaS`;
@@ -236,16 +233,16 @@ export class ApplicationsComponent implements OnInit {
           $('#table_app')
             .DataTable()
             .row.add([
-              new_object.id,
-              new_object.classe,
-              new_object.name,
-              new_object.status,
-              new_object.actions,
+              new_object?.id,
+              new_object?.classe,
+              new_object?.name,
+              new_object?.status,
+              new_object?.actions,
             ])
             .draw();
           //@ts-ignore
           $('#table_app').DataTable().row(':last').node().id =
-            'app-' + new_object.id;
+            'app-' + new_object?.id;
           return new_object;
         }
       },
