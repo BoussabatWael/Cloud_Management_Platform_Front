@@ -77,10 +77,10 @@
                   <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
                 </div>
                 <div *ngIf="user?.status == 2">
-                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Inactive</p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
                 </div>
                 <div *ngIf="user?.status == 3">
-                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
@@ -192,7 +192,7 @@
                             [ngModel]="userSecurity?.login"
                             [ngClass]="{ 'is-invalid': submitted && userform['login'].errors }">
                           <div *ngIf="submitted && userform['login'].errors" class="invalid-feedback">
-                            <div *ngIf="userform['login'].errors userform['login'].required">Login is required</div>
+                            <div *ngIf="userform['login'].errors">Login required</div>
                           </div>
                         </div>
                       </div>
@@ -200,13 +200,13 @@
                         <label>Password </label>
                         <div class="d-flex">
                           <input type="password" formControlName="password" [ngModel]="userSecurity?.password"
-                            required="true" class="form-control" aria-label="Password" aria-describedby="password-addon" minlength="2" min="2"
+                            required="true" class="form-control" aria-label="Password" aria-describedby="password-addon" minlength="3" min="3"
                             [ngClass]="{ 'is-invalid': submitted && userform['password'].errors }">
                           <button class="btn btn-light " type="button" id="password-addon"><i
                               class="mdi mdi-eye-outline"></i></button>
                         </div>
                         <div *ngIf="submitted && userform['password'].errors" class="d-flex invalid-feedback">
-                          <div *ngIf="userform['password'].errors userform['password'].required">Password is required
+                          <div *ngIf="userform['password'].errors">Password required | 3 characters at least
                           </div>
                         </div>
                       </div>
@@ -220,7 +220,7 @@
                             [ngModel]="user?.firstname"
                             [ngClass]="{ 'is-invalid': submitted && userform['firstname'].errors }">
                           <div *ngIf="submitted && userform['firstname'].errors" class="invalid-feedback">
-                            <div *ngIf="userform['firstname'].errors userform['firstname'].required">Firstname is
+                            <div *ngIf="userform['firstname'].errors">Firstname
                               required</div>
                           </div>
                         </div>
@@ -231,7 +231,7 @@
                           <input type="text" formControlName="lastname" class="form-control" [ngModel]="user?.lastname"
                             [ngClass]="{ 'is-invalid': submitted && userform['lastname'].errors }">
                           <div *ngIf="submitted && userform['lastname'].errors" class="invalid-feedback">
-                            <div *ngIf="userform['lastname'].errors userform['lastname'].required">Lastname is required
+                            <div *ngIf="userform['lastname'].errors">Lastname required
                             </div>
                           </div>
                         </div>

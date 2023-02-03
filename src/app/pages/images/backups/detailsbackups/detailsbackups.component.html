@@ -60,13 +60,13 @@
                 <h5 class="mt-3 mb-1">{{backup?.name}}</h5>
                 <p class="text-muted mb-0">#{{backup?.id}}</p>
                 <div *ngIf="backup?.status == 1">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
                 </div>
                 <div *ngIf="backup?.status == 2">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
                 </div>
                 <div *ngIf="backup?.status == 3">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
@@ -156,7 +156,7 @@
                           <input class="form-control" formControlName="name" [ngModel]="backup?.name" type="text"
                             placeholder="" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }">
                           <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
-                            <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                            <div *ngIf="form['name'].errors">Name required</div>
                           </div>
                         </div>
                       </div>
@@ -168,7 +168,7 @@
                             <ng-option *ngFor="let l of layout" [value]="l.value">{{l.name}}</ng-option>
                           </ng-select>
                           <div *ngIf="submitted && form['layout'].errors" class="invalid-feedback">
-                            <div *ngIf="form['layout'].errors form['layout'].required">Layout is required</div>
+                            <div *ngIf="form['layout'].errors">Layout required</div>
                           </div>
                         </div>
                       </div>
@@ -180,7 +180,7 @@
                             <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
                           </ng-select>
                           <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
-                            <div *ngIf="form['status'].errors form['status'].required">Status is required</div>
+                            <div *ngIf="form['status'].errors">Status required</div>
                           </div>
                         </div>
                       </div>

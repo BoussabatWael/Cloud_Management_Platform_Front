@@ -57,18 +57,18 @@
             </div>
             <div class="card-body pt-3">
               <div class="text-center">
-                <img src="assets/images/uploads/{{application?.logo}}" alt="" width="70"
+                <img src="assets/images/uploads/{{application?.logo}}" alt="" width="100" height="100"
                   class="mx-auto d-block image-crop">
                 <h5 class="mt-3 mb-1">{{application?.name}}</h5>
                 <p class="text-muted mb-0">#{{application?.id}}</p>
                 <div *ngIf="application?.status == 1">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
                 </div>
                 <div *ngIf="application?.status == 2">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
                 </div>
                 <div *ngIf="application?.status == 3">
-                  <p class="text-muted mb-0"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
@@ -151,7 +151,7 @@
                             <input type="text" formControlName="name" [ngModel]="application?.name" class="form-control"
                               required="" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }">
                             <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
-                              <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                              <div *ngIf="form['name'].errors">Name required</div>
                             </div>
                           </div>
                         </div>
@@ -170,7 +170,7 @@
                               <ng-option *ngFor="let c of classe" [value]="c.value">{{c.name}}</ng-option>
                             </ng-select>
                             <div *ngIf="submitted && form['classe'].errors" class="invalid-feedback">
-                              <div *ngIf="form['classe'].errors form['classe'].required">Type is required</div>
+                              <div *ngIf="form['classe'].errors">Type required</div>
                             </div>
                           </div>
                         </div>
@@ -184,7 +184,7 @@
                               <ng-option *ngFor="let s of status" [value]="s.value">{{s.name}}</ng-option>
                             </ng-select>
                             <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
-                              <div *ngIf="form['status'].errors form['status'].required">Status is required</div>
+                              <div *ngIf="form['status'].errors">Status required</div>
                             </div>
                           </div>
                         </div>
@@ -193,7 +193,7 @@
                           <div class="mb-6" class="row mb-3">
                             <div class="col-xs-6">
                               <div *ngIf="imgUrl;else other">
-                                <img src={{imgUrl}} width=100 height=100 class="image-crop">
+                                <img src={{imgUrl}} width=70 height=70 class="image-crop">
                               </div>
                               <ng-template #other>
                                 <img src="assets/images/uploads/{{application?.logo}}" class="image-crop" width=70
@@ -579,7 +579,7 @@
                 <input type="text" class="form-control" formControlName="version"
                   [ngClass]="{ 'is-invalid': submitted1 && versionform['version'].errors }" required="true">
                 <div *ngIf="submitted1 && versionform['version'].errors" class="invalid-feedback">
-                  <div *ngIf="versionform['version'].errors versionform['version'].required">Version is required</div>
+                  <div *ngIf="versionform['version'].errors">Version required</div>
                 </div>
               </div>
             </div>
@@ -651,7 +651,7 @@
                 <input type="number" min="1" class="form-control" formControlName="element"
                   [ngClass]="{ 'is-invalid': submitted3 && depform['element'].errors }" required="true">
                 <div *ngIf="submitted3 && depform['element'].errors" class="invalid-feedback">
-                  <div *ngIf="depform['element'].errors depform['element'].required">Element is required</div>
+                  <div *ngIf="depform['element'].errors">Element required</div>
                 </div>
               </div>
             </div>
@@ -661,8 +661,7 @@
                 <input type="text" class="form-control" formControlName="element_value"
                   [ngClass]="{ 'is-invalid': submitted3 && depform['element_value'].errors }" required="true">
                 <div *ngIf="submitted3 && depform['element_value'].errors" class="invalid-feedback">
-                  <div *ngIf="depform['element_value'].errors depform['element_value'].required">Element value is
-                    required</div>
+                  <div *ngIf="depform['element_value'].errors">Element value required</div>
                 </div>
               </div>
             </div>
@@ -672,7 +671,7 @@
                 <input type="number" min="1" class="form-control" formControlName="version_id"
                   [ngClass]="{ 'is-invalid': submitted3 && depform['version_id'].errors }" required="true">
                 <div *ngIf="submitted3 && depform['version_id'].errors" class="invalid-feedback">
-                  <div *ngIf="depform['version_id'].errors depform['version_id'].required">VersionID is required</div>
+                  <div *ngIf="depform['version_id'].errors">VersionID required</div>
                 </div>
               </div>
             </div>
@@ -738,8 +737,7 @@
                   <ng-option *ngFor="let s of serversList" [value]="s?.instance?.id">{{s?.instance?.name}}</ng-option>
                 </ng-select>
                 <div *ngIf="submitted4 && deplform['instance'].get('id')?.errors" class="invalid-feedback">
-                  <div *ngIf="deplform['instance'].get('id')?.errors deplform['instance'].get('id').required">Instance
-                    is required</div>
+                  <div *ngIf="deplform['instance'].get('id')?.errors">Instance required</div>
                 </div>
               </div>
             </div>
@@ -815,8 +813,7 @@
                       name="source_type" value="3" (click)="cpuChange(3)" />
                     <label for="source_type3">Local</label>
                     <div *ngIf="submitted2 && sourceform['source_type'].errors" class="invalid-feedback">
-                      <div *ngIf="sourceform['source_type'].errors sourceform['source_type'].required">Source is
-                        required</div>
+                      <div *ngIf="sourceform['source_type'].errors">Source required</div>
                     </div>
                   </div>
                 </div>

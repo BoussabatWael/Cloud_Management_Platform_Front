@@ -72,18 +72,13 @@
                 <h5 class="mt-3 mb-1">{{ provider?.name }}</h5>
                 <p class="text-muted mb-0">#{{ provider?.id }}</p>
                 <div *ngIf="provider?.status == 1">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-success align-middle me-1"></i>active
-                  </p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
                 </div>
                 <div *ngIf="provider?.status == 2">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive
-                  </p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
                 </div>
                 <div *ngIf="provider?.status == 3">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
@@ -213,10 +208,8 @@
                             }" placeholder="" required="true" />
                           <div *ngIf="submitted && providerform['name'].errors" class="invalid-feedback">
                             <div *ngIf="
-                                providerform['name'].errors;
-                                providerform: ['name'].required
-                              ">
-                              Name is required
+                                providerform['name'].errors">
+                              Name required
                             </div>
                           </div>
                         </div>
@@ -248,10 +241,8 @@
                           }" placeholder="" required="true" />
                         <div *ngIf="submitted && providerform['website'].errors" class="invalid-feedback">
                           <div *ngIf="
-                              providerform['website'].errors;
-                              providerform: ['website'].required
-                            ">
-                            Website is required
+                              providerform['website'].errors">
+                            Website required
                           </div>
                         </div>
                       </div>
@@ -829,7 +820,7 @@
                             <div *ngIf="
                                 form['cloud_provider_account'].get('id')?.errors
                               ">
-                              Cloud account is required
+                              Cloud account required
                             </div>
                           </div>
                         </div>
@@ -847,7 +838,7 @@
                             </ng-select>
                             <div *ngIf="submitted1 && form['location'].errors" class="invalid-feedback">
                               <div *ngIf="form['location'].errors">
-                                Location is required
+                                Location required
                               </div>
                             </div>
                           </div>
@@ -1005,7 +996,7 @@
                               }" required="true" />
                             <div *ngIf="submitted1 && form['ip_address'].errors" class="invalid-feedback">
                               <div *ngIf="form['ip_address'].errors">
-                                IP address is required
+                                IP address required
                               </div>
                             </div>
                           </div>
@@ -1021,7 +1012,7 @@
                               }" required="true" />
                             <div *ngIf="submitted1 && form['hostname'].errors" class="invalid-feedback">
                               <div *ngIf="form['hostname'].errors">
-                                Hostname is required
+                                Hostname required
                               </div>
                             </div>
                           </div>
@@ -1043,7 +1034,7 @@
                               }" required="true" />
                             <div *ngIf="submitted1 && form['name'].errors" class="invalid-feedback">
                               <div *ngIf="form['name'].errors">
-                                Name is required
+                                Name required
                               </div>
                             </div>
                           </div>
@@ -1090,7 +1081,7 @@
                               }" required="true" />
                             <div *ngIf="submitted1 && form['login'].errors" class="invalid-feedback">
                               <div *ngIf="form['login'].errors">
-                                Login is required
+                                Login required
                               </div>
                             </div>
                           </div>
@@ -1107,7 +1098,7 @@
                               }" required="true" />
                             <div *ngIf="submitted1 && form['port'].errors" class="invalid-feedback">
                               <div *ngIf="form['port'].errors">
-                                Port is required
+                                Port required
                               </div>
                             </div>
                           </div>
@@ -1118,7 +1109,7 @@
                           <label for="example-text-input" class="col-md-4 col-form-label">Password</label>
                           <div class="col-md-12">
                             <div class="input-group auth-pass-inputgroup">
-                              <input type="password" class="form-control" aria-label="Password"
+                              <input type="password" class="form-control" aria-label="Password" minlength="3" min="3"
                                 aria-describedby="password-addon" formControlName="password" [ngClass]="{
                                   'is-invalid':
                                     submitted1 && form['password'].errors
@@ -1128,7 +1119,7 @@
                               </button>
                               <div *ngIf="submitted1 && form['password'].errors" class="invalid-feedback">
                                 <div *ngIf="form['password'].errors">
-                                  Password required
+                                  Password required | 3 characters at least
                                 </div>
                               </div>
                             </div>
@@ -1175,10 +1166,8 @@
                         }" required="true" class="form-control" />
                       <div *ngIf="submitted2 && domainform['name'].errors" class="invalid-feedback">
                         <div *ngIf="
-                            domainform['name'].errors;
-                            domainform: ['name'].required
-                          ">
-                          Name is required
+                            domainform['name'].errors">
+                          Name required
                         </div>
                       </div>
                     </div>
@@ -1199,13 +1188,8 @@
                           submitted2 &&
                           domainform['cloud_provider_account'].get('id')?.errors
                         " class="invalid-feedback">
-                        <div *ngIf="
-                            domainform['cloud_provider_account'].get('id')
-                              ?.errors;
-                            domainform: ['cloud_provider_account'].get('id')
-                              ?.required
-                          ">
-                          Cloud account is required
+                        <div *ngIf="domainform['cloud_provider_account'].get('id')?.errors">
+                          Cloud account required
                         </div>
                       </div>
                     </div>

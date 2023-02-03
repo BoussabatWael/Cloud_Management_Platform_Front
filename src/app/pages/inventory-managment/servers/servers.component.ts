@@ -75,7 +75,7 @@ export class ServersComponent implements OnInit {
         id: [''],
       }),
       login: [''],
-      password: ['', Validators.required],
+      password: [''],
       port: [''],
     });
   }
@@ -450,34 +450,34 @@ export class ServersComponent implements OnInit {
     }
 
     document.querySelector('.addserver')?.classList.remove('d-none');
-    this.instanceService.saveInstance(dataa).subscribe(
-      (result) => {
-        let instance = result.data;
 
-        this.CreateLogs(
-          'Create',
-          formatedTimestamp(),
-          3,
-          instance.id,
-          this.user,
-          7
-        );
+    if (this.selectedOption == 'yes') {
+      this.instanceService.saveInstance(dataa).subscribe(
+        (result) => {
+          let instance = result.data;
 
-        let server = dataa;
-        server.instance = instance;
-        this.ServersSercie.saveServer(server).subscribe(
-          (result1) => {
-            let new_server = result1.data;
-            this.CreateLogs(
-              'Create',
-              formatedTimestamp(),
-              20,
-              new_server.id,
-              this.user,
-              7
-            );
+          this.CreateLogs(
+            'Create',
+            formatedTimestamp(),
+            3,
+            instance.id,
+            this.user,
+            7
+          );
 
-            if (this.selectedOption == 'yes') {
+          let server = dataa;
+          server.instance = instance;
+          this.ServersSercie.saveServer(server).subscribe(
+            (result1) => {
+              let new_server = result1.data;
+              this.CreateLogs(
+                'Create',
+                formatedTimestamp(),
+                20,
+                new_server.id,
+                this.user,
+                7
+              );
               let access_cred = dataa;
               access_cred.element = 1;
               access_cred.element_id = new_server.id;
@@ -525,7 +525,56 @@ export class ServersComponent implements OnInit {
                   });
                 }
               );
-            } else {
+            },
+            (error) => {
+              document.querySelector('.addserver')?.classList.add('d-none');
+              Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonColor: '#2f49c7',
+              });
+            }
+          );
+        },
+        (error) => {
+          document.querySelector('.addserver')?.classList.add('d-none');
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong!',
+            icon: 'error',
+            confirmButtonColor: '#2f49c7',
+          });
+        }
+      );
+    } else if (this.selectedOption == 'no') {
+      this.instanceService.saveInstance(dataa).subscribe(
+        (result) => {
+          let instance = result.data;
+
+          this.CreateLogs(
+            'Create',
+            formatedTimestamp(),
+            3,
+            instance.id,
+            this.user,
+            7
+          );
+
+          let server = dataa;
+          server.instance = instance;
+          this.ServersSercie.saveServer(server).subscribe(
+            (result1) => {
+              let new_server = result1.data;
+              this.CreateLogs(
+                'Create',
+                formatedTimestamp(),
+                20,
+                new_server.id,
+                this.user,
+                7
+              );
+
               const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-right',
@@ -545,29 +594,37 @@ export class ServersComponent implements OnInit {
               this.close();
               this.closebutton.nativeElement.click();
               this.getDiff();
+            },
+            (error) => {
+              document.querySelector('.addserver')?.classList.add('d-none');
+              Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonColor: '#2f49c7',
+              });
             }
-          },
-          (error) => {
-            document.querySelector('.addserver')?.classList.add('d-none');
-            Swal.fire({
-              title: 'Error!',
-              text: 'Something went wrong!',
-              icon: 'error',
-              confirmButtonColor: '#2f49c7',
-            });
-          }
-        );
-      },
-      (error) => {
-        document.querySelector('.addserver')?.classList.add('d-none');
-        Swal.fire({
-          title: 'Error!',
-          text: 'Something went wrong!',
-          icon: 'error',
-          confirmButtonColor: '#2f49c7',
-        });
-      }
-    );
+          );
+        },
+        (error) => {
+          document.querySelector('.addserver')?.classList.add('d-none');
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong!',
+            icon: 'error',
+            confirmButtonColor: '#2f49c7',
+          });
+        }
+      );
+    } else {
+      document.querySelector('.addserver')?.classList.add('d-none');
+      Swal.fire({
+        title: 'SSH credentials!',
+        text: 'Please select an option!',
+        icon: 'error',
+        confirmButtonColor: '#2f49c7',
+      });
+    }
   }
   deleteServer(id: any) {
     Swal.fire({

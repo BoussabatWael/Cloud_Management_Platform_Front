@@ -118,9 +118,10 @@ export class MyprofileComponent implements OnInit {
       language: { search: '', searchPlaceholder: 'Search...' },
     };
 
-    this.getUserLogs();
     this.getUserModulesList();
     this.getUserSecurity();
+    this.getUserLogs();
+
   }
 
   ngOnDestroy(): void {
@@ -147,7 +148,7 @@ export class MyprofileComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 2500,
+              timer: 2000,
               timerProgressBar: true,
               didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -234,7 +235,7 @@ export class MyprofileComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 2500,
+              timer: 2000,
               timerProgressBar: true,
               didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -356,7 +357,6 @@ export class MyprofileComponent implements OnInit {
     this.usersSecurityService.getUserSecurityByUserId(this.user.id).subscribe(
       (result) => {
         this.userSecurity = result.data;
-        this.dtTrigger.next();
       },
       (error) => {
         Swal.fire({
@@ -393,7 +393,7 @@ export class MyprofileComponent implements OnInit {
         toast: true,
         position: 'center',
         showConfirmButton: false,
-        timer: 2500,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -823,6 +823,7 @@ export class MyprofileComponent implements OnInit {
           elem.source = this.sourceType[elem.source];
           return elem;
         });
+        this.dtTrigger.next();
       },
       (error) => {
         Swal.fire({

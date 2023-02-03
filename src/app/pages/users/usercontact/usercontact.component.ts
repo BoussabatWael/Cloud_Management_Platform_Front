@@ -666,7 +666,7 @@ export class UsercontactComponent implements OnInit {
             toast: true,
             position: 'center',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 2000,
             timerProgressBar: true,
             didOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -747,7 +747,7 @@ export class UsercontactComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 2500,
+              timer: 2000,
               timerProgressBar: true,
               didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -830,7 +830,7 @@ export class UsercontactComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 2500,
+              timer: 2000,
               timerProgressBar: true,
               didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -958,7 +958,7 @@ export class UsercontactComponent implements OnInit {
                             toast: true,
                             position: 'center',
                             showConfirmButton: false,
-                            timer: 2500,
+                            timer: 2000,
                             timerProgressBar: true,
                             didOpen: (toast) => {
                               toast.addEventListener(
@@ -1079,7 +1079,7 @@ export class UsercontactComponent implements OnInit {
                     toast: true,
                     position: 'center',
                     showConfirmButton: false,
-                    timer: 2500,
+                    timer: 2000,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                       toast.addEventListener('mouseenter', Swal.stopTimer);

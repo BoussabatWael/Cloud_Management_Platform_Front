@@ -380,8 +380,8 @@
                 *ngIf="submitted && depform['type'].errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="depform['type'].errors; depform: ['type'].required">
-                  Type is required
+                <div *ngIf="depform['type'].errors">
+                  Type required
                 </div>
               </div>
             </div>
@@ -413,11 +413,8 @@
                     >
                       <div
                         *ngIf="
-                          depform['name'].errors;
-                          depform: ['name'].required
-                        "
-                      >
-                        Name is required
+                          depform['name'].errors">
+                        Name required
                       </div>
                     </div>
                   </div>
@@ -454,11 +451,8 @@
                     >
                       <div
                         *ngIf="
-                          depform['name'].errors;
-                          depform: ['name'].required
-                        "
-                      >
-                        Name is required
+                          depform['name'].errors">
+                        Name required
                       </div>
                     </div>
                   </div>
@@ -485,11 +479,8 @@
                     >
                       <div
                         *ngIf="
-                          depform['source_url'].errors;
-                          depform: ['source_url'].required
-                        "
-                      >
-                        URL is required
+                          depform['source_url'].errors">
+                        URL required
                       </div>
                     </div>
                   </div>
@@ -524,11 +515,8 @@
                     >
                       <div
                         *ngIf="
-                          depform['application'].get('id')?.errors;
-                          depform: ['application'].get('id')?.required
-                        "
-                      >
-                        Application is required
+                          depform['application'].get('id')?.errors">
+                        Application required
                       </div>
                     </div>
                   </div>
@@ -568,11 +556,8 @@
                     >
                       <div
                         *ngIf="
-                          depform['instance'].get('id')?.errors;
-                          depform: ['instance'].get('id')?.required
-                        "
-                      >
-                        Instance is required
+                          depform['instance'].get('id')?.errors">
+                        Instance required
                       </div>
                     </div>
                   </div>

@@ -311,7 +311,7 @@
                     <div *ngIf="submittedd && form['cloud_provider_account'].get('id')?.errors"
                       class="invalid-feedback">
                       <div *ngIf="form['cloud_provider_account'].get('id')?.errors">
-                        Cloud account is required</div>
+                        Cloud account required</div>
                     </div>
                   </div>
                 </div>
@@ -324,7 +324,7 @@
                         <ng-option *ngFor="let l of location" [value]="l.value">{{l.name}}</ng-option>
                       </ng-select>
                       <div *ngIf="submittedd && form['location'].errors" class="invalid-feedback">
-                        <div *ngIf="form['location'].errors">Location is required</div>
+                        <div *ngIf="form['location'].errors">Location required</div>
                       </div>
                     </div>
                   </div>
@@ -465,7 +465,7 @@
                       <input class="form-control" formControlName="ip_address"
                         [ngClass]="{ 'is-invalid': submittedd && form['ip_address'].errors }" required="true">
                       <div *ngIf="submittedd && form['ip_address'].errors" class="invalid-feedback">
-                        <div *ngIf="form['ip_address'].errors">IP address is required</div>
+                        <div *ngIf="form['ip_address'].errors">IP address required</div>
                       </div>
                     </div>
                   </div>
@@ -477,7 +477,7 @@
                       <input class="form-control" formControlName="hostname"
                         [ngClass]="{ 'is-invalid': submittedd && form['hostname'].errors }" required="true">
                       <div *ngIf="submittedd && form['hostname'].errors" class="invalid-feedback">
-                        <div *ngIf="form['hostname'].errors">Hostname is required</div>
+                        <div *ngIf="form['hostname'].errors">Hostname required</div>
                       </div>
                     </div>
                   </div>
@@ -496,7 +496,7 @@
                       <input class="form-control" formControlName="name"
                         [ngClass]="{ 'is-invalid': submittedd && form['name'].errors }" required="true">
                       <div *ngIf="submittedd && form['name'].errors" class="invalid-feedback">
-                        <div *ngIf="form['name'].errors">Name is required</div>
+                        <div *ngIf="form['name'].errors">Name required</div>
                       </div>
                     </div>
                   </div>
@@ -536,7 +536,7 @@
                       <input class="form-control" type="text" formControlName="login"
                         [ngClass]="{ 'is-invalid': submittedd && form['login'].errors }" required="true">
                       <div *ngIf="submittedd && form['login'].errors" class="invalid-feedback">
-                        <div *ngIf="form['login'].errors">Login is required</div>
+                        <div *ngIf="form['login'].errors">Login required</div>
                       </div>
                     </div>
                   </div>
@@ -550,7 +550,7 @@
                       <input class="form-control" type="number" formControlName="port"
                         [ngClass]="{ 'is-invalid': submittedd && form['port'].errors }" required="true">
                       <div *ngIf="submittedd && form['port'].errors" class="invalid-feedback">
-                        <div *ngIf="form['port'].errors">Port is required</div>
+                        <div *ngIf="form['port'].errors">Port required</div>
                       </div>
                     </div>
                   </div>
@@ -560,13 +560,13 @@
                     <label for="example-text-input" class="col-md-4 col-form-label">Password</label>
                     <div class="col-md-12">
                       <div class="input-group auth-pass-inputgroup">
-                        <input type="password" class="form-control" formControlName="password" aria-label="Password"
+                        <input type="password" class="form-control" formControlName="password" aria-label="Password" minlength="3" min="3"
                           aria-describedby="password-addon"
                           [ngClass]="{ 'is-invalid': submittedd && form['password'].errors }">
                         <button class="btn btn-light " type="button" id="password-addon"><i
                             class="mdi mdi-eye-outline"></i></button>
                         <div *ngIf="submittedd && form['password'].errors" class="invalid-feedback">
-                          <div *ngIf="form['password'].errors">Password required</div>
+                          <div *ngIf="form['password'].errors">Password required | 3 characters at least</div>
                         </div>
                       </div>
                     </div>

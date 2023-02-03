@@ -175,7 +175,7 @@
                           <input class="form-control" formControlName="name" type="text"
                             [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" required="true">
                           <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
-                            <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                            <div *ngIf="form['name'].errors">Name required</div>
                           </div>
                         </div>
                       </div>
@@ -187,7 +187,7 @@
                           <input class="form-control" formControlName="version" type="text"
                             [ngClass]="{ 'is-invalid': submitted && form['version'].errors }" required="true">
                           <div *ngIf="submitted && form['version'].errors" class="invalid-feedback">
-                            <div *ngIf="form['version'].errors form['version'].required">Version is required</div>
+                            <div *ngIf="form['version'].errors">Version required</div>
                           </div>
                         </div>
                       </div>
@@ -203,7 +203,7 @@
                             <ng-option *ngFor="let cl of classe" [value]="cl?.value">{{cl?.name}}</ng-option>
                           </ng-select>
                           <div *ngIf="submitted && form['classe'].errors" class="invalid-feedback">
-                            <div *ngIf="form['classe'].errors form['classe'].required">Type is required</div>
+                            <div *ngIf="form['classe'].errors">Type required</div>
                           </div>
                         </div>
                       </div>
@@ -242,7 +242,7 @@
                         name="source_type" value="3" (click)="cpuchange(3)" />
                       <label for="source_type3">Local</label>
                       <div *ngIf="submitted && form['source_type'].errors" class="invalid-feedback">
-                        <div *ngIf="form['source_type'].errors form['source_type'].required">Source is required</div>
+                        <div *ngIf="form['source_type'].errors">Source required</div>
                       </div>
                     </div>
                   </div>

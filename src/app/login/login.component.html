@@ -37,8 +37,8 @@
                   <input type="text" class="form-control" formControlName="login" id="login" placeholder="Enter login"
                     [ngClass]="{'is-invalid': submitted && form['login'].errors}" />
                   <div *ngIf="submitted && form['login'].errors" class="invalid-feedback">
-                    <div *ngIf="form['login'].errors; form: ['login'].required">
-                      Login is required
+                    <div *ngIf="form['login'].errors">
+                      Login required
                     </div>
                   </div>
                 </div>
@@ -52,8 +52,8 @@
                       <i class="mdi mdi-eye-outline"></i>
                     </button>
                     <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
-                      <div *ngIf="form['password'].errors; form: ['password'].required">
-                        Password is required
+                      <div *ngIf="form['password'].errors">
+                        Password required
                       </div>
                     </div>
                   </div>

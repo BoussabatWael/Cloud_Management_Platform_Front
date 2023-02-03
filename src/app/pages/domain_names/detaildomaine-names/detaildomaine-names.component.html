@@ -61,19 +61,15 @@
               <div class="text-center">
                 <h5 class="mt-3 mb-1">{{ domainName?.name }}</h5>
                 <p class="text-muted mb-0">#{{ domainName?.id }}</p>
+
                 <div *ngIf="domainName?.status == 1">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-success align-middle me-1"></i>Active
-                  </p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-success align-middle me-1"></i>Active</p>
                 </div>
                 <div *ngIf="domainName?.status == 2">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive
-                  </p>
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive</p>
                 </div>
                 <div *ngIf="domainName?.status == 3">
-                  <p class="text-muted mb-0">
-                    <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
+                  <p class="text-muted mb-1"> <i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress
                   </p>
                 </div>
               </div>
@@ -191,10 +187,8 @@
                             }" />
                           <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
                             <div *ngIf="
-                                form['name'].errors;
-                                form: ['name'].required
-                              ">
-                              Name is required
+                                form['name'].errors">
+                              Name required
                             </div>
                           </div>
                         </div>
@@ -250,10 +244,8 @@
                           </ng-select>
                           <div *ngIf="submitted && form['status'].errors" class="invalid-feedback">
                             <div *ngIf="
-                                form['status'].errors;
-                                form: ['status'].required
-                              ">
-                              Status is required
+                                form['status'].errors">
+                              Status required
                             </div>
                           </div>
                         </div>
@@ -599,8 +591,8 @@
                     'is-invalid': submitted2 && sslform['name'].errors
                   }" required="true" class="form-control" />
                 <div *ngIf="submitted2 && sslform['name'].errors" class="invalid-feedback">
-                  <div *ngIf="sslform['name'].errors; sslform: ['name'].required">
-                    Name is required
+                  <div *ngIf="sslform['name'].errors">
+                    Name required
                   </div>
                 </div>
               </div>
@@ -616,8 +608,8 @@
                     p?.provider?.name }}</ng-option>
                 </ng-select>
                 <div *ngIf="submitted2 && sslform['cloud_provider_id'].errors" class="invalid-feedback">
-                  <div *ngIf="sslform['cloud_provider_id'].errors; sslform: ['cloud_provider_id'].required">
-                    Cloud provider is required
+                  <div *ngIf="sslform['cloud_provider_id'].errors">
+                    Cloud provider required
                   </div>
                 </div>
               </div>
@@ -686,8 +678,8 @@
                     'is-invalid': submitted1 && hostform['name'].errors
                   }" required="true" class="form-control" />
                 <div *ngIf="submitted1 && hostform['name'].errors" class="invalid-feedback">
-                  <div *ngIf="hostform['name'].errors; hostform: ['name'].required">
-                    Name is required
+                  <div *ngIf="hostform['name'].errors">
+                    Name required
                   </div>
                 </div>
               </div>
@@ -708,10 +700,8 @@
                     hostform['cloud_provider_account'].get('id')?.errors
                   " class="invalid-feedback">
                   <div *ngIf="
-                      hostform['cloud_provider_account'].get('id')?.errors;
-                      hostform: ['cloud_provider_account'].get('id')?.required
-                    ">
-                    Cloud provider is required
+                      hostform['cloud_provider_account'].get('id')?.errors">
+                    Cloud provider required
                   </div>
                 </div>
               </div>
@@ -730,10 +720,8 @@
                 </ng-select>
                 <div *ngIf="submitted1 && hostform['instance'].get('id')?.errors" class="invalid-feedback">
                   <div *ngIf="
-                      hostform['instance'].get('id')?.errors;
-                      hostform: ['instance'].get('id')?.required
-                    ">
-                    Instance is required
+                      hostform['instance'].get('id')?.errors">
+                    Instance required
                   </div>
                 </div>
               </div>
@@ -751,10 +739,8 @@
                 </ng-select>
                 <div *ngIf="submitted1 && hostform['hosting'].get('id')?.errors" class="invalid-feedback">
                   <div *ngIf="
-                      hostform['hosting'].get('id')?.errors;
-                      hostform: ['hosting'].get('id')?.required
-                    ">
-                    Host is required
+                      hostform['hosting'].get('id')?.errors">
+                    Host required
                   </div>
                 </div>
               </div>
@@ -837,10 +823,8 @@
                   }" required="true" class="form-control" />
                 <div *ngIf="submitted3 && subdomainform['name'].errors" class="invalid-feedback">
                   <div *ngIf="
-                      subdomainform['name'].errors;
-                      subdomainform: ['name'].required
-                    ">
-                    Name is required
+                      subdomainform['name'].errors">
+                    Name required
                   </div>
                 </div>
               </div>
@@ -861,11 +845,8 @@
                     subdomainform['cloud_provider_account'].get('id')?.errors
                   " class="invalid-feedback">
                   <div *ngIf="
-                      subdomainform['cloud_provider_account'].get('id')?.errors;
-                      subdomainform: ['cloud_provider_account'].get('id')
-                        ?.required
-                    ">
-                    Cloud provider is required
+                      subdomainform['cloud_provider_account'].get('id')?.errors">
+                    Cloud provider required
                   </div>
                 </div>
               </div>

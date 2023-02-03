@@ -166,7 +166,7 @@
                     [ngClass]="{ 'is-invalid': submitted && userform['firstname'].errors }" class="form-control"
                     required="true">
                   <div *ngIf="submitted && userform['firstname'].errors" class="invalid-feedback">
-                    <div *ngIf="userform['firstname'].errors userform['firstname'].required">Firstname is required</div>
+                    <div *ngIf="userform['firstname'].errors">Firstname required</div>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@
                     [ngClass]="{ 'is-invalid': submitted && userform['lastname'].errors }" class="form-control"
                     required="true">
                   <div *ngIf="submitted && userform['lastname'].errors" class="invalid-feedback">
-                    <div *ngIf="userform['lastname'].errors userform['lastname'].required">Lastname is required</div>
+                    <div *ngIf="userform['lastname'].errors">Lastname required</div>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@
                     [ngClass]="{ 'is-invalid': submitted && userform['email'].errors }" class="form-control"
                     required="true">
                   <div *ngIf="submitted && userform['email'].errors" class="invalid-feedback">
-                    <div *ngIf="userform['email'].errors userform['email'].required">Email is required</div>
+                    <div *ngIf="userform['email'].errors">Email required</div>
                   </div>
                 </div>
               </div>
@@ -202,7 +202,7 @@
                     <ng-option *ngFor="let o of adminop" [value]="o.value">{{o.name}}</ng-option>
                   </ng-select>
                   <div *ngIf="submitted && userform['role'].errors" class="invalid-feedback">
-                    <div *ngIf="userform['role'].errors userform['role'].required">Role is required</div>
+                    <div *ngIf="userform['role'].errors">Role required</div>
                   </div>
                 </div>
               </div>

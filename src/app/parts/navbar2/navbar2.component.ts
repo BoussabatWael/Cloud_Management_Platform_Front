@@ -34,7 +34,8 @@ export class Navbar2Component implements OnInit {
   @ViewChild('closebuttonapk') closebuttonapk: any;
   usr: any;
   user: any;
-  value: any;
+  valueserver: any;
+  valueapp: any;
   userPermission: any;
   templatesList: any;
   usersList: any;
@@ -149,16 +150,16 @@ export class Navbar2Component implements OnInit {
         id: [''],
       }),
       login: [''],
-      password: ['', Validators.required],
+      password: [''],
       port: [''],
     });
 
     this.applicationAddForm = this.fb.group({
-      name: ['', Validators.required],
-      version: ['', Validators.required],
-      classe: ['', Validators.required],
+      name: [''],
+      version: [''],
+      classe: [''],
       logo: [''],
-      source_type: ['', Validators.required],
+      source_type: [''],
       source_build: [''],
       source_account: [''],
       source_url: [''],
@@ -210,7 +211,7 @@ export class Navbar2Component implements OnInit {
         bodyTag: 'section',
         transitionEffect: 'slide',
         onFinished: function (event: any, currentIndex: any) {
-          $('.sub-btn').trigger('click');
+          $('.sub-btn-app').trigger('click');
         },
       });
     }, 20);
@@ -221,7 +222,7 @@ export class Navbar2Component implements OnInit {
         bodyTag: 'section',
         transitionEffect: 'slide',
         onFinished: function (event: any, currentIndex: any) {
-          $('.sub-btn').trigger('click');
+          $('.sub-btn-srv').trigger('click');
         },
       });
     }, 20);
@@ -239,8 +240,11 @@ export class Navbar2Component implements OnInit {
   changecheck(event: Event) {
     this.selectedOption1 = (event.target as HTMLTextAreaElement).value;
   }
-  cpuChange(value: any) {
-    this.value = value;
+  cpuChangeserver(valueserver: any) {
+    this.valueserver = valueserver;
+  }
+  cpuChangeapp(valueapp: any) {
+    this.valueapp = valueapp;
   }
   close() {
     this.userAddForm.reset();
@@ -747,42 +751,41 @@ export class Navbar2Component implements OnInit {
     }
 
     document.querySelector('.addservern')?.classList.remove('d-none');
-    this.instanceService.saveInstance(data).subscribe(
-      (result) => {
-        let instance = result.data;
+    if (this.selectedOption1 == 'yes') {
+      this.instanceService.saveInstance(data).subscribe(
+        (result) => {
+          let instance = result.data;
 
-        this.CreateLogs(
-          'Create',
-          formatedTimestamp(),
-          3,
-          instance.id,
-          this.user,
-          7
-        );
+          this.CreateLogs(
+            'Create',
+            formatedTimestamp(),
+            3,
+            instance.id,
+            this.user,
+            7
+          );
 
-        let server = data;
-        server.instance = instance;
-        this.ServersSercie.saveServer(server).subscribe(
-          (result) => {
-            let new_server = result.data;
-            this.CreateLogs(
-              'Create',
-              formatedTimestamp(),
-              20,
-              new_server.id,
-              this.user,
-              7
-            );
-
-            if (this.selectedOption1 == 'yes') {
+          let server = data;
+          server.instance = instance;
+          this.ServersSercie.saveServer(server).subscribe(
+            (result1) => {
+              let new_server = result1.data;
+              this.CreateLogs(
+                'Create',
+                formatedTimestamp(),
+                20,
+                new_server.id,
+                this.user,
+                7
+              );
               let access_cred = data;
               access_cred.element = 1;
               access_cred.element_id = new_server.id;
               this.AccessCredentialsService.addServerAccessCredentials(
                 access_cred
               ).subscribe(
-                (result) => {
-                  let new_acc = result.data;
+                (result2) => {
+                  let new_acc = result2.data;
                   this.CreateLogs(
                     'Create',
                     formatedTimestamp(),
@@ -803,25 +806,17 @@ export class Navbar2Component implements OnInit {
                       toast.addEventListener('mouseleave', Swal.resumeTimer);
                     },
                   });
-
-                  document
-                    .querySelector('.addservern')
-                    ?.classList.add('d-none');
-
+                  document.querySelector('.addservern')?.classList.add('d-none');
                   Toast.fire({
                     icon: 'success',
-                    title: 'Server Added successfully',
+                    title: 'Server Added',
                   });
                   this.close();
                   this.closebuttonsrv.nativeElement.click();
-                  if (this.pageUrl == '/servers') {
-                    this.getDiffServer();
-                  }
+                  this.getDiffServer();
                 },
                 (error) => {
-                  document
-                    .querySelector('.addservern')
-                    ?.classList.add('d-none');
+                  document.querySelector('.addservern')?.classList.add('d-none');
                   Swal.fire({
                     title: 'Error!',
                     text: 'Something went wrong!',
@@ -830,7 +825,56 @@ export class Navbar2Component implements OnInit {
                   });
                 }
               );
-            } else {
+            },
+            (error) => {
+              document.querySelector('.addservern')?.classList.add('d-none');
+              Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonColor: '#2f49c7',
+              });
+            }
+          );
+        },
+        (error) => {
+          document.querySelector('.addservern')?.classList.add('d-none');
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong!',
+            icon: 'error',
+            confirmButtonColor: '#2f49c7',
+          });
+        }
+      );
+    } else if (this.selectedOption1 == 'no') {
+      this.instanceService.saveInstance(data).subscribe(
+        (result) => {
+          let instance = result.data;
+
+          this.CreateLogs(
+            'Create',
+            formatedTimestamp(),
+            3,
+            instance.id,
+            this.user,
+            7
+          );
+
+          let server = data;
+          server.instance = instance;
+          this.ServersSercie.saveServer(server).subscribe(
+            (result1) => {
+              let new_server = result1.data;
+              this.CreateLogs(
+                'Create',
+                formatedTimestamp(),
+                20,
+                new_server.id,
+                this.user,
+                7
+              );
+
               const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-right',
@@ -842,41 +886,45 @@ export class Navbar2Component implements OnInit {
                   toast.addEventListener('mouseleave', Swal.resumeTimer);
                 },
               });
-
               document.querySelector('.addservern')?.classList.add('d-none');
-
               Toast.fire({
                 icon: 'success',
-                title: 'Server Added successfully',
+                title: 'Server Added',
               });
               this.close();
               this.closebuttonsrv.nativeElement.click();
-              if (this.pageUrl == '/servers') {
-                this.getDiffServer();
-              }
+              this.getDiffServer();
+            },
+            (error) => {
+              document.querySelector('.addservern')?.classList.add('d-none');
+              Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonColor: '#2f49c7',
+              });
             }
-          },
-          (error) => {
-            document.querySelector('.addservern')?.classList.add('d-none');
-            Swal.fire({
-              title: 'Error!',
-              text: 'Something went wrong!',
-              icon: 'error',
-              confirmButtonColor: '#2f49c7',
-            });
-          }
-        );
-      },
-      (error) => {
-        document.querySelector('.addservern')?.classList.add('d-none');
-        Swal.fire({
-          title: 'Error!',
-          text: 'Something went wrong!',
-          icon: 'error',
-          confirmButtonColor: '#2f49c7',
-        });
-      }
-    );
+          );
+        },
+        (error) => {
+          document.querySelector('.addservern')?.classList.add('d-none');
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong!',
+            icon: 'error',
+            confirmButtonColor: '#2f49c7',
+          });
+        }
+      );
+    } else {
+      document.querySelector('.addservern')?.classList.add('d-none');
+      Swal.fire({
+        title: 'SSH credentials!',
+        text: 'Please select an option!',
+        icon: 'error',
+        confirmButtonColor: '#2f49c7',
+      });
+    }
   }
 
   getAllServers() {

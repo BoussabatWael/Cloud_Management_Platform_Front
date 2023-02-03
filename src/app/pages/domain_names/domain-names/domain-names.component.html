@@ -160,7 +160,7 @@
                 <input type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }"
                   required="true" class="form-control">
                 <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
-                  <div *ngIf="form['name'].errors form['name'].required">Name is required</div>
+                  <div *ngIf="form['name'].errors">Name required</div>
                 </div>
               </div>
             </div>
@@ -175,8 +175,8 @@
                 </ng-select>
                 <div *ngIf="submitted && form['cloud_provider_account'].get('id')?.errors" class="invalid-feedback">
                   <div
-                    *ngIf="form['cloud_provider_account'].get('id')?.errors form['cloud_provider_account'].get('id')?.required">
-                    Cloud account is required</div>
+                    *ngIf="form['cloud_provider_account'].get('id')?.errors">
+                    Cloud account required</div>
                 </div>
               </div>
             </div>

@@ -209,13 +209,13 @@ export class BackupsComponent implements OnInit {
 
         if (new_object?.status === 1) {
           new_object.status =
-            '<i class="mdi mdi-circle text-success align-middle me-1"></i>Active';
+            '<span class="badge rounded-pill badge-soft-success font-size-12">Active</span>';
         } else if (new_object?.status === 2) {
           new_object.status =
-            '<i class="mdi mdi-circle text-danger align-middle me-1"></i>Inactive';
+            '<span class="badge rounded-pill badge-soft-danger font-size-12">Inactive</span>';
         } else {
           new_object.status =
-            '<i class="mdi mdi-circle text-warning align-middle me-1"></i>In Progress';
+            '<span class="badge rounded-pill badge-soft-warning font-size-12">In Progress</span>';
         }
 
         if (
